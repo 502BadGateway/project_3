@@ -30,7 +30,7 @@ class Geo(): #main class
         print self.strUrlExt # prints it out to so i can see it is correct
 
 
-        self.mapsUrl2 = "http://maps.googleapis.com/maps/api/staticmap?center=" + self.strUrlExt + "&zoom=16&&size=3000x3000&format=png&sensor=false&size=640x480&maptype=roadmap&style=element:labels|visibility:off"
+        self.mapsUrl2 = "http://maps.googleapis.com/maps/api/staticmap?center=" + self.strUrlExt + "&zoom=13&size=640x640&scale=2&format=png&sensor=false&maptype=roadmap&style=element:labels|visibility:off"
         # this is the URL that is used to get the iamge, it is created from concatinating in the geolocation coordinateds that are ceated above
     
     def GetsScreenshot(self): # this method gets the background image from the URL crrated above
