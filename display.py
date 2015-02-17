@@ -36,26 +36,15 @@ class display:      #Class which handles all the display functionality.
         self.State = False
         return
 
-    def setLandmark(self,x,y,image, pygame_im=False):    #Set the location of the landmark
+    def setTreasure(self,x,y,image, pygame_im=False):    #Set the location of the landmark
         if pygame_im == False:                          #If we're not giving a pygame surface
-            landmark_image = pygame.image.load(image)  #Load the image
+            setTreasure_image = pygame.image.load(image)  #Load the image
         else:
-            landmark_image = image
-        landmark_image = pygame.transform.scale(landmark_image, (20,20))
-        self.display.blit(landmark_image, (y*10, x*10))
+            treasure_image = image
+        treasure_image = pygame.transform.scale(treasure_image, (20,20))
+        self.display.blit(treasure_image, (y*10, x*10))
         self.State = False
         return
-
-    def setTrafficLight(self,x,y,image,pygame_im=False):
-        if pygame_im == False:                          #If we're not giving a pygame surface
-            Tlight_image = pygame.image.load(image)  #Load the image
-        else:
-            Tlight_image = image
-        Tlight_image = pygame.transform.scale(Tlight_image, (20,20))
-        self.display.blit(Tlight_image, (y*10, x*10))
-        self.State = False
-        return
-
 
     def showPoints(self, font, text, position):
         return
@@ -76,9 +65,7 @@ class display:      #Class which handles all the display functionality.
         textPos = pygame.Rect(positionVar) #positionVar needs to be given to this method, it should be in the format "600,10,0,0" and "600,30,0,0"
         self.display.blit(infoText, textPos)
 
-    def waitForLights(self):
-        time.sleep(2)
-        #make robot wait two seconds.
+
     
     def RobotPoints(self,robotScore,positionVar): #this should display pauls points but im not sure if this needs to be done for both robots
 
