@@ -41,7 +41,7 @@ class display:      #Class which handles all the display functionality.
             setTreasure_image = pygame.image.load(image)  #Load the image
         else:
             treasure_image = image
-        landmark_image = pygame.transform.scale(treasure_image, (20,20))
+        treasure_image = pygame.transform.scale(treasure_image, (20,20))
         self.display.blit(treasure_image, (y*10, x*10))
         self.State = False
         return
