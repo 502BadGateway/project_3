@@ -18,7 +18,8 @@ class display:      #Class which handles all the display functionality.
         
         pygame.font.init()                              #Initialise fonts
 
-        self.display = pygame.display.set_mode((640, 479))     #Set the screen up
+        self.displayCollection = pygame.display.set_mode((640, 479))
+        self.displaySort = pygame.display.set_mode((1280, 720))    #Set the screen up
         self.defaultFont = pygame.font.Font(None, 22)          #
         
         self.render()                                   #Call render
