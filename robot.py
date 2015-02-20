@@ -10,5 +10,20 @@ class Robot:
 		self.rect = Robot.image.get_rect()
 		self.rect.x = 0
 		self.rect.y = 0
-	def score ():
+
+
+    def moveUp(self):
 		
+    def moveDown(self):
+
+    def moveLeft(self):
+
+    def moveRight(self):
+
+    def returnLocationX():
+        return self.rect.x
+
+    def returnRectY(self):
+        return self.rect.y
+
+
