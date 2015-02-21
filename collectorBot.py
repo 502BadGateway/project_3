@@ -4,6 +4,8 @@ import robot.py
 #Landmark3 - Johnasaburgg
 #Landmark4 - Tokyo
 #Landmark5 - New York
+#Landmark6 - Trap
+
 class collectorBot(robot):      #Class for the collector robot. Inherits from the super class robot.
   def__init__(self, arena): 
     
@@ -28,4 +30,13 @@ class collectorBot(robot):      #Class for the collector robot. Inherits from th
         print "Treasure in New York Found!"
           self.points += 1
       else:
-        print "No Treasrue at this landmark"
+        print "There is no Treasrue at this landmark"
+        
+    def trapCheck(self, arena, trapLandmark6):
+      if self.ret_element_val(self.locationX,self.locationY) == trapLandmark6:
+        print "You have come across a trap!"
+        self.points -= 1
+      else:
+        print "There are no Traps here!"
+        
+    
