@@ -32,7 +32,6 @@ class mapSelect():
 		self.Berlin = pygame.transform.scale(self.Berlin,(130,100))
 
 		#butttons
-
 		L = self.display.blit(self.London,(30,40))
 		P = self.display.blit(self.Paris,(190,40))
 		N = self.display.blit(self.NewYork,(350,40))
