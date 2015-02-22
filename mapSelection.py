@@ -49,6 +49,11 @@ class mapSelect():
 				elif event.type == pygame.MOUSEBUTTONDOWN:
 					x, y = event.pos
 					print "click",x,y
+					if  x>30 and x<160 and y>40 and y<140:
+						print "London Clicked"
+					else:
+						print "not on button"
+
 					
 map1 = mapSelect()
 map1.mapPanel()
