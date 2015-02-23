@@ -20,15 +20,15 @@ class collectorBot(robot):      #Class for the collector robot. Inherits from th
 
       elif self.ret_element_val(self.locationX,self.locationY) == treasureLandmark3: 
         print "Treasure in Johnasaburgg Found!"
-          self.points += 1
+        self.points += 1
           
       elif self.ret_element_val(self.locationX,self.locationY) == treasureLandmark4: 
         print "Treasure in Tokyo Found!"
-          self.points += 1      
+        self.points += 1      
           
       elif self.ret_element_val(self.locationX,self.locationY) == treasureLandmark5: 
         print "Treasure in New York Found!"
-          self.points += 1
+        self.points += 1
       else:
         print "There is no Treasrue at this landmark"
         
