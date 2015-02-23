@@ -1,21 +1,19 @@
 class Robot:
 
-    def __init__(self): #Constructor
-	pygame.sprite.Sprite.__init__(self)
-	if Robot.__image is none:             #What is this meant to be doing?
-		Robot.__image = pygame.image.load("robot.png")
+    def __init__(self, image, name, x,y): #Constructor
+        import pygame
+        pygame.sprite.Sprite.__init__(self)
+        if Robot.__image is none:             #What is this meant to be doing?
+        	Robot.__image = pygame.image.load("robot.png")
 
-	self.__image = Robot.image
-	self.__name = ""
-	self.__points = ""
-	self.__rect = Robot.__image.get_rect()
-	self.__rect.x = 0
-	self.__rect.y = 0
+        self.__image = image
+        self.__name = name 
+        self.__points = 0 
+        self.__rect = Robot.__image.get_rect()
+        self.__rect.x = x
+        self.__rect.y = y 
 
-
-    def moveUp(self):   #move robot functions
-        print "up"
-    def moveDown(self):  #move robot functions  
+    def moveUp(self):   #move robot functions print "up" def moveDown(self):  #move robot functions  
         print "Down"
     def moveLeft(self):  #move robot functions 
         print "left"
@@ -29,3 +27,7 @@ class Robot:
 
     def returnPoints(self):
         return self.__points
+
+
+
+bot = Robot("map.png", "barry", 10, 22)
