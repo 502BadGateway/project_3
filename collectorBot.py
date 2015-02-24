@@ -1,4 +1,5 @@
 import robot.py
+import time
 #Landmark1 - London
 #Landmark2 - Paris
 #Landmark3 - Johnasaburgg
@@ -42,7 +43,23 @@ class collectorBot(robot):      #Class for the collector robot. Inherits from th
         self.__points -= 1
       else:
         print "There are no Traps here!"
-       
+#TIME VARIABLE
+#user inputs time in minutes and seconds
+minutes = input("How many minutes: ")
+seconds = input("Number of seconds: ")
+
+startTime = time.time()
+finishTime = startTime + seconds
+
+count = 0
+
+while time.time() < finishTime:
+  count += 1
+  countList = range(seconds)
+  print count
+  time.sleep(1)#sleep for a second
+
+print "Time is up!"  
 
 
 
