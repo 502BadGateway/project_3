@@ -12,31 +12,32 @@ class collectorBot(robot):      #Class for the collector robot. Inherits from th
         self.__wishlist = [] #Define with wishlist and inventory varS
         self.__inventory = [] 
     
-    def treasureCheck(self, arena, treasureLandmark1, treasureLandmark2, treasureLandmark3, treasureLandmark4, treasureLandmark5):
-      if self.ret_element_val(self.locationX,self.locationY) == treasureLandmark1: 
+    def treasureCheck(self, arena, treasureLandmarks): #checks for treasures around this location. TODO Should make sure that Phil knows what order this funtion expects the treasures in.
+      if self.ret_element_val(self.locationX,self.locationY) == treasureLandmark[0]: 
         print "Treasure in London Found!"
         self.__points += 1 #this adds a point to robot's score
 
-      elif arena.ret_element_val(self.locationX,self.locationY) == treasureLandmark2: 
+      elif arena.ret_element_val(self.locationX,self.locationY) == treasureLandmark[1]: 
         print "Treasure in Paris Found!"
         self.__points += 1
 
-      elif arena.ret_element_val(self.locationX,self.locationY) == treasureLandmark3: 
+      elif arena.ret_element_val(self.locationX,self.locationY) == treasureLandmark[2]: 
         print "Treasure in Johnasaburgg Found!"
         self.__points += 1
           
-      elif arena.ret_element_val(self.locationX,self.locationY) == treasureLandmark4: 
+      elif arena.ret_element_val(self.locationX,self.locationY) == treasureLandmark[3]: 
         print "Treasure in Tokyo Found!"
         self.__points += 1      
           
-      elif arena.ret_element_val(self.locationX,self.locationY) == treasureLandmark5: 
+      elif arena.ret_element_val(self.locationX,self.locationY) == treasureLandmark[4]: 
         print "Treasure in New York Found!"
         self.__points += 1
       else:
         print "There is no Treasrue at this landmark"
+        return
         
     def trapCheck(self, arena, trapLandmark6):
-      if self.ret_element_val(self.locationX,self.locationY) == trapLandmark6:
+      if arena.ret_element_val(self.locationX,self.locationY) == trapLandmark6:
         print "You have come across a trap!"
         self.__points -= 1
       else:
