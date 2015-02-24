@@ -15,19 +15,19 @@ class collectorBot(robot):      #Class for the collector robot. Inherits from th
         print "Treasure in London Found!"
         self.__points += 1 #this adds a point to robot's score
 
-      elif self.ret_element_val(self.locationX,self.locationY) == treasureLandmark2: 
+      elif arena.ret_element_val(self.locationX,self.locationY) == treasureLandmark2: 
         print "Treasure in Paris Found!"
         self.__points += 1
 
-      elif self.ret_element_val(self.locationX,self.locationY) == treasureLandmark3: 
+      elif arena.ret_element_val(self.locationX,self.locationY) == treasureLandmark3: 
         print "Treasure in Johnasaburgg Found!"
         self.__points += 1
           
-      elif self.ret_element_val(self.locationX,self.locationY) == treasureLandmark4: 
+      elif arena.ret_element_val(self.locationX,self.locationY) == treasureLandmark4: 
         print "Treasure in Tokyo Found!"
         self.__points += 1      
           
-      elif self.ret_element_val(self.locationX,self.locationY) == treasureLandmark5: 
+      elif arena.ret_element_val(self.locationX,self.locationY) == treasureLandmark5: 
         print "Treasure in New York Found!"
         self.__points += 1
       else:
@@ -39,5 +39,7 @@ class collectorBot(robot):      #Class for the collector robot. Inherits from th
         self.__points -= 1
       else:
         print "There are no Traps here!"
-        
+       
+
+
 
