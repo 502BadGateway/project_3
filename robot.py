@@ -1,13 +1,13 @@
 class Robot: 
+
     def __init__(self, image, name, x,y): #Constructor - Sets variables.
         import pygame
 
         self.__image = image 
         self.__name = name 
         self.__points = 0 
-        self.__rect = Robot.__image.get_rect()
-        self.__rect.x = x
-        self.__rect.y = y 
+        self.__locationX = x
+        self.__locationY = y 
 
     def moveUp(self):   #move robot functions print "up" def moveDown(self):  #move robot functions  
         print "Down"
