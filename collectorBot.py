@@ -7,7 +7,8 @@ import robot.py
 #Landmark6 - Trap
 
 class collectorBot(robot):      #Class for the collector robot. Inherits from the super class robot.
-  def__init__(self, arena): 
+    def__init__(self, arena): 
+    
     
     def treasureCheck(self, arena, treasureLandmark1, treasureLandmark2, treasureLandmark3, treasureLandmark4, treasureLandmark5):
       if self.ret_element_val(self.locationX,self.locationY) == treasureLandmark1: 
@@ -35,7 +36,7 @@ class collectorBot(robot):      #Class for the collector robot. Inherits from th
     def trapCheck(self, arena, trapLandmark6):
       if self.ret_element_val(self.locationX,self.locationY) == trapLandmark6:
         print "You have come across a trap!"
-        self.points -= 1
+        self.__points -= 1
       else:
         print "There are no Traps here!"
         
