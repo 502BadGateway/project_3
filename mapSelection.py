@@ -32,7 +32,7 @@ class mapSelect():
 		self.johannesburg = pygame.transform.scale(self.johannesburg,(130,100))
 		self.Berlin = pygame.transform.scale(self.Berlin,(130,100))
 
-		#butttons
+		#buttons
 		L = self.display.blit(self.London,(30,40))
 		P = self.display.blit(self.Paris,(190,40))
 		N = self.display.blit(self.NewYork,(350,40))
@@ -58,7 +58,7 @@ class mapSelect():
 					#print "click",x,y
 					if  x>30 and x<160 and y>40 and y<140:
 						print "London Clicked"
-						self.mapSelected = "London" # what will be referenced later tp know what map to use.
+						self.mapSelected = "London" # what will be referenced later to know what map to use.
 					elif x>190 and x<320 and y>40 and y<140:
 						print "Paris Clicked"
 						mapSelected = "Paris"
