@@ -1,3 +1,4 @@
+
 import pygame
 import sys
 
@@ -39,6 +40,9 @@ class mapSelect():
 		J = self.display.blit(self.Johnasabergg, (190,180))
 		B = self.display.blit(self.Berlin, (350,180))
 
+		#text
+		
+		
 		pygame.display.flip()
 
 		while 1:
@@ -48,9 +52,19 @@ class mapSelect():
 
 				elif event.type == pygame.MOUSEBUTTONDOWN:
 					x, y = event.pos
-					print "click",x,y
+					#print "click",x,y
 					if  x>30 and x<160 and y>40 and y<140:
 						print "London Clicked"
+					elif x>190 and x<320 and y>40 and y<140:
+						print "Paris Clicked"
+					elif x>350 and x<480 and y>40 and y<140:
+						print "New York Clicked"
+					elif x>30 and x<160 and y>180 and y<280:
+						print "Tokyo Clicked"
+					elif x>190 and x<320 and y>180 and y<280:
+						print "Johannesburg Clicked"
+					elif x>350 and x<480 and y>180 and y<280:
+						print "Berlin Clicked"
 					else:
 						print "not on button"
 
