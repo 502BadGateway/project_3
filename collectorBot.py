@@ -7,8 +7,10 @@ import robot.py
 #Landmark6 - Trap
 
 class collectorBot(robot):      #Class for the collector robot. Inherits from the super class robot.
-    def__init__(self, arena): 
+    def__init__(self, arena, wishList): 
     
+        self.__wishlist = [] #Define with wishlist and inventory varS
+        self.__inventory = [] 
     
     def treasureCheck(self, arena, treasureLandmark1, treasureLandmark2, treasureLandmark3, treasureLandmark4, treasureLandmark5):
       if self.ret_element_val(self.locationX,self.locationY) == treasureLandmark1: 
