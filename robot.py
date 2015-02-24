@@ -1,12 +1,8 @@
-class Robot:
-
-    def __init__(self, image, name, x,y): #Constructor
+class Robot: 
+    def __init__(self, image, name, x,y): #Constructor - Sets variables.
         import pygame
-        pygame.sprite.Sprite.__init__(self)
-        if Robot.__image is none:             #What is this meant to be doing?
-        	Robot.__image = pygame.image.load("robot.png")
 
-        self.__image = image
+        self.__image = image 
         self.__name = name 
         self.__points = 0 
         self.__rect = Robot.__image.get_rect()
