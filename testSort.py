@@ -59,19 +59,19 @@ class sortBot(pygame.sprite.Sprite): #calls sprite base class
 	def update(self):
 		screen.blit(self.image, (self.rect.x, self.rect.y)) #updates image on screen
 
-	def moveLeft(self):
-		for i in range(0,70):
-			self.rect.x -= 2
-			screen.blit(background, (0, 0))
-			self.update()
-			for i in treasureList:
-				i.update()
-			pygame.display.update()
-			time.sleep(0.001)
-		self.location = self.location - 1
-		print self.location
+	def moveLeft(self): #moves robot left
+		for i in range(0,70): #moves 140 pixels
+			self.rect.x -= 2 #left 2 pixels
+			screen.blit(background, (0, 0)) #makes the background blit
+			self.update() #updates something else
+			for i in treasureList: #goes through the treasures argh
+				i.update() #updates that too
+			pygame.display.update() #updates the screen
+			time.sleep(0.001) #go to sleep pygame
+		self.location = self.location - 1 #change the array location
+		print self.location #DEBUG print whut
 
-	def moveRight(self):
+	def moveRight(self): #moves robot right
 		for i in range(0,70):
 			self.rect.x += 2
 			screen.blit(background, (0, 0))
