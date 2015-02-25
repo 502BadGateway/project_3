@@ -72,16 +72,16 @@ class sortBot(pygame.sprite.Sprite): #calls sprite base class
 		print self.location #DEBUG print whut
 
 	def moveRight(self): #moves robot right
-		for i in range(0,70):
-			self.rect.x += 2
-			screen.blit(background, (0, 0))
-			self.update()
-			for i in treasureList:
-				i.update()
-			pygame.display.update()
-			time.sleep(0.001)
-		self.location = self.location + 1
-		print self.location
+		for i in range(0,70): #moves for 140 pixels (one block yeah)
+			self.rect.x += 2 #right two pixels
+			screen.blit(background, (0, 0)) #blit the background
+			self.update() #updates the screen bro
+			for i in treasureList: #loops through the treasures, this is bad code
+				i.update() #update them dubbloons
+			pygame.display.update() #shove that to the screen please
+			time.sleep(0.001) #GO TO SLEEP PLEASE 
+		self.location = self.location + 1 #change the location in array
+		print self.location #Debug, this needs to go soon
 
 	def moveUp(self):
 		for i in range(0,10):
