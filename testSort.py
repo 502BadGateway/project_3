@@ -23,33 +23,39 @@ class sortBot(pygame.sprite.Sprite): #calls sprite base class
 		pygame.sprite.Sprite.__init__(self) #initialised base class
 		self.name = "" #gives robot a name
 		self.points = 0 #gives robot points
-		self.targetX = 0 #robots target x
-		self.targetY = 0 #robots target y
+		self.location = 0
 		self.dir = 0 #direction turning
 		self.image = pygame.image.load('ASSETS/car.png') #loads image
 		self.rect = self.image.get_rect() #gets the rect
 		self.rect.x = 0 #stores coord x
 		self.rect.y = 0 #stores coord y
 
-	def update(self): #updates robot when turning
-		oldCenter = self.rect.center
-		self.image = pygame.transform.rotate(self.image, self.dir)
-		self.rect = self.image.get_rect()
-		self.rect.center = oldCenter
-		screen.blit(self.image, (self.rect.x, self.rect.y))
-
 	def turnLeft(self): #charges turning var to left 
-		self.dir = 90
+		self.dir = 90 #Makes dir left turning
+		oldCenter = self.rect.center #Stores the old centre here
+ 		self.image = pygame.transform.rotate(self.image, self.dir) #turns car
+		self.rect = self.image.get_rect() #gets the rect
+		self.rect.center = oldCenter #returns the old centre
+		screen.blit(self.image, (self.rect.x, self.rect.y)) #blit it on screen
     
 	def turnRight(self): #changes turning var to right 
-		self.dir = -90
+		self.dir = -90 #makes dir right turning
+		oldCenter = self.rect.center #sotrs old centre
+		self.image = pygame.transform.rotate(self.image, self.dir) #rotates the robot
+		self.rect = self.image.get_rect() #gets the rect
+		self.rect.center = oldCenter #returns the old centre
+		screen.blit(self.image, (self.rect.x, self.rect.y)) #blit it on screen
+
+	def update(self):
+		screen.blit(self.image, (self.rect.x, self.rect.y)) #
+
 
 
 
 
 theSortBot = sortBot()
 theSortBot.name = "Fred"
-theSortBot.rect.x = 150
+theSortBot.rect.x = 700
 theSortBot.rect.y = 500
 theSortBot.dir = 0
 
@@ -63,9 +69,8 @@ while 1:
 			sys.exit()
 
 	screen.blit(background, (0,0))
-	theSortBot.update() #Ensures screen updates
 
-	theSortBot.turnLeft() #turns sortBot
+	theSortBot.update()
 
 	pygame.display.update() #updates everything
 
