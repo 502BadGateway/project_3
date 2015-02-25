@@ -6,7 +6,7 @@ class treasurePos(mapSelected):
 		pygame.init()
 
 		#create display
-		self.size = width, height = 1280, 1280
+		self.size = width, height = 1280, 960
 		self.display = pygame.display.set_mode(self.size)
 		self.background = pygame.image.load(mapSelected)
 		self.display.blit(self.background,(0,0))
