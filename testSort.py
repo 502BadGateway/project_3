@@ -66,43 +66,35 @@ class treasure(pygame.sprite.Sprite):
 		screen.blit(self.image, (self.rect.x, self.rect.y))
 
 
-treasureList = []
 
 treasure1 = treasure()
 treasure1.location = 5
-treasure1.rect.x = ((treasure1.location * 142) + 150)
-treasure1.rect.y = 280
 
 treasure2 = treasure()
 treasure2.location = 3
-treasure2.rect.x = ((treasure2.location * 142) + 150)
-treasure2.rect.y = 280
 
-treasure2 = treasure()
-treasure2.location = 3
-treasure2.rect.x = ((treasure2.location * 142) + 150)
-treasure2.rect.y = 280
+treasure3 = treasure()
+treasure3.location = 1
 
-treasure2 = treasure()
-treasure2.location = 3
-treasure2.rect.x = ((treasure2.location * 142) + 150)
-treasure2.rect.y = 280
-treasure2 = treasure()
-treasure2.location = 3
-treasure2.rect.x = ((treasure2.location * 142) + 150)
-treasure2.rect.y = 280
-treasure2 = treasure()
-treasure2.location = 3
-treasure2.rect.x = ((treasure2.location * 142) + 150)
-treasure2.rect.y = 280
-treasure2 = treasure()
-treasure2.location = 3
-treasure2.rect.x = ((treasure2.location * 142) + 150)
-treasure2.rect.y = 280
-treasure2 = treasure()
-treasure2.location = 3
-treasure2.rect.x = ((treasure2.location * 142) + 150)
-treasure2.rect.y = 280
+treasure4 = treasure()
+treasure4.location = 2
+
+treasure5 = treasure()
+treasure5.location = 0
+
+treasure6 = treasure()
+treasure6.location = 6
+
+treasure7 = treasure()
+treasure7.location = 4
+
+treasureList = [treasure1, treasure2, treasure3, treasure4, treasure5, treasure6, treasure7]
+
+
+
+for i in treasureList:
+	i.rect.x = ((i.location * 142) + 150)
+	i.rect.y = 280
 
 
 
@@ -126,8 +118,8 @@ while 1:
 	screen.blit(background, (0,0))
 
 	theSortBot.update()
-	treasure1.update()
-	treasure2.update()
+	for i in treasureList:
+		i.update()
 
 	pygame.display.update() #updates everything
 
