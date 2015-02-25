@@ -65,6 +65,9 @@ class treasure(pygame.sprite.Sprite):
 	def update(self):
 		screen.blit(self.image, (self.rect.x, self.rect.y))
 
+
+treasureList = []
+
 treasure1 = treasure()
 treasure1.location = 5
 treasure1.rect.x = ((treasure1.location * 142) + 150)
@@ -74,6 +77,33 @@ treasure2 = treasure()
 treasure2.location = 3
 treasure2.rect.x = ((treasure2.location * 142) + 150)
 treasure2.rect.y = 280
+
+treasure2 = treasure()
+treasure2.location = 3
+treasure2.rect.x = ((treasure2.location * 142) + 150)
+treasure2.rect.y = 280
+
+treasure2 = treasure()
+treasure2.location = 3
+treasure2.rect.x = ((treasure2.location * 142) + 150)
+treasure2.rect.y = 280
+treasure2 = treasure()
+treasure2.location = 3
+treasure2.rect.x = ((treasure2.location * 142) + 150)
+treasure2.rect.y = 280
+treasure2 = treasure()
+treasure2.location = 3
+treasure2.rect.x = ((treasure2.location * 142) + 150)
+treasure2.rect.y = 280
+treasure2 = treasure()
+treasure2.location = 3
+treasure2.rect.x = ((treasure2.location * 142) + 150)
+treasure2.rect.y = 280
+treasure2 = treasure()
+treasure2.location = 3
+treasure2.rect.x = ((treasure2.location * 142) + 150)
+treasure2.rect.y = 280
+
 
 
 theSortBot = sortBot()
@@ -86,8 +116,6 @@ I NEED THIS DONT TOUCH
 theSortBot.rect.y = 500
 theSortBot.dir = 0
 
-treasureList = []
-x = 0
 
 while 1:
 	for event in pygame.event.get(): #Quit sequence
