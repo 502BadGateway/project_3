@@ -29,6 +29,7 @@ class sortBot(pygame.sprite.Sprite): #calls sprite base class
 		self.rect = self.image.get_rect() #gets the rect
 		self.rect.x = 0 #stores coord x
 		self.rect.y = 0 #stores coord y
+		self.carrying = ""
 
 	def turnLeft(self): #charges turning var to left 
 		self.dir = 90 #Makes dir left turning
@@ -47,15 +48,37 @@ class sortBot(pygame.sprite.Sprite): #calls sprite base class
 		screen.blit(self.image, (self.rect.x, self.rect.y)) #blit it on screen
 
 	def update(self):
-		screen.blit(self.image, (self.rect.x, self.rect.y)) #
+		screen.blit(self.image, (self.rect.x, self.rect.y)) #updates image on screen
 
+class treasure(pygame.sprite.Sprite):
 
+	def __init__(self):
+		pygame.sprite.Sprite.__init__(self)
+		self.name = ""
+		self.image = pygame.image.load('ASSETS/testTreasure.png')
+		self.rect = self.image.get_rect()
+		self.rect.x = 0
+		self.rect.y = 0
+		self.points = 0
+		self.location = 0
+
+	def update(self):
+		screen.blit(self.image, (self.rect.x, self.rect.y))
+
+treasure1 = treasure()
+treasure1.location = 5
+treasure1.rect.x = ((treasure1.location * 142) + 150)
+treasure1.rect.y = 280
 
 
 
 theSortBot = sortBot()
 theSortBot.name = "Fred"
-theSortBot.rect.x = 700
+theSortBot.rect.x = ((1 * 142) + 150) 
+"""
+The one above, is a place holder for the treasure variable.
+I NEED THIS DONT TOUCH
+"""
 theSortBot.rect.y = 500
 theSortBot.dir = 0
 
@@ -71,6 +94,7 @@ while 1:
 	screen.blit(background, (0,0))
 
 	theSortBot.update()
+	treasure1.update()
 
 	pygame.display.update() #updates everything
 
