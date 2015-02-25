@@ -3,3 +3,5 @@
 
 
 class treasure(entity):
+	def __init__(self):
+		self.sortListLocation = 0
