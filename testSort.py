@@ -70,6 +70,10 @@ treasure1.location = 5
 treasure1.rect.x = ((treasure1.location * 142) + 150)
 treasure1.rect.y = 280
 
+treasure2 = treasure()
+treasure2.location = 3
+treasure2.rect.x = ((treasure2.location * 142) + 150)
+treasure2.rect.y = 280
 
 
 theSortBot = sortBot()
@@ -95,11 +99,8 @@ while 1:
 
 	theSortBot.update()
 	treasure1.update()
+	treasure2.update()
 
 	pygame.display.update() #updates everything
 
 	time.sleep(1)
-
-
-
-
