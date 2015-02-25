@@ -160,37 +160,37 @@ for i in treasureList: #this is a for loop of the treasure objects
 THE ROBOT 
 """
 
-theSortBot = sortBot()
-theSortBot.name = "Fred"
-theSortBot.location = 2
-theSortBot.rect.x = ((theSortBot.location * 143) + 150) 
-theSortBot.rect.y = 500
-theSortBot.dir = 0
-theSortBot.target = valOne
+theSortBot = sortBot() #initialises robot
+theSortBot.name = "Fred" #gives it a useless name, why do we have a name?
+theSortBot.location = 2 #gives it its starting location
+theSortBot.rect.x = ((theSortBot.location * 143) + 150) #places it in the right spot yay
+theSortBot.rect.y = 500 #why does y change? i dont think it needs to right?
+theSortBot.dir = 0 #direction, which im not using cause im a pleb
+theSortBot.target = valOne #this will be used later
 
 """
 THE MAIN LOOP
 """
 
-screen.blit(background, (0,0))
+screen.blit(background, (0,0)) #blit that background
 pygame.display.update() #updates everything
 
-theSortBot.update()
-for i in treasureList:
-	i.update()
+theSortBot.update() #I NEED A DISPLAY CLASS
+for i in treasureList: #run through the treasure list
+	i.update() #update it onto screen
 
-pygame.display.update()
+pygame.display.update() #no wait this pushes it to screen
 while 1:
 	for event in pygame.event.get(): #Quit sequence
-		if event.type == QUIT:
-			pygame.quit()
-			sys.exit()
+		if event.type == QUIT: #if i am quiting
+			pygame.quit() #quit
+			sys.exit() #quit some more
 
-	theSortBot.moveToTarget()
-	theSortBot.update()
-	for i in treasureList:
-		i.update()
+	theSortBot.moveToTarget() #MOVE THE ROBOT TO TARGET
+	theSortBot.update() #UPDATE IMAGE
+	for i in treasureList: #So treasure looks like its on top of car
+		i.update() #still doing that
 	pygame.display.update() #updates everything
-	time.sleep(0.1)
+	time.sleep(0.1) #does this make a difference?
 
 
