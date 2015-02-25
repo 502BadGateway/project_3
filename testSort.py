@@ -83,59 +83,59 @@ class sortBot(pygame.sprite.Sprite): #calls sprite base class
 		self.location = self.location + 1 #change the location in array
 		print self.location #Debug, this needs to go soon
 
-	def moveUp(self):
-		for i in range(0,10):
-			self.rect.y -= 2
-			screen.blit(background, (0, 0))
-			self.update()
-			for i in treasureList:
-				i.update()
-			pygame.display.update()
-			time.sleep(0.001)
+	def moveUp(self): #moves the robot up to treasure yay
+		for i in range(0,10): #moves for 20 pixels
+			self.rect.y -= 2 #moves up 2 pixels
+			screen.blit(background, (0, 0)) #blit dat background
+			self.update() #update that robot
+			for i in treasureList: #the treasure list again
+				i.update() #updating them
+			pygame.display.update() #shoving it to screen
+			time.sleep(0.001) #sleeping
 
 
-	def moveToTarget(self):
-		while self.location != self.target:
-			if self.location > self.target:
-				self.moveLeft()
-			elif self.location < self.target:
-				self.moveRight()
+	def moveToTarget(self): #Runs all our code to get to thing
+		while self.location != self.target: #while we arnt infront of target
+			if self.location > self.target: #while we are to the right of target
+				self.moveLeft() #move left son
+			elif self.location < self.target: #while we are to the left of the target
+				self.moveRight() #move right please
 
-		while self.rect.y > 230:
-			self.moveUp()
-
-
+		while self.rect.y > 230: #move up, until you are under treasure
+			self.moveUp() #move please
 
 
 
-class treasure(pygame.sprite.Sprite):
 
-	def __init__(self):
-		pygame.sprite.Sprite.__init__(self)
-		self.name = ""
-		self.image = pygame.image.load('ASSETS/testTreasure.png')
-		self.rect = self.image.get_rect()
-		self.rect.x = 0
-		self.rect.y = 0
-		self.points = 0
-		self.location = 0
 
-	def update(self):
-		screen.blit(self.image, (self.rect.x, self.rect.y))
+class treasure(pygame.sprite.Sprite): #I mocked up a treasure class, we can pull it from the other one
+
+	def __init__(self): #initialise it
+		pygame.sprite.Sprite.__init__(self) #no idea why i need it, but i need it
+		self.name = "" #give that dubbloon a name
+		self.image = pygame.image.load('ASSETS/testTreasure.png') #and a picture
+		self.rect = self.image.get_rect() #get yourself a rectangle
+		self.rect.x = 0 #x coord of the treasure
+		self.rect.y = 0 #y coord of the treasure
+		self.points = 0 #points the treasure is worth
+		self.location = 0 #location in list yeah
+
+	def update(self): #update it
+		screen.blit(self.image, (self.rect.x, self.rect.y)) #blit that dubbloon
 
 
 """
 THE TREASURES 
 """
 
-treasure1 = treasure()
-treasure1.location = 5
+treasure1 = treasure()  #ALL THIS ISNT NEEDED I DONT THINK
+treasure1.location = 5  #make the treasure location 5 in list
 
-treasure2 = treasure()
-treasure2.location = 3
+treasure2 = treasure() #create object treasure2
+treasure2.location = 3 #put treasure 2 in slot 3
 
-treasure3 = treasure()
-treasure3.location = 1
+treasure3 = treasure() #create object treasure3
+treasure3.location = 1 #put treasure 3 in slot 1
 
 treasure4 = treasure()
 treasure4.location = 2
