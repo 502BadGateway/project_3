@@ -5,6 +5,13 @@ It will run the same sorting animation as the final project will
 However, we are over a week away from completion.
 This, when completed will allow the group to test their own sorting algorithms
 
+PROGRESS SO FAR
+
+I can get the robot to move towards the treasure
+I still need to pick it up, and swap it
+and i need to edit the list
+oh crap it doesnt run off of a list
+
 """
 """
 THE MODULES
