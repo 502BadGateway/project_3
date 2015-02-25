@@ -137,23 +137,24 @@ treasure2.location = 3 #put treasure 2 in slot 3
 treasure3 = treasure() #create object treasure3
 treasure3.location = 1 #put treasure 3 in slot 1
 
-treasure4 = treasure()
-treasure4.location = 2
+treasure4 = treasure() #create object treasure4
+treasure4.location = 2 #put it in slot 2 please
 
-treasure5 = treasure()
-treasure5.location = 0
+treasure5 = treasure() #create object treasure5
+treasure5.location = 0 #put it in slot 5
 
-treasure6 = treasure()
-treasure6.location = 6
+treasure6 = treasure() #ok so you get the point, but i want the lines on the github
+treasure6.location = 6 #gunna look like i wrote so much code son
 
-treasure7 = treasure()
-treasure7.location = 4
+treasure7 = treasure() #I mean, just give me my degree already
+treasure7.location = 4 #place treasure 7 in slot 4
 
 treasureList = [treasure1, treasure2, treasure3, treasure4, treasure5, treasure6, treasure7]
+#this is a list of all the treasure objects
 
-for i in treasureList:
-	i.rect.x = ((i.location * 143) + 140)
-	i.rect.y = 280
+for i in treasureList: #this is a for loop of the treasure objects
+	i.rect.x = ((i.location * 143) + 140) #this places the objects at the right slots
+	i.rect.y = 280 #this gives then the right y coord
 
 """
 THE ROBOT 
