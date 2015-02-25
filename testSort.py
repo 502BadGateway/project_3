@@ -57,22 +57,24 @@ theSortBot.dir = 0
 
 treasureList = []
 x = 0
-allSprites = pygame.sprite.Group(theSortBot)
+allSprites = pygame.sprite.Group(theSortBot) #Adds all the sprites into a group saving me updating 8 objects
 
-pygame.display.update()
 while 1:
-	for event in pygame.event.get():
+	for event in pygame.event.get(): #Quit sequence
 		if event.type == QUIT:
 			pygame.quit()
 			sys.exit()
 
-	allSprites.clear(screen, background)
+	allSprites.update() #Ensures screen updates
 
-	theSortBot.turnRight()
+	allSprites.clear(screen, background) #Cleans up sprutes
 
-	allSprites.update()
-	allSprites.draw(screen)
-	pygame.display.update()
+	theSortBot.turnLeft()
+
+	allSprites.draw(screen) #Clears the sprites aswell (no idea why i need both, but i do)
+
+	pygame.display.update() #updates everything
+
 	time.sleep(1)
 
 
