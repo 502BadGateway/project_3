@@ -60,23 +60,27 @@ class sortBot(pygame.sprite.Sprite): #calls sprite base class
 		screen.blit(self.image, (self.rect.x, self.rect.y)) #updates image on screen
 
 	def moveLeft(self):
-		for i in range(0,140):
-			self.rect.x -= 1
-			screen.blit(background, (self.rect.x, self.rect.y))
+		for i in range(0,70):
+			self.rect.x -= 2
+			screen.blit(background, (0, 0))
 			self.update()
+			for i in treasureList:
+				i.update()
 			pygame.display.update()
-			time.sleep(0.01)
+			time.sleep(0.001)
 		self.location = self.location - 1
 		print self.location
 
 	def moveRight(self):
-		for i in range(0,140):
-			self.rect.x += 1
-			screen.blit(background, (self.rect.x, self.rect.y))
+		for i in range(0,70):
+			self.rect.x += 2
+			screen.blit(background, (0, 0))
 			self.update()
+			for i in treasureList:
+				i.update()
 			pygame.display.update()
 			time.sleep(0.001)
-		self.location = self.location - 1
+		self.location = self.location + 1
 		print self.location
 
 	def moveToTarget(self):
@@ -141,11 +145,11 @@ THE ROBOT
 
 theSortBot = sortBot()
 theSortBot.name = "Fred"
-theSortBot.location = 6
+theSortBot.location = 2
 theSortBot.rect.x = ((theSortBot.location * 142) + 150) 
 theSortBot.rect.y = 500
 theSortBot.dir = 0
-theSortBot.target = 4
+theSortBot.target = 6
 
 """
 THE MAIN LOOP
