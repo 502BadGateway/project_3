@@ -1,3 +1,4 @@
+
 import pygame
 import sys
 
@@ -9,36 +10,41 @@ class mapSelect():
 		#create display
 		self.size = width, height = 510, 320
 		self.display = pygame.display.set_mode(self.size)
-		background = pygame.Surface(self.display.get_size())
-		background = background.convert()
-		background.fill((250, 250, 250))
-		self.display.blit(background,(0,0))
+		self.background = pygame.Surface(self.display.get_size())
+		self.background =self. background.convert()
+		self.background.fill((250, 250, 250))
+		self.display.blit(self.background,(0,0))
 		#pygame.display.set_catption("Map Selection")
 
 		#load in button images
-		self.London = pygame.image.load("London.png")
-		self.Paris = pygame.image.load("Paris.png")
-		self.NewYork = pygame.image.load("New York.png")
-		self.Tokyo = pygame.image.load("Tokyo 2.png")
-		self.Johnasabergg = pygame.image.load("Johnasabergg.png")
-		self.Berlin = pygame.image.load("Berlin.png")
+		self.London = pygame.image.load("ASSETS\London.png")
+		self.Paris = pygame.image.load("ASSETS\Paris.png")
+		self.NewYork = pygame.image.load("ASSETS\New York.png")
+		self.Tokyo = pygame.image.load("ASSETS\Tokyo 2.png")
+		self.johannesburg = pygame.image.load("ASSETS\Johannesburg.png")
+		self.Berlin = pygame.image.load("ASSETS\Berlin.png")
 
 		#make all the images the same size
 		self.London = pygame.transform.scale(self.London,(130,100))
 		self.Paris = pygame.transform.scale(self.Paris,(130,100))
 		self.NewYork = pygame.transform.scale(self.NewYork,(130,100))
 		self.Tokyo = pygame.transform.scale(self.Tokyo,(130,100))
-		self.Johnasabergg = pygame.transform.scale(self.Johnasabergg,(130,100))
+		self.johannesburg = pygame.transform.scale(self.johannesburg,(130,100))
 		self.Berlin = pygame.transform.scale(self.Berlin,(130,100))
 
-		#butttons
+		#buttons
 		L = self.display.blit(self.London,(30,40))
 		P = self.display.blit(self.Paris,(190,40))
 		N = self.display.blit(self.NewYork,(350,40))
 		T = self.display.blit(self.Tokyo, (30,180))
-		J = self.display.blit(self.Johnasabergg, (190,180))
+		J = self.display.blit(self.johannesburg, (190,180))
 		B = self.display.blit(self.Berlin, (350,180))
 
+		#text
+		font = pygame.font.Font(None, 20)
+		text = font.render("Please select your desired location",1,(10,10,10))
+		self.display.blit(text, (28,12))
+		
 		pygame.display.flip()
 
 		while 1:
@@ -46,11 +52,28 @@ class mapSelect():
 				if event.type == pygame.QUIT:
 					sys.exit()
 
-				elif event.type == pygame.MOUSEBUTTONDOWN:
+				#detects which button the user has clicked on
+				elif event.type == pygame.MOUSEBUTTONDOWN: 
 					x, y = event.pos
-					print "click",x,y
+					#print "click",x,y
 					if  x>30 and x<160 and y>40 and y<140:
 						print "London Clicked"
+						self.mapSelected = "London" # what will be referenced later to know what map to use.
+					elif x>190 and x<320 and y>40 and y<140:
+						print "Paris Clicked"
+						mapSelected = "Paris"
+					elif x>350 and x<480 and y>40 and y<140:
+						print "New York Clicked"
+						self.mapSelected = "New York"
+					elif x>30 and x<160 and y>180 and y<280:
+						print "Tokyo Clicked"
+						self.mapSelected = "Tokyo"
+					elif x>190 and x<320 and y>180 and y<280:
+						print "Johannesburg Clicked"
+						self.mapSelected = "Johannesburg"
+					elif x>350 and x<480 and y>180 and y<280:
+						print "Berlin Clicked"
+						self.mapSelected = "Berlin"
 					else:
 						print "not on button"
 

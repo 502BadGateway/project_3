@@ -1,4 +1,5 @@
 import robot.py
+import time
 #Landmark1 - London
 #Landmark2 - Paris
 #Landmark3 - Johnasaburgg
@@ -7,36 +8,58 @@ import robot.py
 #Landmark6 - Trap
 
 class collectorBot(robot):      #Class for the collector robot. Inherits from the super class robot.
-  def__init__(self, arena): 
+    def__init__(self, arena, wishList): 
     
-    def treasureCheck(self, arena, treasureLandmark1, treasureLandmark2, treasureLandmark3, treasureLandmark4, treasureLandmark5):
-      if self.ret_element_val(self.locationX,self.locationY) == treasureLandmark1: 
+        self.__wishlist = [] #Define with wishlist and inventory varS
+        self.__inventory = [] 
+    
+    def treasureCheck(self, arena, treasureLandmarks): #checks for treasures around this location. TODO Should make sure that Phil knows what order this funtion expects the treasures in.
+      if self.ret_element_val(self.locationX,self.locationY) == treasureLandmark[0]: 
         print "Treasure in London Found!"
-        self.points += 1 #this adds a point to robot's score
+        self.__points += 1 #this adds a point to robot's score
 
-      elif self.ret_element_val(self.locationX,self.locationY) == treasureLandmark2: 
+      elif arena.ret_element_val(self.locationX,self.locationY) == treasureLandmark[1]: 
         print "Treasure in Paris Found!"
-        self.points += 1
+        self.__points += 1
 
-      elif self.ret_element_val(self.locationX,self.locationY) == treasureLandmark3: 
+      elif arena.ret_element_val(self.locationX,self.locationY) == treasureLandmark[2]: 
         print "Treasure in Johnasaburgg Found!"
-        self.points += 1
+        self.__points += 1
           
-      elif self.ret_element_val(self.locationX,self.locationY) == treasureLandmark4: 
+      elif arena.ret_element_val(self.locationX,self.locationY) == treasureLandmark[3]: 
         print "Treasure in Tokyo Found!"
-        self.points += 1      
+        self.__points += 1      
           
-      elif self.ret_element_val(self.locationX,self.locationY) == treasureLandmark5: 
+      elif arena.ret_element_val(self.locationX,self.locationY) == treasureLandmark[4]: 
         print "Treasure in New York Found!"
-        self.points += 1
+        self.__points += 1
       else:
         print "There is no Treasrue at this landmark"
+        return
         
     def trapCheck(self, arena, trapLandmark6):
-      if self.ret_element_val(self.locationX,self.locationY) == trapLandmark6:
+      if arena.ret_element_val(self.locationX,self.locationY) == trapLandmark6:
         print "You have come across a trap!"
-        self.points -= 1
+        self.__points -= 1
       else:
         print "There are no Traps here!"
-        
+#TIME VARIABLE
+#user inputs time in minutes and seconds
+minutes = input("How many minutes: ")
+seconds = input("Number of seconds: ")
+
+startTime = time.time()
+finishTime = startTime + seconds
+
+count = 0
+
+while time.time() < finishTime:
+  count += 1
+  countList = range(seconds)
+  print count
+  time.sleep(1)#sleep for a second
+
+print "Time is up!"  
+
+
 

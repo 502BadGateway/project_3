@@ -1,29 +1,37 @@
-class Robot:
+class Robot: 
 
-    def __init__(self, image, name, x,y): #Constructor
+    def __init__(self, image, name, x,y): #Constructor - Sets variables.
         import pygame
-        pygame.sprite.Sprite.__init__(self)
-        if Robot.__image is none:             #What is this meant to be doing?
-        	Robot.__image = pygame.image.load("robot.png")
 
-        self.__image = image
+        self.__image = image 
         self.__name = name 
         self.__points = 0 
-        self.__rect = Robot.__image.get_rect()
-        self.__rect.x = x
-        self.__rect.y = y 
+        self.__locationX = x
+        self.__locationY = y 
 
-    def moveUp(self):   #move robot functions print "up" def moveDown(self):  #move robot functions  
-        print "Down"
-    def moveLeft(self):  #move robot functions 
-        print "left"
-    def moveRight(self):  #move robot functions
-        print "Right"
+
+    def moveUp(self, arena): #Change the location of the robot to make it move up
+        self.locationY -= 1
+        arena.put(self.locationX, self.locationY-1)
+        self.check()
+    def moveDown(self):
+        self.locationY += 1
+        arena.put(self.locationX, self.locationY+1)
+        self.check()
+    def moveLeft(self):
+        self.locationX += 1
+        arena.put(self.locationX-1, self.locationY)
+        self.check()
+    def moveRight(self):
+        self.locationX += 1
+        arena.put(self.locationX+1, self.locationY)
+        self.check()
+
     def returnLocationX():  #Return the X location of the bot
-        return self.__rect.x
+        return self.__locationX
 
     def returnRectY(self):  #Return the Y location of the bot
-        return self.__rect.y
+        return self.__locationY
 
     def returnPoints(self):
         return self.__points

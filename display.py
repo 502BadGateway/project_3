@@ -18,13 +18,8 @@ class display:      #Class which handles all the display functionality.
         
         pygame.font.init()                              #Initialise fonts
 
-        self.displayCollection = pygame.display.set_mode((640, 479))
+        self.display = pygame.display.set_mode((640, 479))     #Set the screen up
         self.defaultFont = pygame.font.Font(None, 22)          #
-        
-
-        self.displaySort = pygame.display.set_mode((1280, 720))    #Set the Display screen up
-        self.sortBackground = pygame.image.load(SortBackground)
-        self.sortBackgroundRect = self.sortBackground.get_rect()
         
         self.render()                                   #Call render
 
@@ -43,13 +38,14 @@ class display:      #Class which handles all the display functionality.
 
     def setTreasure(self,x,y,image, pygame_im=False):    #Set the location of the landmark
         if pygame_im == False:                          #If we're not giving a pygame surface
-            setTreasure_image = pygame.image.load(image)  #Load the image
+            treasure_image = pygame.image.load(image)  #Load the image
         else:
             treasure_image = image
-        treasure_image = pygame.transform.scale(treasure_image, (20,20))
+        treasure_image = pygame.transform.scale(landmark_image, (20,20))
         self.display.blit(treasure_image, (y*10, x*10))
         self.State = False
         return
+
 
     def showPoints(self, font, text, position):
         return
@@ -70,7 +66,9 @@ class display:      #Class which handles all the display functionality.
         textPos = pygame.Rect(positionVar) #positionVar needs to be given to this method, it should be in the format "600,10,0,0" and "600,30,0,0"
         self.display.blit(infoText, textPos)
 
-
+    def waitForLights(self):
+        time.sleep(2)
+        #make robot wait two seconds.
     
     def RobotPoints(self,robotScore,positionVar): #this should display pauls points but im not sure if this needs to be done for both robots
 
