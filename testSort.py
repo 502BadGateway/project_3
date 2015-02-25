@@ -101,7 +101,9 @@ class sortBot(pygame.sprite.Sprite): #calls sprite base class
 			elif self.location < self.target:
 				self.moveRight()
 
+
 		self.moveUp()
+
 
 
 
