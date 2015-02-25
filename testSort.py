@@ -51,6 +51,33 @@ class sortBot(pygame.sprite.Sprite): #calls sprite base class
 	def update(self):
 		screen.blit(self.image, (self.rect.x, self.rect.y)) #updates image on screen
 
+	def moveLeft(self):
+		for i in range(0,140):
+			self.rect.x -= 1
+			self.update()
+			pygame.display.update()
+			time.sleep(0.01)
+		self.location = self.location - 1
+		print self.location
+
+	def moveRight(self):
+		for i in range(0,140):
+			self.rect.x += 1
+			self.update()
+			pygame.display.update()
+			time.sleep(0.001)
+		self.location = self.location - 1
+		print self.location
+
+	def moveToTarget(self):
+		while self.location != self.target:
+			if self.location > self.target:
+				self.moveLeft()
+			elif self.location < self.target:
+				self.moveRight()
+
+
+
 class treasure(pygame.sprite.Sprite):
 
 	def __init__(self):
@@ -64,10 +91,10 @@ class treasure(pygame.sprite.Sprite):
 		self.location = 0
 
 	def update(self):
+		#screen.blit(background, (0,0))
+
 		screen.blit(self.image, (self.rect.x, self.rect.y))
 
-def swap(valOne, valTwo, treasureList):
-	robot.target = valOne #This is the treasure you want to pick up
 
 
 treasure1 = treasure()
@@ -103,13 +130,15 @@ for i in treasureList:
 
 theSortBot = sortBot()
 theSortBot.name = "Fred"
-theSortBot.rect.x = ((1 * 142) + 150) 
+theSortBot.location = 6
+theSortBot.rect.x = ((theSortBot.location * 142) + 150) 
 """
 The one above, is a place holder for the treasure variable.
 I NEED THIS DONT TOUCH
 """
 theSortBot.rect.y = 500
 theSortBot.dir = 0
+theSortBot.target = 4
 
 
 while 1:
@@ -124,6 +153,7 @@ while 1:
 	for i in treasureList:
 		i.update()
 
-	pygame.display.update() #updates everything
+	theSortBot.moveToTarget()
 
-	time.sleep(1)
+	pygame.display.update() #updates everything
+	time.sleep(0.01)
