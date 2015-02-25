@@ -83,12 +83,25 @@ class sortBot(pygame.sprite.Sprite): #calls sprite base class
 		self.location = self.location + 1
 		print self.location
 
+	def moveUp(self):
+		for i in range(0,10):
+			self.rect.y -= 2
+			screen.blit(background, (0, 0))
+			self.update()
+			for i in treasureList:
+				i.update()
+			pygame.display.update()
+			time.sleep(0.001)
+			print "YEAHS"
+
 	def moveToTarget(self):
 		while self.location != self.target:
 			if self.location > self.target:
 				self.moveLeft()
 			elif self.location < self.target:
 				self.moveRight()
+
+		self.moveUp()
 
 
 
