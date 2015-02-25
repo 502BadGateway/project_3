@@ -30,6 +30,7 @@ class sortBot(pygame.sprite.Sprite): #calls sprite base class
 		self.rect.x = 0 #stores coord x
 		self.rect.y = 0 #stores coord y
 		self.carrying = ""
+		self.target = 0
 
 	def turnLeft(self): #charges turning var to left 
 		self.dir = 90 #Makes dir left turning
@@ -65,6 +66,8 @@ class treasure(pygame.sprite.Sprite):
 	def update(self):
 		screen.blit(self.image, (self.rect.x, self.rect.y))
 
+def swap(valOne, valTwo, treasureList):
+	robot.target = valOne #This is the treasure you want to pick up
 
 
 treasure1 = treasure()
