@@ -6,6 +6,9 @@ However, we are over a week away from completion.
 This, when completed will allow the group to test their own sorting algorithms
 
 """
+"""
+THE MODULES
+"""
 import sys
 import pygame
 from pygame.locals import *
@@ -17,6 +20,11 @@ screen = pygame.display.set_mode((1280,720))
 pygame.display.set_caption("Sort Bot")
 background = pygame.image.load('ASSETS/sortBackground.png')
 screen.blit(background, (0,0))
+
+"""
+THE CLASSES
+"""
+
 class sortBot(pygame.sprite.Sprite): #calls sprite base class
 
 	def __init__(self):
@@ -54,6 +62,7 @@ class sortBot(pygame.sprite.Sprite): #calls sprite base class
 	def moveLeft(self):
 		for i in range(0,140):
 			self.rect.x -= 1
+			screen.blit(background, (self.rect.x, self.rect.y))
 			self.update()
 			pygame.display.update()
 			time.sleep(0.01)
@@ -63,6 +72,7 @@ class sortBot(pygame.sprite.Sprite): #calls sprite base class
 	def moveRight(self):
 		for i in range(0,140):
 			self.rect.x += 1
+			screen.blit(background, (self.rect.x, self.rect.y))
 			self.update()
 			pygame.display.update()
 			time.sleep(0.001)
@@ -91,11 +101,12 @@ class treasure(pygame.sprite.Sprite):
 		self.location = 0
 
 	def update(self):
-		#screen.blit(background, (0,0))
-
 		screen.blit(self.image, (self.rect.x, self.rect.y))
 
 
+"""
+THE TREASURES 
+"""
 
 treasure1 = treasure()
 treasure1.location = 5
@@ -120,40 +131,43 @@ treasure7.location = 4
 
 treasureList = [treasure1, treasure2, treasure3, treasure4, treasure5, treasure6, treasure7]
 
-
-
 for i in treasureList:
 	i.rect.x = ((i.location * 142) + 150)
 	i.rect.y = 280
 
-
+"""
+THE ROBOT 
+"""
 
 theSortBot = sortBot()
 theSortBot.name = "Fred"
 theSortBot.location = 6
 theSortBot.rect.x = ((theSortBot.location * 142) + 150) 
-"""
-The one above, is a place holder for the treasure variable.
-I NEED THIS DONT TOUCH
-"""
 theSortBot.rect.y = 500
 theSortBot.dir = 0
 theSortBot.target = 4
 
+"""
+THE MAIN LOOP
+"""
 
+screen.blit(background, (0,0))
+pygame.display.update() #updates everything
+
+theSortBot.update()
+for i in treasureList:
+	i.update()
+
+pygame.display.update()
 while 1:
 	for event in pygame.event.get(): #Quit sequence
 		if event.type == QUIT:
 			pygame.quit()
 			sys.exit()
 
-	screen.blit(background, (0,0))
-
-	theSortBot.update()
-	for i in treasureList:
-		i.update()
-
 	theSortBot.moveToTarget()
-
+	theSortBot.update()
 	pygame.display.update() #updates everything
-	time.sleep(0.01)
+	time.sleep(0.1)
+
+
