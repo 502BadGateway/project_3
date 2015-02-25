@@ -15,7 +15,7 @@ from pygame.locals import *
 import time
 
 pygame.init()
-
+valOne = 4
 screen = pygame.display.set_mode((1280,720))
 pygame.display.set_caption("Sort Bot")
 background = pygame.image.load('ASSETS/sortBackground.png')
@@ -92,7 +92,7 @@ class sortBot(pygame.sprite.Sprite): #calls sprite base class
 				i.update()
 			pygame.display.update()
 			time.sleep(0.001)
-			print "YEAHS"
+
 
 	def moveToTarget(self):
 		while self.location != self.target:
@@ -101,8 +101,9 @@ class sortBot(pygame.sprite.Sprite): #calls sprite base class
 			elif self.location < self.target:
 				self.moveRight()
 
+		while self.rect.y > 230:
+			self.moveUp()
 
-		self.moveUp()
 
 
 
@@ -151,7 +152,7 @@ treasure7.location = 4
 treasureList = [treasure1, treasure2, treasure3, treasure4, treasure5, treasure6, treasure7]
 
 for i in treasureList:
-	i.rect.x = ((i.location * 142) + 150)
+	i.rect.x = ((i.location * 143) + 140)
 	i.rect.y = 280
 
 """
@@ -161,10 +162,10 @@ THE ROBOT
 theSortBot = sortBot()
 theSortBot.name = "Fred"
 theSortBot.location = 2
-theSortBot.rect.x = ((theSortBot.location * 142) + 150) 
+theSortBot.rect.x = ((theSortBot.location * 143) + 150) 
 theSortBot.rect.y = 500
 theSortBot.dir = 0
-theSortBot.target = 6
+theSortBot.target = valOne
 
 """
 THE MAIN LOOP
@@ -186,6 +187,8 @@ while 1:
 
 	theSortBot.moveToTarget()
 	theSortBot.update()
+	for i in treasureList:
+		i.update()
 	pygame.display.update() #updates everything
 	time.sleep(0.1)
 
