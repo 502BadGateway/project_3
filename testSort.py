@@ -9,6 +9,7 @@ This, when completed will allow the group to test their own sorting algorithms
 import sys
 import pygame
 from pygame.locals import *
+import time
 
 pygame.init()
 
@@ -16,43 +17,63 @@ screen = pygame.display.set_mode((1280,720))
 pygame.display.set_caption("Sort Bot")
 background = pygame.image.load('ASSETS/sortBackground.png')
 screen.blit(background, (0,0))
-class sortBot:
+class sortBot(pygame.sprite.Sprite):
 
 	def __init__(self):
-
+		pygame.sprite.Sprite.__init__(self)
 		self.name = ""
 		self.points = 0
 		self.targetX = 0
 		self.targetY = 0
-		self.image = pygame.image.load('ASSETS/chuckle-1.png')
+		self.dir = 0
+		self.image = pygame.image.load('ASSETS/car.png')
 		self.rect = self.image.get_rect()
 		self.rect.x = 0
 		self.rect.y = 0
 
-	def updateRobot(self):
-
-		self.image = pygame.transform.scale(self.image, (120,200))
+	def update(self):
+		oldCenter = self.rect.center
+		self.image = pygame.transform.rotate(self.image, self.dir)
+		self.rect = self.image.get_rect()
+		self.rect.center = oldCenter
 		screen.blit(self.image, (self.rect.x, self.rect.y))
-		print "BLIT"
+
+	def turnLeft(self):
+		self.dir = 90
+		print "LEFT"
+    
+	def turnRight(self):
+		self.dir = -90
+		print "RIGHT"
+
+
 
 
 theSortBot = sortBot()
 theSortBot.name = "Fred"
 theSortBot.rect.x = 150
 theSortBot.rect.y = 500
+theSortBot.dir = 0
 
 treasureList = []
+x = 0
+allSprites = pygame.sprite.Group(theSortBot)
 
-
+pygame.display.update()
 while 1:
 	for event in pygame.event.get():
 		if event.type == QUIT:
 			pygame.quit()
 			sys.exit()
 
-	theSortBot.updateRobot()	
+	allSprites.clear(screen, background)
 
-	pygame.display.update()		
+	theSortBot.turnRight()
+
+	allSprites.update()
+	allSprites.draw(screen)
+	pygame.display.update()
+	time.sleep(1)
 
 
 
