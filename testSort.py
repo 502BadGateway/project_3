@@ -17,34 +17,32 @@ screen = pygame.display.set_mode((1280,720))
 pygame.display.set_caption("Sort Bot")
 background = pygame.image.load('ASSETS/sortBackground.png')
 screen.blit(background, (0,0))
-class sortBot(pygame.sprite.Sprite):
+class sortBot(pygame.sprite.Sprite): #calls sprite base class
 
 	def __init__(self):
-		pygame.sprite.Sprite.__init__(self)
-		self.name = ""
-		self.points = 0
-		self.targetX = 0
-		self.targetY = 0
-		self.dir = 0
-		self.image = pygame.image.load('ASSETS/car.png')
-		self.rect = self.image.get_rect()
-		self.rect.x = 0
-		self.rect.y = 0
+		pygame.sprite.Sprite.__init__(self) #initialised base class
+		self.name = "" #gives robot a name
+		self.points = 0 #gives robot points
+		self.targetX = 0 #robots target x
+		self.targetY = 0 #robots target y
+		self.dir = 0 #direction turning
+		self.image = pygame.image.load('ASSETS/car.png') #loads image
+		self.rect = self.image.get_rect() #gets the rect
+		self.rect.x = 0 #stores coord x
+		self.rect.y = 0 #stores coord y
 
-	def update(self):
+	def update(self): #updates robot when turning
 		oldCenter = self.rect.center
 		self.image = pygame.transform.rotate(self.image, self.dir)
 		self.rect = self.image.get_rect()
 		self.rect.center = oldCenter
 		screen.blit(self.image, (self.rect.x, self.rect.y))
 
-	def turnLeft(self):
+	def turnLeft(self): #charges turning var to left 
 		self.dir = 90
-		print "LEFT"
     
-	def turnRight(self):
+	def turnRight(self): #changes turning var to right 
 		self.dir = -90
-		print "RIGHT"
 
 
 
@@ -57,7 +55,6 @@ theSortBot.dir = 0
 
 treasureList = []
 x = 0
-allSprites = pygame.sprite.Group(theSortBot) #Adds all the sprites into a group saving me updating 8 objects
 
 while 1:
 	for event in pygame.event.get(): #Quit sequence
@@ -65,13 +62,10 @@ while 1:
 			pygame.quit()
 			sys.exit()
 
-	allSprites.update() #Ensures screen updates
+	screen.blit(background, (0,0))
+	theSortBot.update() #Ensures screen updates
 
-	allSprites.clear(screen, background) #Cleans up sprutes
-
-	theSortBot.turnLeft()
-
-	allSprites.draw(screen) #Clears the sprites aswell (no idea why i need both, but i do)
+	theSortBot.turnLeft() #turns sortBot
 
 	pygame.display.update() #updates everything
 
