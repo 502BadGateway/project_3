@@ -176,12 +176,12 @@ class treasure(pygame.sprite.Sprite): #I mocked up a treasure class, we can pull
 		screen.blit(self.image, (self.rect.x, self.rect.y)) #blit that dubbloon
 
 
-class Null(treasure):
+class Null(treasure): #nt sure if i will need this when we intergreate
 
-	def update(self):
-		return None
+	def update(self): #but it works, when this is in the list, we dont bug out when we
+		return None #run i.update()
 
-null = Null()
+null = Null() #makes the null object for the list!
 """
 THE TREASURES 
 
@@ -249,6 +249,11 @@ while 1:
 		if event.type == QUIT: #if i am quiting
 			pygame.quit() #quit
 			sys.exit() #quit some more
+
+	"""
+	TEST COMMANDS HERE
+	"""
+
 
 	theSortBot.moveUp()
 	theSortBot.pickTreasureUp(treasureList)
