@@ -20,6 +20,10 @@ The treasure will be within an inventory list. I need to work out how the list f
 This is the last piece of Logic i need to work out. 
 Everything else is simple animation
 
+The robot pulls its inventory from the collectorBotInv
+This should eventually be the actual invoentory collectorbot collected
+
+
 """
 """
 THE MODULES
@@ -123,7 +127,18 @@ class sortBot(pygame.sprite.Sprite): #calls sprite base class
 		while self.rect.y > 230: #move up, until you are under treasure
 			self.moveUp() #move please
 
+	def pickUpTreasure(self):
+		"""
 
+		THIS IS UNTESTED
+		RUN TEST REFERENCE SCRIPT TO CHECK LOGIC WORKS
+		IT WONT BREAK BUILD UNTIL I CALL IT
+		"""
+		self.carrying = self.inventory[self.location] #Store the treasure object in this var
+		self.inventory[self.location] = 0 #empty the space
+		self.carrying.rect.x = self.rect.x
+		self.carrying.rect.y = self.rect.y
+		
 
 
 
