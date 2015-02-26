@@ -244,7 +244,7 @@ for i in treasureList: #run through the treasure list
 	i.update() #update it onto screen
 
 pygame.display.update() #no wait this pushes it to screen
-while 1:
+for x in range(0,1): #should be a while loop. but i want to test stuff first.
 	for event in pygame.event.get(): #Quit sequence
 		if event.type == QUIT: #if i am quiting
 			pygame.quit() #quit
@@ -258,6 +258,7 @@ while 1:
 	theSortBot.moveUp()
 	theSortBot.pickTreasureUp(treasureList)
 	print treasureList
+	print ("We are carrying: ", theSortBot.carrying)
 	"""
 	Display stuff
 	"""
