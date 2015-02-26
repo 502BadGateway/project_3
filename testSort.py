@@ -40,7 +40,7 @@ pygame.display.set_caption("Sort Bot")
 background = pygame.image.load('ASSETS/sortBackground.png')
 screen.blit(background, (0,0))
 
-collectorBotInv = [0,0,0,0,0,0,0]
+
 
 """
 THE CLASSES
@@ -48,7 +48,7 @@ THE CLASSES
 
 class sortBot(pygame.sprite.Sprite): #calls sprite base class
 
-	def __init__(self):
+	def __init__(self, treasureList):
 		pygame.sprite.Sprite.__init__(self) #initialised base class
 		self.name = "" #gives robot a name
 		self.points = 0 #gives robot points
@@ -96,6 +96,8 @@ class sortBot(pygame.sprite.Sprite): #calls sprite base class
 		if(self.loaded == True):
 			for i in range(0,70): #moves 140 pixels
 				self.rect.x -= 2 #left 2 pixels
+				self.carrying.rect.x = self.rect.x
+				self.carrying.rect.y = self.rect.y
 				screen.blit(background, (0, 0)) #makes the background blit
 				self.update() #updates something else
 				for i in treasureList: #goes through the treasures argh
@@ -140,6 +142,9 @@ class sortBot(pygame.sprite.Sprite): #calls sprite base class
 			pygame.display.update()
 			time.sleep(0.001)
 
+	def pickTreasureUp(self,treasureList):
+		self.carrying = treasureList[self.location]
+		treasureList[self.location] = 0
 
 
 
@@ -213,10 +218,10 @@ for i in treasureList: #this is a for loop of the treasure objects
 THE ROBOT 
 """
 
-theSortBot = sortBot() #initialises robot
+theSortBot = sortBot(treasureList) #initialises robot
 theSortBot.name = "Fred" #gives it a useless name, why do we have a name?
 theSortBot.location = 2 #gives it its starting location
-theSortBot.rect.x = ((theSortBot.location * 143) + 150) #places it in the right spot yay
+theSortBot.rect.x = ((0 * 143) + 150) #places it in the right spot yay
 theSortBot.rect.y = 500 #why does y change? i dont think it needs to right?
 theSortBot.dir = 0 #direction, which im not using cause im a pleb
 theSortBot.target = valOne #this will be used later
