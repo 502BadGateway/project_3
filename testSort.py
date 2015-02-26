@@ -12,6 +12,14 @@ I still need to pick it up, and swap it
 and i need to edit the list
 oh crap it doesnt run off of a list
 
+Alot of this code will be moved into the display class during intergreation
+While I tried creating a display class for this, it was quicker not to. 
+
+I need to work on how the treasure pulls off of a list.
+The treasure will be within an inventory list. I need to work out how the list follows along with the animation.
+This is the last piece of Logic i need to work out. 
+Everything else is simple animation
+
 """
 """
 THE MODULES
@@ -28,13 +36,15 @@ pygame.display.set_caption("Sort Bot")
 background = pygame.image.load('ASSETS/sortBackground.png')
 screen.blit(background, (0,0))
 
+collectorBotInv = [0,0,0,0,0,0,0]
+
 """
 THE CLASSES
 """
 
 class sortBot(pygame.sprite.Sprite): #calls sprite base class
 
-	def __init__(self):
+	def __init__(self, collectorBotInv):
 		pygame.sprite.Sprite.__init__(self) #initialised base class
 		self.name = "" #gives robot a name
 		self.points = 0 #gives robot points
@@ -46,6 +56,7 @@ class sortBot(pygame.sprite.Sprite): #calls sprite base class
 		self.rect.y = 0 #stores coord y
 		self.carrying = ""
 		self.target = 0
+		self.inventory = collectorBotInv
 
 	def turnLeft(self): #charges turning var to left 
 		self.dir = 90 #Makes dir left turning
@@ -63,7 +74,7 @@ class sortBot(pygame.sprite.Sprite): #calls sprite base class
 		self.rect.center = oldCenter #returns the old centre
 		screen.blit(self.image, (self.rect.x, self.rect.y)) #blit it on screen
 
-	def update(self):
+	def update(self): #This will be moved into the display class
 		screen.blit(self.image, (self.rect.x, self.rect.y)) #updates image on screen
 
 	def moveLeft(self): #moves robot left
@@ -102,6 +113,7 @@ class sortBot(pygame.sprite.Sprite): #calls sprite base class
 
 
 	def moveToTarget(self): #Runs all our code to get to thing
+	#This function contains the blocks, moveLeft (or right) and move up.
 		while self.location != self.target: #while we arnt infront of target
 			if self.location > self.target: #while we are to the right of target
 				self.moveLeft() #move left son
@@ -110,6 +122,7 @@ class sortBot(pygame.sprite.Sprite): #calls sprite base class
 
 		while self.rect.y > 230: #move up, until you are under treasure
 			self.moveUp() #move please
+
 
 
 
@@ -133,6 +146,12 @@ class treasure(pygame.sprite.Sprite): #I mocked up a treasure class, we can pull
 
 """
 THE TREASURES 
+
+This code is only needed for this file.
+I wont actually use the majority of it, it will be pulled from phil/femi code.
+
+This will be a list of treasures pulled from the collectorBot.
+collectorBot inventory will be 7 treasures.
 """
 
 treasure1 = treasure()  #ALL THIS ISNT NEEDED I DONT THINK
@@ -167,7 +186,7 @@ for i in treasureList: #this is a for loop of the treasure objects
 THE ROBOT 
 """
 
-theSortBot = sortBot() #initialises robot
+theSortBot = sortBot(collectorBotInv) #initialises robot
 theSortBot.name = "Fred" #gives it a useless name, why do we have a name?
 theSortBot.location = 2 #gives it its starting location
 theSortBot.rect.x = ((theSortBot.location * 143) + 150) #places it in the right spot yay
