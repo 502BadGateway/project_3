@@ -121,10 +121,8 @@ class sortBot(pygame.sprite.Sprite): #calls sprite base class
 	"""
 
 	def moveUp(self): #moves the robot up to treasure yay
-		for i in range(0,10): #moves for 20 pixels
-
-			self.rect.y -= 2 #moves up 2 pixels
-			
+		while self.rect.y > 230: #move up, until you are under treasure
+			self.rect.y -= 1 #moves up 2 pixels
 			screen.blit(background, (0, 0)) #blit dat background
 			self.update() #update that robot
 			for i in treasureList: #the treasure list again
@@ -133,14 +131,16 @@ class sortBot(pygame.sprite.Sprite): #calls sprite base class
 			time.sleep(0.001) #sleeping
 
 	def moveDown(self):
-		for i in range(0,10):
-			self.rect.y += 2
+		while self.rect.y < 500:
+			self.rect.y += 1
 			screen.blit(background, (0,0))
 			self.update()
 			for i in treasureList:
 				i.update()
 			pygame.display.update()
 			time.sleep(0.001)
+
+
 
 
 	def moveToTarget(self): #Runs all our code to get to thing
@@ -151,7 +151,7 @@ class sortBot(pygame.sprite.Sprite): #calls sprite base class
 			elif self.location < self.target: #while we are to the left of the target
 				self.moveRight() #move right please
 
-		while self.rect.y > 230: #move up, until you are under treasure
+		
 
 
 
@@ -239,7 +239,8 @@ while 1:
 			pygame.quit() #quit
 			sys.exit() #quit some more
 
-	theSortBot.moveToTarget() #MOVE THE ROBOT TO TARGET
+	theSortBot.moveUp()
+	theSortBot.moveDown() #MOVE THE ROBOT TO TARGET
 	theSortBot.update() #UPDATE IMAGE
 	for i in treasureList: #So treasure looks like its on top of car
 		i.update() #still doing that
