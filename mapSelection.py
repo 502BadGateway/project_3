@@ -17,6 +17,8 @@ class mapSelect():
 		#pygame.display.set_catption("Map Selection")
 
 		#load in button images
+
+
 		self.London = pygame.image.load("ASSETS\London.png")
 		self.Paris = pygame.image.load("ASSETS\Paris.png")
 		self.NewYork = pygame.image.load("ASSETS\New York.png")
@@ -33,12 +35,12 @@ class mapSelect():
 		self.Berlin = pygame.transform.scale(self.Berlin,(130,100))
 
 		#buttons
-		L = self.display.blit(self.London,(30,40))
-		P = self.display.blit(self.Paris,(190,40))
-		N = self.display.blit(self.NewYork,(350,40))
-		T = self.display.blit(self.Tokyo, (30,180))
-		J = self.display.blit(self.johannesburg, (190,180))
-		B = self.display.blit(self.Berlin, (350,180))
+		self.L = self.display.blit(self.London,(30,40))
+		self.P = self.display.blit(self.Paris,(190,40))
+		self.N = self.display.blit(self.NewYork,(350,40))
+		self.T = self.display.blit(self.Tokyo, (30,180))
+		self.J = self.display.blit(self.johannesburg, (190,180))
+		self.B = self.display.blit(self.Berlin, (350,180))
 
 		#text
 		font = pygame.font.Font(None, 20)
@@ -86,5 +88,6 @@ class mapSelect():
 					
 map1 = mapSelect()
 map1.mapPanel()
+
 
 
