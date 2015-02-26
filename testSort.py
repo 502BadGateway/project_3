@@ -144,8 +144,8 @@ class sortBot(pygame.sprite.Sprite): #calls sprite base class
 
 	def pickTreasureUp(self,treasureList):
 		self.carrying = treasureList[self.location]
-		treasureList[self.location] = 0
-
+		treasureList[self.location] = null
+		return treasureList
 
 
 	def moveToTarget(self): #Runs all our code to get to thing
@@ -176,6 +176,12 @@ class treasure(pygame.sprite.Sprite): #I mocked up a treasure class, we can pull
 		screen.blit(self.image, (self.rect.x, self.rect.y)) #blit that dubbloon
 
 
+class Null(treasure):
+
+	def update(self):
+		return None
+
+null = Null()
 """
 THE TREASURES 
 
@@ -245,7 +251,11 @@ while 1:
 			sys.exit() #quit some more
 
 	theSortBot.moveUp()
-	theSortBot.moveDown() #MOVE THE ROBOT TO TARGET
+	theSortBot.pickTreasureUp(treasureList)
+	print treasureList
+	"""
+	Display stuff
+	"""
 	theSortBot.update() #UPDATE IMAGE
 	for i in treasureList: #So treasure looks like its on top of car
 		i.update() #still doing that
