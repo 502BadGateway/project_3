@@ -116,15 +116,31 @@ class sortBot(pygame.sprite.Sprite): #calls sprite base class
 		self.location = self.location + 1 #change the location in array
 		print self.location #Debug, this needs to go soon
 
+	"""
+	MOVEMENT FUCTIONS
+	"""
+
 	def moveUp(self): #moves the robot up to treasure yay
 		for i in range(0,10): #moves for 20 pixels
+
 			self.rect.y -= 2 #moves up 2 pixels
+			
 			screen.blit(background, (0, 0)) #blit dat background
 			self.update() #update that robot
 			for i in treasureList: #the treasure list again
 				i.update() #updating them
 			pygame.display.update() #shoving it to screen
 			time.sleep(0.001) #sleeping
+
+	def moveDown(self):
+		for i in range(0,10):
+			self.rect.y += 2
+			screen.blit(background, (0,0))
+			self.update()
+			for i in treasureList:
+				i.update()
+			pygame.display.update()
+			time.sleep(0.001)
 
 
 	def moveToTarget(self): #Runs all our code to get to thing
@@ -136,16 +152,7 @@ class sortBot(pygame.sprite.Sprite): #calls sprite base class
 				self.moveRight() #move right please
 
 		while self.rect.y > 230: #move up, until you are under treasure
-			self.moveUp() #move please
 
-	def pickUpTreasure(self):
-		"""
-
-		THIS IS UNTESTED
-		RUN TEST REFERENCE SCRIPT TO CHECK LOGIC WORKS
-		IT WONT BREAK BUILD UNTIL I CALL IT
-
-		"""
 
 
 class treasure(pygame.sprite.Sprite): #I mocked up a treasure class, we can pull it from the other one
