@@ -23,11 +23,11 @@ Everything else is simple animation
 The robot pulls its inventory from the collectorBotInv
 This should eventually be the actual invoentory collectorbot collected
 
-
 """
 """
 THE MODULES
 """
+
 import sys
 import pygame
 from pygame.locals import *
@@ -48,7 +48,7 @@ THE CLASSES
 
 class sortBot(pygame.sprite.Sprite): #calls sprite base class
 
-	def __init__(self, collectorBotInv):
+	def __init__(self):
 		pygame.sprite.Sprite.__init__(self) #initialised base class
 		self.name = "" #gives robot a name
 		self.points = 0 #gives robot points
@@ -59,8 +59,8 @@ class sortBot(pygame.sprite.Sprite): #calls sprite base class
 		self.rect.x = 0 #stores coord x
 		self.rect.y = 0 #stores coord y
 		self.carrying = ""
+		self.loaded = False
 		self.target = 0
-		self.inventory = collectorBotInv
 
 	def turnLeft(self): #charges turning var to left 
 		self.dir = 90 #Makes dir left turning
@@ -82,16 +82,27 @@ class sortBot(pygame.sprite.Sprite): #calls sprite base class
 		screen.blit(self.image, (self.rect.x, self.rect.y)) #updates image on screen
 
 	def moveLeft(self): #moves robot left
-		for i in range(0,70): #moves 140 pixels
-			self.rect.x -= 2 #left 2 pixels
-			screen.blit(background, (0, 0)) #makes the background blit
-			self.update() #updates something else
-			for i in treasureList: #goes through the treasures argh
-				i.update() #updates that too
-			pygame.display.update() #updates the screen
-			time.sleep(0.001) #go to sleep pygame
-		self.location = self.location - 1 #change the array location
-		print self.location #DEBUG print whut
+		if(self.loaded == False):
+			for i in range(0,70): #moves 140 pixels
+				self.rect.x -= 2 #left 2 pixels
+				screen.blit(background, (0, 0)) #makes the background blit
+				self.update() #updates something else
+				for i in treasureList: #goes through the treasures argh
+					i.update() #updates that too
+				pygame.display.update() #updates the screen
+				time.sleep(0.001) #go to sleep pygame
+			self.location = self.location - 1 #change the array location
+			print self.location #DEBUG print whut
+		if(self.loaded == True):
+			for i in range(0,70): #moves 140 pixels
+				self.rect.x -= 2 #left 2 pixels
+				screen.blit(background, (0, 0)) #makes the background blit
+				self.update() #updates something else
+				for i in treasureList: #goes through the treasures argh
+					i.update() #updates that too
+				pygame.display.update() #updates the screen
+				time.sleep(0.001) #go to sleep pygame
+			self.location = self.location - 1 #change the array location
 
 	def moveRight(self): #moves robot right
 		for i in range(0,70): #moves for 140 pixels (one block yeah)
@@ -133,14 +144,8 @@ class sortBot(pygame.sprite.Sprite): #calls sprite base class
 		THIS IS UNTESTED
 		RUN TEST REFERENCE SCRIPT TO CHECK LOGIC WORKS
 		IT WONT BREAK BUILD UNTIL I CALL IT
+
 		"""
-		self.carrying = self.inventory[self.location] #Store the treasure object in this var
-		self.inventory[self.location] = 0 #empty the space
-		self.carrying.rect.x = self.rect.x
-		self.carrying.rect.y = self.rect.y
-		
-
-
 
 
 class treasure(pygame.sprite.Sprite): #I mocked up a treasure class, we can pull it from the other one
@@ -201,7 +206,7 @@ for i in treasureList: #this is a for loop of the treasure objects
 THE ROBOT 
 """
 
-theSortBot = sortBot(collectorBotInv) #initialises robot
+theSortBot = sortBot() #initialises robot
 theSortBot.name = "Fred" #gives it a useless name, why do we have a name?
 theSortBot.location = 2 #gives it its starting location
 theSortBot.rect.x = ((theSortBot.location * 143) + 150) #places it in the right spot yay
