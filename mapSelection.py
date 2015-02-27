@@ -17,6 +17,8 @@ class mapSelect():
 		#pygame.display.set_catption("Map Selection")
 
 		#load in button images
+
+
 		self.London = pygame.image.load("ASSETS\London.png")
 		self.Paris = pygame.image.load("ASSETS\Paris.png")
 		self.NewYork = pygame.image.load("ASSETS\New York.png")
@@ -33,12 +35,12 @@ class mapSelect():
 		self.Berlin = pygame.transform.scale(self.Berlin,(130,100))
 
 		#buttons
-		L = self.display.blit(self.London,(30,40))
-		P = self.display.blit(self.Paris,(190,40))
-		N = self.display.blit(self.NewYork,(350,40))
-		T = self.display.blit(self.Tokyo, (30,180))
-		J = self.display.blit(self.johannesburg, (190,180))
-		B = self.display.blit(self.Berlin, (350,180))
+		self.L = self.display.blit(self.London,(30,40))
+		self.P = self.display.blit(self.Paris,(190,40))
+		self.N = self.display.blit(self.NewYork,(350,40))
+		self.T = self.display.blit(self.Tokyo, (30,180))
+		self.J = self.display.blit(self.johannesburg, (190,180))
+		self.B = self.display.blit(self.Berlin, (350,180))
 
 		#text
 		font = pygame.font.Font(None, 20)
@@ -58,27 +60,34 @@ class mapSelect():
 					#print "click",x,y
 					if  x>30 and x<160 and y>40 and y<140:
 						print "London Clicked"
-						self.mapSelected = "London" # what will be referenced later to know what map to use.
+						self.mapSelected = "ASSETS\staticmapLondon" # what will be referenced later to know what map to use.
+						treasurePos(mapSelected)
 					elif x>190 and x<320 and y>40 and y<140:
 						print "Paris Clicked"
-						mapSelected = "Paris"
+						mapSelected = "ASSETS\staticmapParis"
+						treasurePos(mapSelected)
 					elif x>350 and x<480 and y>40 and y<140:
 						print "New York Clicked"
-						self.mapSelected = "New York"
+						self.mapSelected = "ASSETS\staticmapNewYork"
+						treasurePos(mapSelected)
 					elif x>30 and x<160 and y>180 and y<280:
 						print "Tokyo Clicked"
-						self.mapSelected = "Tokyo"
+						self.mapSelected = "ASSETS\staticmapTokyo"
+						treasurePos(mapSelected)
 					elif x>190 and x<320 and y>180 and y<280:
 						print "Johannesburg Clicked"
-						self.mapSelected = "Johannesburg"
+						self.mapSelected = "ASSETS\staticmapJohannesburg"
+						treasurePos(mapSelected)
 					elif x>350 and x<480 and y>180 and y<280:
 						print "Berlin Clicked"
-						self.mapSelected = "Berlin"
+						self.mapSelected = "ASSETS\staticmapBerlin"
+						treasurePos(mapSelected)
 					else:
 						print "not on button"
 
 					
 map1 = mapSelect()
 map1.mapPanel()
+
 
 

@@ -5,6 +5,7 @@ class Sorter:
     def __init__(self):
 
 
+<<<<<<< HEAD
     def swap(self, valOne, valTwo, lst):
         tmp = None  
 
@@ -12,4 +13,5 @@ class Sorter:
         lst[valOne] = list[valTwo] #replace first value with second
         lst[valTwo] = tmp  #replace second value with first
 
-        return
+        return lst
+
