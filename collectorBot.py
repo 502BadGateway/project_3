@@ -40,6 +40,7 @@ class collectorBot(robot):      #Class for the collector robot. Inherits from th
     def trapCheck(self, arena, trapLandmark6): #this is a trap check which works in a similar way as the treasure check
       if arena.ret_element_val(self.locationX,self.locationY) == trapLandmark6:
         print "You have come across a trap!"
+        self.__inventory.pop()
         self.__points -= 1
       else:
         print "There are no Traps here!"
