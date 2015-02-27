@@ -5,7 +5,6 @@ class Sorter:
     def __init__(self):
 
 
-<<<<<<< HEAD
     def swap(self, valOne, valTwo, lst):
         tmp = None  
 
