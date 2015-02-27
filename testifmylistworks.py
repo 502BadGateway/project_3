@@ -35,33 +35,42 @@ collectorBot inventory will be 7 treasures.
 """
 
 treasure0 = treasure()  #ALL THIS ISNT NEEDED I DONT THINK
-treasure0.name = "CLIVE!"
+treasure0.name = "0"
 treasure0.location = 1  #make the treasure location 5 in list
 
 treasure1 = treasure() #create object treasure2
+treasure1.name = "1"
 treasure1.location = 0 #put treasure 2 in slot 3
 
 treasure2 = treasure() #create object treasure3
-treasure2.location = 2 #put treasure 3 in slot 1
+treasure2.name = "2"
+treasure2.location = 3 #put treasure 3 in slot 1
 
 treasure3 = treasure() #create object treasure4
-treasure3.location = 3 #put it in slot 2 please
+treasure3.name = "3"
+treasure3.location = 2 #put it in slot 2 please
 
 treasure4 = treasure() #create object treasure5
-treasure4.location = 4 #put it in slot 5
+treasure4.name = "4"
+treasure4.location = 6 #put it in slot 5
 
 treasure5 = treasure() #ok so you get the point, but i want the lines on the github
+treasure5.name = "5"
 treasure5.location = 5 #gunna look like i wrote so much code son
 
 treasure6 = treasure() #I mean, just give me my degree already
-treasure6.location = 6 #place treasure 7 in slot 4
+treasure6.name = "6"
+treasure6.location = 4 #place treasure 7 in slot 4
 
-treasureList = []
 
-initialList = [treasure0, treasure1, treasure2, treasure3, treasure4, treasure5, treasure6]
-for i in initialList:
-	if i.location == i:
-		treasureList.append[i]
+treasureList = [treasure1, treasure6, treasure4, treasure0, treasure2, treasure5, treasure3]
 
-print initialList
+for i in treasureList:
+	i.location = treasureList.index(i)
+
 print treasureList
+print "NOW FOR LOCATIONS"
+
+for i in treasureList:
+
+	print "name: ", i.name, " location: ", i.location

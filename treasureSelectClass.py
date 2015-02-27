@@ -3,25 +3,31 @@ import pygame
 white = (255,255,255)
 
 class treasureSelect():
-    pygame.init()
+    
 #set display
-    def set_display(self):
-        screen = pygame.display.set_mode((640, 480)) 
+    def treasurePanel(self):
+    	pygame.init()
+        screen = pygame.display.set_mode((510, 320)) 
         screen.fill((white))
 
 #load all images
-    def set_image(self):
-        self.Crown = pygame.image.load("Crown.PNG")
-        self.Orb = pygame.image.load("Orb.PNG")
-        self.Tierrah = pygame.image.load("Tierrah.PNG")
-        self.Sword = pygame.image.load("Sword.PNG")
-        self.Ring = pygame.image.load("Ring.PNG")
+        self.Crown = pygame.image.load("ASSETS\Crown.PNG")
+        self.Orb = pygame.image.load("ASSETS\Orb.PNG")
+        self.Tierrah = pygame.image.load("ASSETS\Tierrah.PNG")
+        self.Sword = pygame.image.load("ASSETS\Sword.PNG")
+        self.Ring = pygame.image.load("ASSETS\Ring.PNG")
+        self.Coin = pygame.image.load("ASSETS\Coin.png")
 
 
 #make all images same size
-    def set_size(self):
-        self.Crown = pygame.transform.scale(self.Crown,(120,100))
-        self.Orb = pygame.transform.scale(self.Orb,(120,100))
-        self.Tierrah = pygame.transform.scale(self.Tierrah,(120,100))
-        self.Sword = pygame.transform.scale(self.Sword,(120,100))
-        self.Ring = pygame.transform.scale(self.Ring,(120,100))
+        self.Crown = pygame.transform.scale(self.Crown,(130,100))
+        self.Orb = pygame.transform.scale(self.Orb,(130,100))
+        self.Tierrah = pygame.transform.scale(self.Tierrah,(30,100))
+        self.Sword = pygame.transform.scale(self.Sword,(130,100))
+        self.Ring = pygame.transform.scale(self.Ring,(130,100))
+        self.Coin = pygame.tran
+
+        self.C = self.display.blit(self.Crown,(30,40))
+        self.O = self.display.blit(self.Orb,(190,40))
+        self.T = self.display.blit(self.Tierrah,(350,40))
+        self.S = self.display.blit(self.Sword,(30,180))
