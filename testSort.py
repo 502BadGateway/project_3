@@ -34,7 +34,6 @@ from pygame.locals import *
 import time
 
 pygame.init()
-valOne = 4
 screen = pygame.display.set_mode((1280,720))
 pygame.display.set_caption("Sort Bot")
 background = pygame.image.load('ASSETS/sortBackground.png')
@@ -83,8 +82,8 @@ class sortBot(pygame.sprite.Sprite): #calls sprite base class
 
 	def moveLeft(self): #moves robot left
 		if(self.loaded == False):
-			for i in range(0,70): #moves 140 pixels
-				self.rect.x -= 2 #left 2 pixels
+			for i in range(0,28): #moves 140 pixels
+				self.rect.x -= 5 #left 2 pixels
 				screen.blit(background, (0, 0)) #makes the background blit
 				self.update() #updates something else
 				for i in treasureList: #goes through the treasures argh
@@ -94,8 +93,8 @@ class sortBot(pygame.sprite.Sprite): #calls sprite base class
 			self.location = self.location - 1 #change the array location
 			print self.location #DEBUG print whut
 		if(self.loaded == True):
-			for i in range(0,70): #moves 140 pixels
-				self.rect.x -= 2 #left 2 pixels
+			for i in range(0,28): #moves 140 pixels
+				self.rect.x -= 5 #left 2 pixels
 				self.carrying.rect.x = self.rect.x
 				self.carrying.rect.y = self.rect.y
 				screen.blit(background, (0, 0)) #makes the background blit
@@ -107,24 +106,37 @@ class sortBot(pygame.sprite.Sprite): #calls sprite base class
 			self.location = self.location - 1 #change the array location
 
 	def moveRight(self): #moves robot right
-		for i in range(0,70): #moves for 140 pixels (one block yeah)
-			self.rect.x += 2 #right two pixels
-			screen.blit(background, (0, 0)) #blit the background
-			self.update() #updates the screen bro
-			for i in treasureList: #loops through the treasures, this is bad code
-				i.update() #update them dubbloons
-			pygame.display.update() #shove that to the screen please
-			time.sleep(0.001) #GO TO SLEEP PLEASE 
-		self.location = self.location + 1 #change the location in array
-		print self.location #Debug, this needs to go soon
+		if(self.loaded == False):
+			for i in range(0,28): #moves for 140 pixels (one block yeah)
+				self.rect.x += 5 #right two pixels
+				screen.blit(background, (0, 0)) #blit the background
+				self.update() #updates the screen bro
+				for i in treasureList: #loops through the treasures, this is bad code
+					i.update() #update them dubbloons
+				pygame.display.update() #shove that to the screen please
+				time.sleep(0.001) #GO TO SLEEP PLEASE 
+			self.location = self.location + 1 #change the location in array
+		elif(self.loaded == True):
+			for i in range(0,28): #moves 140 pixels
+				self.rect.x += 5 #left 2 pixels
+				self.carrying.rect.x = self.rect.x
+				self.carrying.rect.y = self.rect.y
+				screen.blit(background, (0, 0)) #makes the background blit
+				self.update() #updates the robot
+				self.carrying.update()
+				for i in treasureList: #goes through the treasures argh
+					i.update() #updates that too
 
+				pygame.display.update() #updates the screen
+				time.sleep(0.001) #go to sleep pygame
+			self.location = self.location + 1 #change the array location
 	"""
 	MOVEMENT FUCTIONS
 	"""
 
 	def moveUp(self): #moves the robot up to treasure yay
 		while self.rect.y > 230: #move up, until you are under treasure
-			self.rect.y -= 1 #moves up 2 pixels
+			self.rect.y -= 5 #moves up 2 pixels
 			screen.blit(background, (0, 0)) #blit dat background
 			self.update() #update that robot
 			for i in treasureList: #the treasure list again
@@ -133,18 +145,36 @@ class sortBot(pygame.sprite.Sprite): #calls sprite base class
 			time.sleep(0.001) #sleeping
 
 	def moveDown(self):
-		while self.rect.y < 500:
-			self.rect.y += 1
-			screen.blit(background, (0,0))
-			self.update()
-			for i in treasureList:
-				i.update()
-			pygame.display.update()
-			time.sleep(0.001)
+		if(self.loaded == False):
+			while self.rect.y < 500:
+				self.rect.y += 5
+				screen.blit(background, (0,0))
+				self.update()
+				for i in treasureList:
+					i.update()
+				pygame.display.update()
+				time.sleep(0.001)
+				print "have i moved?"
+		elif(self.loaded == True):
+			print "it is less than 500 and loaded"
+			while self.rect.y < 500:
+				self.rect.y += 5
+				self.carrying.rect.x = self.rect.x
+				self.carrying.rect.y = self.rect.y
+				screen.blit(background, (0,0))
+				self.update()
+				for i in treasureList:
+					i.update()
+				self.carrying.update()
+				pygame.display.update()
+				time.sleep(0.001)
+				print "am i here?!"
 
 	def pickTreasureUp(self,treasureList):
-		self.carrying = treasureList[self.location]
-		treasureList[self.location] = null
+		self.carrying = treasureList[self.target]
+		print treasureList[self.target]
+		treasureList[self.target] = null
+		self.loaded = True
 		return treasureList
 
 
@@ -152,12 +182,29 @@ class sortBot(pygame.sprite.Sprite): #calls sprite base class
 	#This function contains the blocks, moveLeft (or right) and move up.
 		while self.location != self.target: #while we arnt infront of target
 			if self.location > self.target: #while we are to the right of target
+				print "location is right of target"
 				self.moveLeft() #move left son
 			elif self.location < self.target: #while we are to the left of the target
+				print "location is left of target"
 				self.moveRight() #move right please
 
-		
-
+	def swap(self, valOne, valTwo):
+		self.target1 = valOne #assign target one
+		print "the first target is", self.target #print it
+		self.moveToTarget() #move towards first target
+		self.moveUp() #move upwards
+		self.pickTreasureUp(treasureList) #pick up treasure
+		print treasureList
+		print self.carrying
+		self.target = valTwo #assign target two to target
+		print "the new target is", self.target
+		self.moveDown()
+		print "moving to target: ", self.target
+		self.moveToTarget()
+		print self.carrying.name
+		for i in treasureList:
+			i.update()
+		pygame.display.update()
 
 
 class treasure(pygame.sprite.Sprite): #I mocked up a treasure class, we can pull it from the other one
@@ -171,6 +218,8 @@ class treasure(pygame.sprite.Sprite): #I mocked up a treasure class, we can pull
 		self.rect.y = 0 #y coord of the treasure
 		self.points = 0 #points the treasure is worth
 		self.location = 0 #location in list yeah
+		self.locationInListX = 0
+		self.locationInListY = 0
 
 	def update(self): #update it
 		screen.blit(self.image, (self.rect.x, self.rect.y)) #blit that dubbloon
@@ -192,28 +241,29 @@ This will be a list of treasures pulled from the collectorBot.
 collectorBot inventory will be 7 treasures.
 """
 
-treasure1 = treasure()  #ALL THIS ISNT NEEDED I DONT THINK
-treasure1.location = 5  #make the treasure location 5 in list
+treasure0 = treasure()  #ALL THIS ISNT NEEDED I DONT THINK
+treasure0.name = "CLIVE!"
+treasure0.location = 0  #make the treasure location 5 in list
 
-treasure2 = treasure() #create object treasure2
-treasure2.location = 3 #put treasure 2 in slot 3
+treasure1 = treasure() #create object treasure2
+treasure1.location = 1 #put treasure 2 in slot 3
 
-treasure3 = treasure() #create object treasure3
-treasure3.location = 1 #put treasure 3 in slot 1
+treasure2 = treasure() #create object treasure3
+treasure2.location = 2 #put treasure 3 in slot 1
 
-treasure4 = treasure() #create object treasure4
-treasure4.location = 2 #put it in slot 2 please
+treasure3 = treasure() #create object treasure4
+treasure3.location = 3 #put it in slot 2 please
 
-treasure5 = treasure() #create object treasure5
-treasure5.location = 0 #put it in slot 5
+treasure4 = treasure() #create object treasure5
+treasure4.location = 4 #put it in slot 5
 
-treasure6 = treasure() #ok so you get the point, but i want the lines on the github
-treasure6.location = 6 #gunna look like i wrote so much code son
+treasure5 = treasure() #ok so you get the point, but i want the lines on the github
+treasure5.location = 5 #gunna look like i wrote so much code son
 
-treasure7 = treasure() #I mean, just give me my degree already
-treasure7.location = 4 #place treasure 7 in slot 4
+treasure6 = treasure() #I mean, just give me my degree already
+treasure6.location = 6 #place treasure 7 in slot 4
 
-treasureList = [treasure1, treasure2, treasure3, treasure4, treasure5, treasure6, treasure7]
+treasureList = [treasure0, treasure1, treasure2, treasure3, treasure4, treasure5, treasure6]
 #this is a list of all the treasure objects
 
 for i in treasureList: #this is a for loop of the treasure objects
@@ -226,11 +276,10 @@ THE ROBOT
 
 theSortBot = sortBot(treasureList) #initialises robot
 theSortBot.name = "Fred" #gives it a useless name, why do we have a name?
-theSortBot.location = 2 #gives it its starting location
-theSortBot.rect.x = ((0 * 143) + 150) #places it in the right spot yay
+theSortBot.location = 6 #gives it its starting location
+theSortBot.rect.x = ((theSortBot.location * 143) + 150) #places it in the right spot yay
 theSortBot.rect.y = 500 #why does y change? i dont think it needs to right?
 theSortBot.dir = 0 #direction, which im not using cause im a pleb
-theSortBot.target = valOne #this will be used later
 
 """
 THE MAIN LOOP
@@ -255,8 +304,7 @@ for x in range(0,1): #should be a while loop. but i want to test stuff first.
 	"""
 
 
-	theSortBot.moveUp()
-	theSortBot.pickTreasureUp(treasureList)
+	theSortBot.swap(0,5)
 	print treasureList
 	print ("We are carrying: ", theSortBot.carrying)
 	"""
