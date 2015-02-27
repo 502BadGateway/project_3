@@ -329,15 +329,19 @@ for x in range(0,1): #should be a while loop. but i want to test stuff first.
 			sys.exit() #quit some more
 
 	"""
-	TEST COMMANDS HERE
+	PUT YOUR SORTING ALGORITH HERE BELOW!
 	"""
 
+	#PUT YOUR STUFF HERE GUYS
+	#USE theSortBot.swap(n,m)
+	#and run the file
 
-	theSortBot.swap(4,6)
-	theSortBot.swap(0,3)
-	theSortBot.swap(5,1)
+
+
+
+
 	"""
-	Display stuff
+	PUT YOUR SORTING ALGORITHM ABOVE HERE!
 	"""
 	theSortBot.update() #UPDATE IMAGE
 	for i in treasureList: #So treasure looks like its on top of car
