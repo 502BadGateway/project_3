@@ -189,7 +189,7 @@ class sortBot(pygame.sprite.Sprite): #calls sprite base class
 				self.moveRight() #move right please
 
 	def swap(self, valOne, valTwo):
-		self.target1 = valOne #assign target one
+		self.target = valOne #assign target one
 		print "the first target is", self.target #print it
 		self.moveToTarget() #move towards first target
 		self.moveUp() #move upwards
@@ -243,27 +243,24 @@ collectorBot inventory will be 7 treasures.
 
 treasure0 = treasure()  #ALL THIS ISNT NEEDED I DONT THINK
 treasure0.name = "CLIVE!"
-treasure0.location = 0  #make the treasure location 5 in list
 
 treasure1 = treasure() #create object treasure2
-treasure1.location = 1 #put treasure 2 in slot 3
 
 treasure2 = treasure() #create object treasure3
-treasure2.location = 2 #put treasure 3 in slot 1
 
 treasure3 = treasure() #create object treasure4
-treasure3.location = 3 #put it in slot 2 please
 
 treasure4 = treasure() #create object treasure5
-treasure4.location = 4 #put it in slot 5
 
 treasure5 = treasure() #ok so you get the point, but i want the lines on the github
-treasure5.location = 5 #gunna look like i wrote so much code son
 
 treasure6 = treasure() #I mean, just give me my degree already
-treasure6.location = 6 #place treasure 7 in slot 4
 
-treasureList = [treasure0, treasure1, treasure2, treasure3, treasure4, treasure5, treasure6]
+treasureList = [treasure6, treasure2, treasure1, treasure3, treasure4, treasure0, treasure5]
+
+for i in treasureList:
+	i.location = treasureList.index(i)
+
 #this is a list of all the treasure objects
 
 for i in treasureList: #this is a for loop of the treasure objects
@@ -304,7 +301,7 @@ for x in range(0,1): #should be a while loop. but i want to test stuff first.
 	"""
 
 
-	theSortBot.swap(0,5)
+	theSortBot.swap(4,6)
 	print treasureList
 	print ("We are carrying: ", theSortBot.carrying)
 	"""
