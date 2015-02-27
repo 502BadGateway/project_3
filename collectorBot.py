@@ -8,10 +8,12 @@ import time
 #Landmark6 - Trap
 
 class collectorBot(robot):      #Class for the collector robot. Inherits from the super class robot.
-    def__init__(self, arena, wishList): 
+    def __init__(self, arena, wishList): 
     
         self.__wishlist = [] #Define with wishlist and inventory varS
         self.__inventory = [] 
+
+
     
     def treasureCheck(self, arena, treasureLandmarks): #checks for treasures around this location. TODO Should make sure that Phil knows what order this funtion expects the treasures in.
       if self.ret_element_val(self.locationX,self.locationY) == treasureLandmark[0]: 
