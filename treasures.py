@@ -5,6 +5,9 @@
 class treasure(pygame.sprite.Sprite, entity): #I mocked up a treasure class, we can pull it from the other one
 
 	def __init__(self): #initialise it
+        entity.__init__(self, name, val) #Call the base class constructor. This is because this constructor should be extending not replacing functionality in entity._init__. 
+                                         #See here for information on this: Paragraph 6  https://docs.python.org/2/tutorial/classes.html#inheritance
+
 		pygame.sprite.Sprite.__init__(self) #no idea why i need it, but i need it
 		self.name = "" #give that dubbloon a name
 		self.image = pygame.image.load('ASSETS/testTreasure.png') #and a picture
