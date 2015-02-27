@@ -10,16 +10,21 @@ class arena:        #Class for the arena
     
 
 
-    def __init__(self, city="Tokyo", dummy=True, save_list=False):
+    def __init__(self, city="Tokyo", treasureList, dummy=True, save_list=False):
 
 
-        
-        if dummy == True:      #If we need to specify dummy, pre-prepared arena data.
+
+        import PIL #import python image lib
+        import Image #Apparently Image is a seperate lib
+
+        if dummy != False:      #If we need to specify dummy, pre-prepared arena data.
             import test_lists
-            self.__arena = test_lists.city
+            self.__arena = test_lists.arena1
+            self.__height = len(self__arena)
+            self.__width = len(self.__arena[0])
             return
         
-        #image = str(city)+".png"    #Set the city name to the image we're using.
+#-------Data-------------------------------------------------------------------------------        
         image = str(city)+".png"
         self.city = city
         self.__arena = None #Array which is the arena. Containing the road values 
@@ -34,16 +39,8 @@ class arena:        #Class for the arena
         self.color_percentage = 5   #The percentage of color that must be in a tile for it to be counted as a road or not Higher means the roads must be bigger to register
         self.tile_size        = 5   #The size of individual tiles. 
 
-        if dummy != False:      #If we need to specify dummy, pre-prepared arena data.
-            import test_lists
-            self.__arena = test_lists.arena1
-            self.__height = len(self__arena)
-            self.__width = len(self.__arena[0])
-            return
-
-        import PIL #import python image lib
-        import Image #Apparently Image is a seperate lib
-        
+        self.__treasures = []        #List of treasure objects placed on the arena
+#------------------------------------------------------------------------------------------
 
         __tmp_image = Image.open(image) #get a copy of the image
         self.__full_image = __tmp_image.convert("RGB") #Convert image to RGB colourspace (Given image from pygeo is in indexed Colour)
@@ -206,6 +203,6 @@ class arena:        #Class for the arena
          fout.write("]\n")
          return
 
-ar = arena("Tokyo",False, True) #This is here so one can run this script as a stand alone test. Might cause wacky behaviour if this is used as a module
-print "---------------------------------------------------------------------------------------------------------"
-ar.show_arena()
+#ar = arena("Tokyo",False, True) #This is here so one can run this script as a stand alone test. Might cause wacky behaviour if this is used as a module
+#print "---------------------------------------------------------------------------------------------------------"
+#ar.show_arena()
