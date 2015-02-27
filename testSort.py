@@ -118,16 +118,18 @@ class sortBot(pygame.sprite.Sprite): #calls sprite base class
 			self.location = self.location + 1 #change the location in array
 		elif(self.loaded == True):
 			for i in range(0,28): #moves 140 pixels
-				self.rect.x -= 5 #left 2 pixels
+				self.rect.x += 5 #left 2 pixels
 				self.carrying.rect.x = self.rect.x
 				self.carrying.rect.y = self.rect.y
 				screen.blit(background, (0, 0)) #makes the background blit
-				self.update() #updates something else
+				self.update() #updates the robot
+				self.carrying.update()
 				for i in treasureList: #goes through the treasures argh
 					i.update() #updates that too
+
 				pygame.display.update() #updates the screen
 				time.sleep(0.001) #go to sleep pygame
-			self.location = self.location - 1 #change the array location
+			self.location = self.location + 1 #change the array location
 	"""
 	MOVEMENT FUCTIONS
 	"""
@@ -159,8 +161,8 @@ class sortBot(pygame.sprite.Sprite): #calls sprite base class
 				self.rect.y += 5
 				self.carrying.rect.x = self.rect.x
 				self.carrying.rect.y = self.rect.y
-				self.update()
 				screen.blit(background, (0,0))
+				self.update()
 				for i in treasureList:
 					i.update()
 				self.carrying.update()
@@ -169,9 +171,9 @@ class sortBot(pygame.sprite.Sprite): #calls sprite base class
 				print "am i here?!"
 
 	def pickTreasureUp(self,treasureList):
-		self.carrying = treasureList[self.location]
-		print treasureList[self.location]
-		treasureList[self.location] = null
+		self.carrying = treasureList[self.target]
+		print treasureList[self.target]
+		treasureList[self.target] = null
 		self.loaded = True
 		return treasureList
 
@@ -187,17 +189,19 @@ class sortBot(pygame.sprite.Sprite): #calls sprite base class
 				self.moveRight() #move right please
 
 	def swap(self, valOne, valTwo):
-		self.target1 = valOne
-		self.moveToTarget()
-		self.moveUp()
-		self.pickTreasureUp(treasureList)
-		print "TREASURE PICKED UP"
-		self.target = valTwo
-		print "VALUE ASSIGNED"
+		self.target1 = valOne #assign target one
+		print "the first target is", self.target #print it
+		self.moveToTarget() #move towards first target
+		self.moveUp() #move upwards
+		self.pickTreasureUp(treasureList) #pick up treasure
+		print treasureList
+		print self.carrying
+		self.target = valTwo #assign target two to target
+		print "the new target is", self.target
 		self.moveDown()
-		print "MOVED DOWN"
+		print "moving to target: ", self.target
 		self.moveToTarget()
-		print "IM HERE"
+		print self.carrying.name
 		for i in treasureList:
 			i.update()
 		pygame.display.update()
@@ -237,28 +241,29 @@ This will be a list of treasures pulled from the collectorBot.
 collectorBot inventory will be 7 treasures.
 """
 
-treasure1 = treasure()  #ALL THIS ISNT NEEDED I DONT THINK
-treasure1.location = 5  #make the treasure location 5 in list
+treasure0 = treasure()  #ALL THIS ISNT NEEDED I DONT THINK
+treasure0.name = "CLIVE!"
+treasure0.location = 0  #make the treasure location 5 in list
 
-treasure2 = treasure() #create object treasure2
-treasure2.location = 3 #put treasure 2 in slot 3
+treasure1 = treasure() #create object treasure2
+treasure1.location = 1 #put treasure 2 in slot 3
 
-treasure3 = treasure() #create object treasure3
-treasure3.location = 1 #put treasure 3 in slot 1
+treasure2 = treasure() #create object treasure3
+treasure2.location = 2 #put treasure 3 in slot 1
 
-treasure4 = treasure() #create object treasure4
-treasure4.location = 2 #put it in slot 2 please
+treasure3 = treasure() #create object treasure4
+treasure3.location = 3 #put it in slot 2 please
 
-treasure5 = treasure() #create object treasure5
-treasure5.location = 0 #put it in slot 5
+treasure4 = treasure() #create object treasure5
+treasure4.location = 4 #put it in slot 5
 
-treasure6 = treasure() #ok so you get the point, but i want the lines on the github
-treasure6.location = 6 #gunna look like i wrote so much code son
+treasure5 = treasure() #ok so you get the point, but i want the lines on the github
+treasure5.location = 5 #gunna look like i wrote so much code son
 
-treasure7 = treasure() #I mean, just give me my degree already
-treasure7.location = 4 #place treasure 7 in slot 4
+treasure6 = treasure() #I mean, just give me my degree already
+treasure6.location = 6 #place treasure 7 in slot 4
 
-treasureList = [treasure1, treasure2, treasure3, treasure4, treasure5, treasure6, treasure7]
+treasureList = [treasure0, treasure1, treasure2, treasure3, treasure4, treasure5, treasure6]
 #this is a list of all the treasure objects
 
 for i in treasureList: #this is a for loop of the treasure objects
