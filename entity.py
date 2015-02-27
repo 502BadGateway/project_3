@@ -2,6 +2,13 @@
 
 class entity:
 	def __init__(self, name, val):
-		self.name = ""
+		self.__name = ""
         self.__arenaValue = val #Value representing this object in the arena
+
+
+    def getName(self):
+        return self.__name
+
+    def getArenaValue(self):
+        return self.__arenaValue
 		
