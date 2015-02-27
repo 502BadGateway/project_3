@@ -106,17 +106,28 @@ class sortBot(pygame.sprite.Sprite): #calls sprite base class
 			self.location = self.location - 1 #change the array location
 
 	def moveRight(self): #moves robot right
-		for i in range(0,70): #moves for 140 pixels (one block yeah)
-			self.rect.x += 2 #right two pixels
-			screen.blit(background, (0, 0)) #blit the background
-			self.update() #updates the screen bro
-			for i in treasureList: #loops through the treasures, this is bad code
-				i.update() #update them dubbloons
-			pygame.display.update() #shove that to the screen please
-			time.sleep(0.001) #GO TO SLEEP PLEASE 
-		self.location = self.location + 1 #change the location in array
-		print self.location #Debug, this needs to go soon
-
+		if(self.loaded == False):
+			for i in range(0,28): #moves for 140 pixels (one block yeah)
+				self.rect.x += 5 #right two pixels
+				screen.blit(background, (0, 0)) #blit the background
+				self.update() #updates the screen bro
+				for i in treasureList: #loops through the treasures, this is bad code
+					i.update() #update them dubbloons
+				pygame.display.update() #shove that to the screen please
+				time.sleep(0.001) #GO TO SLEEP PLEASE 
+			self.location = self.location + 1 #change the location in array
+		elif(self.loaded == True):
+			for i in range(0,28): #moves 140 pixels
+				self.rect.x -= 5 #left 2 pixels
+				self.carrying.rect.x = self.rect.x
+				self.carrying.rect.y = self.rect.y
+				screen.blit(background, (0, 0)) #makes the background blit
+				self.update() #updates something else
+				for i in treasureList: #goes through the treasures argh
+					i.update() #updates that too
+				pygame.display.update() #updates the screen
+				time.sleep(0.001) #go to sleep pygame
+			self.location = self.location - 1 #change the array location
 	"""
 	MOVEMENT FUCTIONS
 	"""
@@ -169,8 +180,10 @@ class sortBot(pygame.sprite.Sprite): #calls sprite base class
 	#This function contains the blocks, moveLeft (or right) and move up.
 		while self.location != self.target: #while we arnt infront of target
 			if self.location > self.target: #while we are to the right of target
+				print "location is right of target"
 				self.moveLeft() #move left son
 			elif self.location < self.target: #while we are to the left of the target
+				print "location is left of target"
 				self.moveRight() #move right please
 
 	def swap(self, valOne, valTwo):
