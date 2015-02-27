@@ -189,7 +189,6 @@ class sortBot(pygame.sprite.Sprite): #calls sprite base class
 		return treasureList
 
 	def replaceTreasure(self,treasureList):
-		print self.carrying.name
 		self.carryingSwap = self.carrying
 		self.carrying = treasureList[self.location]
 		treasureList[self.location] = self.carryingSwap
@@ -238,8 +237,7 @@ class treasure(pygame.sprite.Sprite): #I mocked up a treasure class, we can pull
 
 	def __init__(self): #initialise it
 		pygame.sprite.Sprite.__init__(self) #no idea why i need it, but i need it
-		self.name = "" #give that dubbloon a name
-		self.image = pygame.image.load('ASSETS/testTreasure.png') #and a picture
+		self.image = pygame.image.load('ASSETS/testTreasure.png')
 		self.rect = self.image.get_rect() #get yourself a rectangle
 		self.rect.x = 0 #x coord of the treasure
 		self.rect.y = 0 #y coord of the treasure
@@ -269,25 +267,25 @@ collectorBot inventory will be 7 treasures.
 """
 
 treasure0 = treasure()  #ALL THIS ISNT NEEDED I DONT THINK
-treasure0.name = "CLIVE!"
+treasure0.image = pygame.image.load('ASSETS/treasure-0.png')
 
 treasure1 = treasure() #create object treasure2
-treasure1.name = "JIM"
+treasure1.image = pygame.image.load('ASSETS/treasure-1.png')
 
 treasure2 = treasure() #create object treasure3
-treasure2.name = "CALEB"
+treasure2.image = pygame.image.load('ASSETS/treasure-2.png')
 
 treasure3 = treasure() #create object treasure4
-treasure3.name = "BRUCE"
+treasure3.image = pygame.image.load('ASSETS/treasure-3.png')
 
 treasure4 = treasure() #create object treasure5
-treasure4.name = "CARTER"
+treasure4.image = pygame.image.load('ASSETS/treasure-4.png')
 
 treasure5 = treasure() #ok so you get the point, but i want the lines on the github
-treasure5.name = "BETH"
+treasure5.image = pygame.image.load('ASSETS/treasure-5.png')
 
 treasure6 = treasure() #I mean, just give me my degree already
-treasure6.name = "JOHNNY"
+treasure6.image = pygame.image.load('ASSETS/treasure-6.png')
 
 treasureList = [treasure6, treasure2, treasure1, treasure3, treasure4, treasure0, treasure5]
 
@@ -336,8 +334,8 @@ for x in range(0,1): #should be a while loop. but i want to test stuff first.
 
 
 	theSortBot.swap(4,6)
-	print treasureList
-	print ("We are carrying: ", theSortBot.carrying)
+	theSortBot.swap(0,3)
+	theSortBot.swap(5,1)
 	"""
 	Display stuff
 	"""
