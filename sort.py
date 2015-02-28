@@ -5,7 +5,8 @@ class Sorter:
     def __init__(self):
 
 
-<<<<<<< HEAD
+<<<<<<< HEAD #this heck is this? 
+			 #this is all wrong. erasing it
     def swap(self, valOne, valTwo, lst):
         tmp = None  
 
