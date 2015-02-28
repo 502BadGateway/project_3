@@ -31,3 +31,13 @@ class treasureSelect():
         self.O = self.display.blit(self.Orb,(190,40))
         self.T = self.display.blit(self.Tierrah,(350,40))
         self.S = self.display.blit(self.Sword,(30,180))
+
+        font = pygame.font.Font(None,20)
+        text = font.render("Please Select 3 treasures you would like to be collected",1(10,10,10))
+        slef.display.blit(text, (28,12))
+
+        pygame.display.flip()
+
+        i=0
+        while i < 4:
+        	for 
