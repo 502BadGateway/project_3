@@ -1,10 +1,21 @@
 import pygame
 from robot import *
 
-class sortBot(robot):
+class SortBot(robot, pygame.sprite.Sprite): #class called sortbot.
 
-	def __init__(self):
+	def __init__(self, treasureList): #initialises sortbot
+		pygame.sprite.Sprite.__init__(self) #initalises sprite base class
 
-		pygame.init()
-		
+		self.points = 0 #This is the amount of points the robot has in total
+		self.location = 0 #where on treasure sort map robot is
+		self.image = pygame.image.load('ASSETS/car.png') #loads image
+		self.rect = self.image.get_rect() #gets the rect of the images
+		self.rect.x = 0 #stores the x location of the robot on screen
+		self.rect.y = 0 #stores the y location of the robot on screen
+		self.carrying = "" #stores treasure robot is moving
+		self.carryingSwap = "" # stores old object while we replace them
+		self.loaded = False #is the robot crrying a treasure?
+		self.target = 0 #where on the list is the robot aimed?
+
+
 		
