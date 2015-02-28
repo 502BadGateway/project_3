@@ -67,4 +67,28 @@ class SortBot(robot, pygame.sprite.Sprite): #class called sortbot.
 				#pygame.display.update() #updates the screen
 				#time.sleep(0.001) #go to sleep pygame
 			self.location = self.location + 1 #change the array location
+
+	def moveUp(self):
+		if(self.loaded == False):
+			#while self.rect.y > 230: #move up, until you are under treasure
+			self.rect.y -= 5 #moves up 2 pixels
+				#screen.blit(background, (0, 0)) #blit dat background
+				#self.update() #update that robot
+				#for i in treasureList: #the treasure list again
+				#	i.update() #updating them
+				#pygame.display.update() #shoving it to screen
+				#time.sleep(0.001) #sleeping
+		elif(self.loaded == True):#
+			#while self.rect.y > 230:
+				self.rect.y -= 5 #moves up 2 pixels
+				self.carrying.rect.x = self.rect.x
+				self.carrying.rect.y = self.rect.y
+				#screen.blit(background, (0, 0)) #blit dat background
+				#self.update() #update that robot
+				#for i in treasureList: #the treasure list again
+				#	i.update() #updating them
+				#self.carrying.update()
+				#pygame.display.update() #shoving it to screen
+				#time.sleep(0.001) #sleeping
+
 		
