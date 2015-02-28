@@ -25,12 +25,14 @@ class treasureSelect():
         self.Tierrah = pygame.transform.scale(self.Tierrah,(30,100))
         self.Sword = pygame.transform.scale(self.Sword,(130,100))
         self.Ring = pygame.transform.scale(self.Ring,(130,100))
-        self.Coin = pygame.tran
+        self.Coin = pygame.transform.scale(self.Coin,(130,100))
 
-        self.C = self.display.blit(self.Crown,(30,40))
+        self.CR = self.display.blit(self.Crown,(30,40))
         self.O = self.display.blit(self.Orb,(190,40))
         self.T = self.display.blit(self.Tierrah,(350,40))
         self.S = self.display.blit(self.Sword,(30,180))
+        self.R = self.display.blit(self.Ring,(190,180))	
+        self.CO =self.display.blit(self.Coin,(350,180))
 
         font = pygame.font.Font(None,20)
         text = font.render("Please Select 3 treasures you would like to be collected",1(10,10,10))
