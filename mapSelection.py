@@ -60,27 +60,27 @@ class mapSelect():
 					#print "click",x,y
 					if  x>30 and x<160 and y>40 and y<140:
 						print "London Clicked"
-						self.mapSelected = "ASSETS\staticmapLondon" # what will be referenced later to know what map to use.
+						self.mapSelected = "ASSETS\staticmapLondon.png" # what will be referenced later to know what map to use.
 						treasurePos(mapSelected)
 					elif x>190 and x<320 and y>40 and y<140:
 						print "Paris Clicked"
-						mapSelected = "ASSETS\staticmapParis"
+						mapSelected = "ASSETS\staticmapParis.png"
 						treasurePos(mapSelected)
 					elif x>350 and x<480 and y>40 and y<140:
 						print "New York Clicked"
-						self.mapSelected = "ASSETS\staticmapNewYork"
+						self.mapSelected = "ASSETS\staticmapNewYork.png"
 						treasurePos(mapSelected)
 					elif x>30 and x<160 and y>180 and y<280:
 						print "Tokyo Clicked"
-						self.mapSelected = "ASSETS\staticmapTokyo"
+						self.mapSelected = "ASSETS\staticmapTokyo.png"
 						treasurePos(mapSelected)
 					elif x>190 and x<320 and y>180 and y<280:
 						print "Johannesburg Clicked"
-						self.mapSelected = "ASSETS\staticmapJohannesburg"
+						self.mapSelected = "ASSETS\staticmapJohannesburg.png"
 						treasurePos(mapSelected)
 					elif x>350 and x<480 and y>180 and y<280:
 						print "Berlin Clicked"
-						self.mapSelected = "ASSETS\staticmapBerlin"
+						self.mapSelected = "ASSETS\staticmapBerlin.png"
 						treasurePos(mapSelected)
 					else:
 						print "not on button"

@@ -25,9 +25,53 @@ class treasureSelect():
         self.Tierrah = pygame.transform.scale(self.Tierrah,(30,100))
         self.Sword = pygame.transform.scale(self.Sword,(130,100))
         self.Ring = pygame.transform.scale(self.Ring,(130,100))
+<<<<<<< HEAD
         self.Coin = pygame.tran  
+=======
+        self.Coin = pygame.transform.scale(self.Coin,(130,100))
+>>>>>>> e2c2929633b1add8cc325553ac2fd45f360fe000
 
-        self.C = self.display.blit(self.Crown,(30,40))
+        self.CR = self.display.blit(self.Crown,(30,40))
         self.O = self.display.blit(self.Orb,(190,40))
         self.T = self.display.blit(self.Tierrah,(350,40))
         self.S = self.display.blit(self.Sword,(30,180))
+        self.R = self.display.blit(self.Ring,(190,180))	
+        self.CO =self.display.blit(self.Coin,(350,180))
+
+
+        font = pygame.font.Font(None,20)
+        text = font.render("Please Select 3 treasures you would like to be collected",1(10,10,10))
+        self.display.blit(text, (28,12))
+
+        pygame.display.flip()
+
+        i=0
+        while i < 4:
+        	for event in pygame.event.get():
+				if event.type == pygame.QUIT:
+					sys.exit()
+
+				#detects which button the user has clicked on
+				elif event.type == pygame.MOUSEBUTTONDOWN: 
+					x, y = event.pos
+					#print "click",x,y
+					if  x>30 and x<160 and y>40 and y<140:
+						print "Crown Clicked"
+						i = i + 1
+					elif x>190 and x<320 and y>40 and y<140:
+						print "Orb Clicked"
+						i = i + 1
+					elif x>350 and x<480 and y>40 and y<140:
+						print "Tierrah Clicked"
+						i = i + 1
+					elif x>30 and x<160 and y>180 and y<280:
+						print "Sword Clicked"
+						i = i + 1
+					elif x>190 and x<320 and y>180 and y<280:
+						print "Ring Clicked"
+						i = i + 1
+					elif x>350 and x<480 and y>180 and y<280:
+						print "Coin Clicked"
+						i = i + 1
+					else:
+						print "not on button" 

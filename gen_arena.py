@@ -10,10 +10,9 @@ class arena:        #Class for the arena
     
 
 
-    def __init__(self, city, treasureList, dummy=True, save_list=False):
+    def __init__(self, city, treasureList, image="", dummy=True, save_list=False):
 
-
-
+        
         import PIL #import python image lib
         import Image #Apparently Image is a seperate lib
 
@@ -25,7 +24,11 @@ class arena:        #Class for the arena
             return
         
 #-------Data-------------------------------------------------------------------------------        
-        image = str(city)+".png"
+        if save_list == True:
+            self.__image = image 
+        else:
+            image = str(city)+".png"
+
         self.city = city
         self.__arena = None #Array which is the arena. Containing the road values 
         self.__im_arr = None #Array containing all the images for the map.
@@ -42,7 +45,7 @@ class arena:        #Class for the arena
         self.__treasures = []        #List of treasure objects placed on the arena
 #------------------------------------------------------------------------------------------
 
-        __tmp_image = Image.open(image) #get a copy of the image
+        __tmp_image = Image.open(self.__image) #get a copy of the image
         self.__full_image = __tmp_image.convert("RGB") #Convert image to RGB colourspace (Given image from pygeo is in indexed Colour)
         self.__full_image.load() #Reload image to make sure that i saved properly.
 
