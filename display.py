@@ -36,9 +36,9 @@ class display:      #Class which handles all the display functionality.
         self.State = False
         return
 
-"""
-SORTING ANIMATION STUFF
-"""
+#"""
+#SORTING ANIMATION STUFF
+#"""
 
     def setSortBot(self, sortBot): #blits sortbot
         self.display.blit(sortBot.image, (sortBot.rect.x, sortBot.rect.y)) #blits it at its rect location
