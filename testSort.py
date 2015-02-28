@@ -58,7 +58,7 @@ class sortBot(pygame.sprite.Sprite): #calls sprite base class
 		self.rect.x = 0 #stores coord x
 		self.rect.y = 0 #stores coord y
 		self.carrying = "" #stores object we are carrying
-		self.carrying = "" #stores old object while replacing
+		self.carryingSwap = "" #stores old object while replacing
 		self.loaded = False #is the robot carrying anything?
 		self.target = 0 #where is it supposed to go?
 
@@ -337,7 +337,7 @@ for x in range(0,1): #should be a while loop. but i want to test stuff first.
 	#and run the file
 
 
-
+	theSortBot.swap(0,5)
 
 
 	"""
