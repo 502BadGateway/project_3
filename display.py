@@ -36,11 +36,22 @@ class display:      #Class which handles all the display functionality.
         self.State = False
         return
 
-    def setSortBot(self, sortBot):
-        self.display.blit(sortBot.image, (sortBot.rect.x, sortBot.rect.y))
+"""
+SORTING ANIMATION STUFF
+"""
+
+    def setSortBot(self, sortBot): #blits sortbot
+        self.display.blit(sortBot.image, (sortBot.rect.x, sortBot.rect.y)) #blits it at its rect location
+
+    def setSorttreasure(self, sortBot, treasureList):
+        for i in treasureList:
+            self.display.blit(i.image, (i.rect.x, i.rect.y)) #blits treasure on screen
+
+    def setSortBackground(self, background):
+        self.display.blit(background, (0,0))
 
 
-    def setTreasure(self,x,y,image, pygame_im=False):    #Set the location of the landmark
+    def setTreasureCollect(self,x,y,image, pygame_im=False):    #Set the location of the landmark
         if pygame_im == False:                          #If we're not giving a pygame surface
             treasure_image = pygame.image.load(image)  #Load the image
         else:
@@ -69,10 +80,6 @@ class display:      #Class which handles all the display functionality.
         infoText = textFont.render(str(landInfo),1,(10,10,10))
         textPos = pygame.Rect(positionVar) #positionVar needs to be given to this method, it should be in the format "600,10,0,0" and "600,30,0,0"
         self.display.blit(infoText, textPos)
-
-    def waitForLights(self):
-        time.sleep(2)
-        #make robot wait two seconds.
     
     def RobotPoints(self,robotScore,positionVar): #this should display pauls points but im not sure if this needs to be done for both robots
 
