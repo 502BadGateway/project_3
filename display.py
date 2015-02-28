@@ -34,26 +34,7 @@ class display:      #Class which handles all the display functionality.
         robot_image = pygame.transform.scale(robot_image, (20,20))
         self.display.blit(robot_image, (y*10, x*10))
         self.State = False
-<<<<<<< HEAD
         return None
-=======
-        return
-
-#"""
-#SORTING ANIMATION STUFF
-#"""
-
-    def setSortBot(self, sortBot): #blits sortbot
-        self.display.blit(sortBot.image, (sortBot.rect.x, sortBot.rect.y)) #blits it at its rect location
-
-    def setSorttreasure(self, sortBot, treasureList):
-        for i in treasureList:
-            self.display.blit(i.image, (i.rect.x, i.rect.y)) #blits treasure on screen
-
-    def setSortBackground(self, background):
-        self.display.blit(background, (0,0))
->>>>>>> d96161b778eea7f3dc863192811666884f443afa
-
 
     def setTreasureCollect(self,x,y,image, pygame_im=False):    #Set the location of the landmark
         if pygame_im == False:                          #If we're not giving a pygame surface
