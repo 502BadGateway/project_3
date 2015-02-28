@@ -10,7 +10,7 @@ class arena:        #Class for the arena
     
 
 
-    def __init__(self, city="Tokyo", treasureList, dummy=True, save_list=False):
+    def __init__(self, city, treasureList, dummy=True, save_list=False):
 
 
 
