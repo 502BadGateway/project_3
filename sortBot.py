@@ -114,7 +114,7 @@ class SortBot(robot, pygame.sprite.Sprite): #class called sortbot.
 				#pygame.display.update()
 				#time.sleep(0.001)
 
-	def pickTreasureUp(self,treasureList): #pick up treasure from list
+	def pickTreasureUp(self,treasureList, null): #pick up treasure from list
 		self.carrying = treasureList[self.location] #picks up treasure it is infront of
 		treasureList[self.location] = null #fills list with empty item
 		self.loaded = True #loads robot
@@ -128,14 +128,23 @@ class SortBot(robot, pygame.sprite.Sprite): #class called sortbot.
 		treasureList[self.location].rect.y = treasureList[self.location].rect.y + 50 #adjusts rect y
 		return treasureList #returns the list
 	
-	def placeTreasure(self,treasureList): #puts down treasure
-		treasureList[self.location] = self.carrying #
-		self.carrying = null
-		treasureList[self.location].rect.x = treasureList[self.location].rect.x - 10
-		treasureList[self.location].rect.y = treasureList[self.location].rect.y + 50
-		self.loaded = False
-		return treasureList			
+	def placeTreasure(self,treasureList, null): #puts down treasure
+		treasureList[self.location] = self.carrying #places treasure into list
+		self.carrying = null #fills it with instance of null
+		treasureList[self.location].rect.x = treasureList[self.location].rect.x - 10 #adjusts rect
+		treasureList[self.location].rect.y = treasureList[self.location].rect.y + 50 #adjusts rect
+		self.loaded = False #unloades robot
+		return treasureList			#returns the list
 
+	def moveToTarget(self): #Runs all our code to get to thing
+	#This function contains the blocks, moveLeft (or right) and move up.
+		while self.location != self.target: #while we arnt infront of target
+			if self.location > self.target: #while we are to the right of target
+				self.moveLeft() #move left son
+				#WE NEED DISPLAY UPDATE STUFF HERE OR SOMETHING
+			elif self.location < self.target: #while we are to the left of the target
+				self.moveRight() #move right please
+				#WE NEED DISPLAY STUFF HERE ASWELL MAYBE
 
 
 
