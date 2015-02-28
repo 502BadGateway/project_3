@@ -22,7 +22,7 @@ class treasurePos(mapSelected):
 					sys.exit()
 
 				elif event.type == pygame.MOUSEBUTTONDOWN:
-					if (array[x][y] == 1 or array[x][y] == 2) 
+					if (array[x][y] == 1 or array[x][y] == 2) #this needs to be changed to what the array is acturly calleds
 						x, y = event.pos
 						treasurePosListX[i] = x
 						treasurePosListY[i] = y
