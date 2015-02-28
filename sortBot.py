@@ -146,6 +146,26 @@ class SortBot(robot, pygame.sprite.Sprite): #class called sortbot.
 				self.moveRight() #move right please
 				#WE NEED DISPLAY STUFF HERE ASWELL MAYBE
 
+	def swap(self, valOne, valTwo):
+		self.target = valOne #assign target one
+		self.moveToTarget() #move towards first target
+		self.moveUp() #move upwards
+		self.pickTreasureUp(treasureList, null) #pick up treasure
+		self.target = valTwo #assign target two to target
+		self.moveDown()
+		self.moveToTarget()
+		#for i in treasureList:
+		#	i.update()
+		#pygame.display.update()
+		self.moveUp()
+		self.replaceTreasure(treasureList, null)
+		self.target = valOne
+		self.moveDown()
+		self.moveToTarget()
+		self.moveUp()
+		self.placeTreasure(treasureList, null)
+		self.moveDown()
+
 
 
 		
