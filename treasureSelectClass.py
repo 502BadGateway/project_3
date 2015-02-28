@@ -40,4 +40,25 @@ class treasureSelect():
 
         i=0
         while i < 4:
-        	for 
+        	for event in pygame.event.get():
+				if event.type == pygame.QUIT:
+					sys.exit()
+
+				#detects which button the user has clicked on
+				elif event.type == pygame.MOUSEBUTTONDOWN: 
+					x, y = event.pos
+					#print "click",x,y
+					if  x>30 and x<160 and y>40 and y<140:
+						print "Crown Clicked"
+					elif x>190 and x<320 and y>40 and y<140:
+						print "Orb Clicked"
+					elif x>350 and x<480 and y>40 and y<140:
+						print "Tierrah Clicked"
+					elif x>30 and x<160 and y>180 and y<280:
+						print "Sword Clicked
+					elif x>190 and x<320 and y>180 and y<280:
+						print "Ring Clicked"
+					elif x>350 and x<480 and y>180 and y<280:
+						print "Coin Clicked"
+					else:
+						print "not on button" 
