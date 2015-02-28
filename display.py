@@ -26,7 +26,7 @@ class display:      #Class which handles all the display functionality.
         return
 
         
-    def setRobot(self,x,y,image, pygame_im=False):   #Set the location of the robot
+    def setCollectorBot(self,x,y,image, pygame_im=False):   #Set the location of the robot
         if pygame_im == False:                          #If we're not giving a pygame surface
             robot_image = pygame.image.load(image)  #Load the image
         else:
@@ -35,6 +35,10 @@ class display:      #Class which handles all the display functionality.
         self.display.blit(robot_image, (y*10, x*10))
         self.State = False
         return
+
+    def setSortBot(self, sortBot):
+        self.display.blit(sortBot.image, (sortBot.rect.x, sortBot.rect.y))
+
 
     def setTreasure(self,x,y,image, pygame_im=False):    #Set the location of the landmark
         if pygame_im == False:                          #If we're not giving a pygame surface
