@@ -114,6 +114,29 @@ class SortBot(robot, pygame.sprite.Sprite): #class called sortbot.
 				#pygame.display.update()
 				#time.sleep(0.001)
 
+	def pickTreasureUp(self,treasureList): #pick up treasure from list
+		self.carrying = treasureList[self.location] #picks up treasure it is infront of
+		treasureList[self.location] = null #fills list with empty item
+		self.loaded = True #loads robot
+		return treasureList #returns list
+
+	def replaceTreasure(self,treasureList): #picks up and drops off treasure
+		self.carryingSwap = self.carrying #moves current treasure to holding var
+		self.carrying = treasureList[self.location] #picks up new treasure
+		treasureList[self.location] = self.carryingSwap #places old one down
+		treasureList[self.location].rect.x = treasureList[self.location].rect.x - 10 #adjusts rect x
+		treasureList[self.location].rect.y = treasureList[self.location].rect.y + 50 #adjusts rect y
+		return treasureList #returns the list
+	
+	def placeTreasure(self,treasureList): #puts down treasure
+		treasureList[self.location] = self.carrying #
+		self.carrying = null
+		treasureList[self.location].rect.x = treasureList[self.location].rect.x - 10
+		treasureList[self.location].rect.y = treasureList[self.location].rect.y + 50
+		self.loaded = False
+		return treasureList			
+
+
 
 
 		
