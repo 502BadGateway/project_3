@@ -25,7 +25,7 @@ class treasureSelect():
         self.Tierrah = pygame.transform.scale(self.Tierrah,(30,100))
         self.Sword = pygame.transform.scale(self.Sword,(130,100))
         self.Ring = pygame.transform.scale(self.Ring,(130,100))
-        self.Coin = pygame.tran
+        self.Coin = pygame.tran  
 
         self.C = self.display.blit(self.Crown,(30,40))
         self.O = self.display.blit(self.Orb,(190,40))
