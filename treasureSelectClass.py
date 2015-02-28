@@ -34,9 +34,10 @@ class treasureSelect():
         self.R = self.display.blit(self.Ring,(190,180))	
         self.CO =self.display.blit(self.Coin,(350,180))
 
+
         font = pygame.font.Font(None,20)
         text = font.render("Please Select 3 treasures you would like to be collected",1(10,10,10))
-        slef.display.blit(text, (28,12))
+        self.display.blit(text, (28,12))
 
         pygame.display.flip()
 
@@ -52,15 +53,21 @@ class treasureSelect():
 					#print "click",x,y
 					if  x>30 and x<160 and y>40 and y<140:
 						print "Crown Clicked"
+						i = i + 1
 					elif x>190 and x<320 and y>40 and y<140:
 						print "Orb Clicked"
+						i = i + 1
 					elif x>350 and x<480 and y>40 and y<140:
 						print "Tierrah Clicked"
+						i = i + 1
 					elif x>30 and x<160 and y>180 and y<280:
-						print "Sword Clicked
+						print "Sword Clicked"
+						i = i + 1
 					elif x>190 and x<320 and y>180 and y<280:
 						print "Ring Clicked"
+						i = i + 1
 					elif x>350 and x<480 and y>180 and y<280:
 						print "Coin Clicked"
+						i = i + 1
 					else:
 						print "not on button" 
