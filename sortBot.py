@@ -80,9 +80,9 @@ class SortBot(robot, pygame.sprite.Sprite): #class called sortbot.
 				#time.sleep(0.001) #sleeping
 		elif(self.loaded == True):#
 			#while self.rect.y > 230:
-				self.rect.y -= 5 #moves up 2 pixels
-				self.carrying.rect.x = self.rect.x
-				self.carrying.rect.y = self.rect.y
+			self.rect.y -= 5 #moves up 2 pixels
+			self.carrying.rect.x = self.rect.x
+			self.carrying.rect.y = self.rect.y
 				#screen.blit(background, (0, 0)) #blit dat background
 				#self.update() #update that robot
 				#for i in treasureList: #the treasure list again
@@ -90,5 +90,30 @@ class SortBot(robot, pygame.sprite.Sprite): #class called sortbot.
 				#self.carrying.update()
 				#pygame.display.update() #shoving it to screen
 				#time.sleep(0.001) #sleeping
+
+	def moveDown(self):
+		if(self.loaded == False):
+			#while self.rect.y < 500:
+			self.rect.y += 5
+				#screen.blit(background, (0,0))
+				#self.update()
+				#for i in treasureList:
+				#	i.update()
+				#pygame.display.update()
+				#time.sleep(0.001)
+		elif(self.loaded == True):
+			#while self.rect.y < 500:
+			self.rect.y += 5
+			self.carrying.rect.x = self.rect.x
+			self.carrying.rect.y = self.rect.y
+				#screen.blit(background, (0,0))
+				#self.update()
+				#for i in treasureList:
+				#	i.update()
+				#self.carrying.update()
+				#pygame.display.update()
+				#time.sleep(0.001)
+
+
 
 		
