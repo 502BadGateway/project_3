@@ -9,8 +9,6 @@ import sys #this is also needed for quit sequence
 import wikipedia #this is for displaying treasure info
 import gen_arena
 from robot import Robot
-import LandmarksClass
-import traffic_light #Do you use this class? If you do, rename it, else dump it please
 import random
 import display
 import time
