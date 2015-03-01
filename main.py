@@ -13,14 +13,17 @@ Since its quicker to write code than to read it.
 import pygame #We need this to run anything
 from pygame.locals import * #we need this local so we can run the quit sequence
 import sys #again used to run quick sequence
-import display #used for p1, p2 and p3
+import display #used for p1, p2
 
 #MODULES FOR PART 1
 import wikipedia #displays  treasure information
 #MODULES FOR PART 2
 import random #needed to choose trap
 
+
 def main():
 	pygame.init() #initialise pygame
+	screen = display.display()
 	clock = pygame.time.Clock() #we will need this for ade's timer
+
 
