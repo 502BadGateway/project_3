@@ -36,6 +36,9 @@ class Robot:
     def returnPoints(self):
         return self.__points
 
+    def returnImage(self):  #returns image of the robot
+        return self.__image
+
 
 
 bot = Robot("map.png", "barry", 10, 22)

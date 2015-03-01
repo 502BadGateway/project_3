@@ -58,20 +58,26 @@ class treasureSelect():
 					if  x>30 and x<160 and y>40 and y<140:
 						print "Crown Clicked"
 						i = i + 1
+						treasureList[i] = self.Crown
 					elif x>190 and x<320 and y>40 and y<140:
 						print "Orb Clicked"
 						i = i + 1
+						treasureList[i] = self.Orb
 					elif x>350 and x<480 and y>40 and y<140:
 						print "Tierrah Clicked"
 						i = i + 1
+						treasureList[i] = self.Tierrah
 					elif x>30 and x<160 and y>180 and y<280:
 						print "Sword Clicked"
 						i = i + 1
+						treasureList[i] = self.Sword
 					elif x>190 and x<320 and y>180 and y<280:
 						print "Ring Clicked"
 						i = i + 1
+						treasureList[i] = self.Ring
 					elif x>350 and x<480 and y>180 and y<280:
 						print "Coin Clicked"
 						i = i + 1
+						treasureList[i] = self.Coin
 					else:
 						print "not on button" 
