@@ -1,10 +1,10 @@
 class mapSelect():
-	def __init__(self):
-		self.cityName = pygame.image.load("ASSETS",cityName,".png")
+	def __init__(self,cityName,buttonX,buttonY):
+		self.cityName = pygame.image.load("ASSETS\ ",cityName,".png")
 		self.cityName = pygame.transform.scale(self.cityName,(130,100))
-		self.display.blit(self.cityName,(buttonX,ButtonY))
+		self.display.blit(self.cityName,(buttonX,buttonY))
 
-		def cityText(self):
-			self.font = pygame.self.font.Font(None, 20)
-			self.text = self.font.render("Please select you desired location",1,(10,10,10))
-			self.display.blit(self.text,(28,12))
+		def cityText(self,textFont,textSize,textLocationX,textLocationY,textStatment,textColour):
+			self.font = pygame.self.font.Font(textFont, textSize)
+			self.text = self.font.render(textStatment,1,textColour)
+			self.display.blit(self.text,(textLocationX,textLocationY))
