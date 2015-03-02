@@ -13,7 +13,7 @@
 import pygame #We need this to run anything
 #from pygame.locals import * #we need this local so we can run the quit sequence
 import sys #again used to run quick sequence
-import display #used for p1, p2
+from display import display #used for p1, p2
 from mapSelection import mapSelect
 from city import city
 from collectorBot import collectorBot
@@ -95,17 +95,19 @@ def main(mapSelect):
 
 	#mapButtonLondon.cityText(None,20,28,12,"Please select your location",(10,10,10))
 
-def collectBot(City):
+def collectBot(city):
 	#Here we will create a new map selection instance.
 	#Then we will retrive the data from that to use later.
 
+        screen = display(city.ret_image(), 1280, 960, "", 10)
+
 	#Create a new collector bot. Relies on having an already created City, arena, wishlist and treasurelist.
-	#cBot = collectorBot(city.arena, city.getWishlist(), city.retTreasureList())
+	cBot = collectorBot(city.arena, city.getWishlist(), city.retTreasureList())
 	
 	#Create a new instance of a display - For the collector bot thingy
-#	screen = display.display(city.getImage())   #Passes the image of the city as the background. Requires an instance of city to have been created.
-#	screen.setCollectorBot(cBot.returnlocationX(), cBot.returnLocationY(), cBot.returnImage()) #Set the location for the collector bot. Requires a location of a new bot to have been specified.
+	screen = display.display(city.getImage())   #Passes the image of the city as the background. Requires an instance of city to have been created.
+        screen.setCollectorBot(cBot.returnlocationX(), cBot.returnLocationY(), cBot.returnImage()) #Set the location for the collector bot. Requires a location of a new bot to have been specified.
     
 
-main(mapSelect)
+City = main(mapSelect)
 collectBot(City)
