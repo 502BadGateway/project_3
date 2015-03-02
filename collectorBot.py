@@ -1,4 +1,4 @@
-import robot
+from robot import Robot
 import time
 #Landmark1 - London
 #Landmark2 - Paris
@@ -7,10 +7,11 @@ import time
 #Landmark5 - New York
 #Landmark6 - Trap
 
-class collectorBot(robot.Robot):      #Class for the collector robot. Inherits from the super class robot.
-    def __init__(self, arena, wishList, treasureList):
+class collectorBot(Robot):      #Class for the collector robot. Inherits from the super class robot.
+    def __init__(self, arena, wishList, treasureList, x, y):
+        Robot.__init__(self,"ASSETS/car.png","Barry",x, y)
     
-        self.__wishlist = set(wishlist)#Define with wishlist and inventory varS
+        self.__wishlist = set([])#Define with wishlist and inventory varS
         self.__inventory = [] 
         self.__treasureList = treasureList 
     
