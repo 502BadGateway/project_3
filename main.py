@@ -25,7 +25,7 @@ import wikipedia #displays  treasure information
 import random #needed to choose trap
 
 
-def main(mapSelect,display):
+def main(mapSelect):
 
 	pygame.init() #initialise pygame
 	clock = pygame.time.Clock() #we will need this for ade's timer
