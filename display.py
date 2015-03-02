@@ -1,12 +1,13 @@
 import pygame
 import wikipedia
+from PIL import Image
 
 #Creates display and handles all the functionality of drawing to the display.
 #Functions get given data from other displayable objects 
 
 
 class display:      #Class which handles all the display functionality.
-    def __init__(self, backgroundImage,screenHeight,screenWidth): #Creates a display 
+    def __init__(self,screenHeight,screenWidth, backgroundImage=False): #Creates a display 
 
         pygame.init()
         self.size = screenHeight,screenWidth
@@ -15,11 +16,12 @@ class display:      #Class which handles all the display functionality.
         #DATA --------------
         if backgroundImage != False:
             self.background = pygame.image.load(backgroundImage) #Load the background image 
+            #self.background = self.background.convert("RGB") #Convert image to RGB colourspace (Given image from pygeo is in indexed Colour)
             self.backgroundRect = self.background.get_rect() #Get the the background rectangle
             self.size = self.background.get_size()          #Get dimentions of the window
             self.__screenDimentions = (screenHeight,screenWidth)
         
-        if backgroundImage == False:
+        elif backgroundImage == False:
             self.background = pygame.Surface(self.display.get_size())
             self.backgroundRect = (screenWidth,screenHeight)
             self.background = self.background.convert()
