@@ -21,17 +21,12 @@ import wikipedia #displays  treasure information
 import random #needed to choose trap
 
 
-<<<<<<< HEAD
-=======
-
->>>>>>> d3e12b9ff8e11b8f0f8cd2ef478b77f606c7a781
 def main():
 	pygame.init() #initialise pygame
 	screen = display.display()
 	clock = pygame.time.Clock() #we will need this for ade's timer
 
-<<<<<<< HEAD
-=======
+
     #Here we will create a new map selection instance.
     #Then we will retrive the data from that to use later.
 
@@ -41,5 +36,4 @@ def main():
     #Create a new instance of a display - For the collector bot thingy
     screen = display.display(city.getImage())   #Passes the image of the city as the background. Requires an instance of city to have been created.
     screen.setCollectorBot(cBot.returnlocationX(), cBot.returnLocationY(), cBot.returnImage()) #Set the location for the collector bot. Requires a location of a new bot to have been specified.
->>>>>>> d3e12b9ff8e11b8f0f8cd2ef478b77f606c7a781
 
