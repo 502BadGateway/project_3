@@ -112,18 +112,22 @@ def main(mapSelect):
 	#mapButtonLondon.cityText(None,20,28,12,"Please select your location",(10,10,10))
 
 def collectBot(city, x, y):
-	#Here we will create a new map selection instance.
-	#Then we will retrive the data from that to use later.
-        print city.ret_image_path()
+    #Here we will create a new map selection instance.
+    #Then we will retrive the data from that to use later.
+    print city.ret_image_path()
 
-        screen = display(1280, 960, city.ret_image_path())
+    screen = display(1280, 960, city.ret_image_path())
 
 	#Create a new collector bot. Relies on having an already created City, arena, wishlist and treasurelist.
-	cBot = collectorBot(city.arena, [], [], x, y)
+    cBot = collectorBot(city.arena, [], [], x, y)
 	
 	#Create a new instance of a display - For the collector bot thingy
 	#Passes the image of the city as the background. Requires an instance of city to have been created.
+    screen.setCollectorBot(cBot.returnLocationX(), cBot.returnLocationY(), cBot.returnImage()) #Set the location for the collector bot. Requires a location of a new bot to have been specified.
+
+    while True:
         screen.setCollectorBot(cBot.returnLocationX(), cBot.returnLocationY(), cBot.returnImage()) #Set the location for the collector bot. Requires a location of a new bot to have been specified.
+        screen.render()
     
 
 City = main(mapSelect)
