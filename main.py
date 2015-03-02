@@ -56,31 +56,37 @@ def main(mapSelect):
 				if  x>30 and x<160 and y>40 and y<140:
 					print "London Clicked"
                                         City = city("London",[])
+                                        return City
 					#self.mapSelected = "ASSETS\staticmapLondon.png" # what will be referenced later to know what map to use.
 					#treasurePos(mapSelected)
 				elif x>190 and x<320 and y>40 and y<140:
 					print "Paris Clicked"
                                         City = city("Paris", [])
+                                        return City
 					#mapSelected = "ASSETS\staticmapParis.png"
 					#treasurePos(mapSelected)
 				elif x>350 and x<480 and y>40 and y<140:
 					print "New York Clicked"
                                         City = city("NewYork",[]) 
+                                        return City
 					#self.mapSelected = "ASSETS\staticmapNewYork.png"
 					#treasurePos(mapSelected)
 				elif x>30 and x<160 and y>180 and y<280:
 					print "Tokyo Clicked"
                                         City = city("Tokyo",[])
+                                        return City
 					#self.mapSelected = "ASSETS\staticmapTokyo.png"
 					#treasurePos(mapSelected)
 				elif x>190 and x<320 and y>180 and y<280:
 					print "Johannesburg Clicked"
                                         City = city("Johannesburg",[])
+                                        return City
 					#self.mapSelected = "ASSETS\staticmapJohannesburg.png"
 					#treasurePos(mapSelected)
 				elif x>350 and x<480 and y>180 and y<280:
 					print "Berlin Clicked"
                                         City = city("Berlin",[])
+                                        return City
 					#self.mapSelected = "ASSETS\staticmapBerlin.png"
 					#treasurePos(mapSelected)
 				else:
@@ -89,6 +95,7 @@ def main(mapSelect):
 
 	#mapButtonLondon.cityText(None,20,28,12,"Please select your location",(10,10,10))
 
+def collectBot(City):
 	#Here we will create a new map selection instance.
 	#Then we will retrive the data from that to use later.
 
@@ -96,7 +103,9 @@ def main(mapSelect):
 	#cBot = collectorBot(city.arena, city.getWishlist(), city.retTreasureList())
 	
 	#Create a new instance of a display - For the collector bot thingy
-	#screen = display.display(city.getImage())   #Passes the image of the city as the background. Requires an instance of city to have been created.
-	#screen.setCollectorBot(cBot.returnlocationX(), cBot.returnLocationY(), cBot.returnImage()) #Set the location for the collector bot. Requires a location of a new bot to have been specified.
+#	screen = display.display(city.getImage())   #Passes the image of the city as the background. Requires an instance of city to have been created.
+#	screen.setCollectorBot(cBot.returnlocationX(), cBot.returnLocationY(), cBot.returnImage()) #Set the location for the collector bot. Requires a location of a new bot to have been specified.
+    
 
 main(mapSelect)
+collectBot(City)
