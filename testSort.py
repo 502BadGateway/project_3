@@ -330,7 +330,19 @@ for x in range(0,1): #should be a while loop. but i want to test stuff first.
 
 	"""
 	PUT YOUR SORTING ALGORITH HERE BELOW!
-	"""
+
+def bubbleSort(alist):
+    for passnum in range(len(alist)-1,0,-1):
+        for i in range(passnum):
+            if alist[i]>alist[i+1]:
+                temp = alist[i]
+                alist[i] = alist[i+1]
+                alist[i+1] = temp
+
+alist = [5,3,2,1,4,0]
+bubbleSort(alist)
+print(alist)
+
 
 	#PUT YOUR STUFF HERE GUYS
 	#USE theSortBot.swap(n,m)
