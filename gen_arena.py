@@ -19,7 +19,7 @@ class arena:        #Class for the arena
         if dummy != False:      #If we need to specify dummy, pre-prepared arena data.
             import test_lists
             self.__arena = test_lists.cities[city]
-            self.__height = len(self__arena)
+            self.__height = len(self.__arena)
             self.__width = len(self.__arena[0])
             return
         
