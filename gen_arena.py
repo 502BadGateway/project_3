@@ -21,6 +21,10 @@ class arena:        #Class for the arena
             self.__arena = test_lists.cities[city]
             self.__height = len(self.__arena)
             self.__width = len(self.__arena[0])
+            self.__image = "ASSETS/staticmap"+str(city)+".png"
+            __tmp_image = Image.open(self.__image) #get a copy of the image
+            self.__full_image = __tmp_image.convert("RGB") #Convert image to RGB colourspace (Given image from pygeo is in indexed Colour)
+            self.__full_image.load() #Reload image to make sure that i saved properly.
             return
         
 #-------Data-------------------------------------------------------------------------------        
@@ -50,6 +54,7 @@ class arena:        #Class for the arena
         self.__full_image.load() #Reload image to make sure that i saved properly.
 
         im = self.__full_image 
+        self.im = self.__full_image 
         print "Size of image:"
         print self.__full_image.size
         image_size = self.__full_image.size
@@ -119,8 +124,8 @@ class arena:        #Class for the arena
 
         return
 
-    def ret_image(self):    #Return the full image
-        return self.__full_image
+    def ret_image(self, arena):    #Return the full image
+        return arena.__full_image
 
 
     def ret_element_value (self, row, column):  #Returns the value of the specified arena element. 
