@@ -6,6 +6,7 @@ def insertionSort(aList):
       aList[position] = aList[position - 1]
       position -= 1
     aList[position] = currentvalue
+#SWAPPING THE NUMBERS
 #currentvalue = aList[0]
 #aList[0] = aList[5]
 #aList[5] = currentvalue
