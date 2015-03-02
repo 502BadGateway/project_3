@@ -13,22 +13,16 @@ class display:      #Class which handles all the display functionality.
         self.display = pygame.display.set_mode((self.size))     #Set the screen up
 
         #DATA --------------
-<<<<<<< HEAD
         if backgroundImage != False:
             self.background = pygame.image.load(backgroundImage) #Load the background image 
             self.backgroundRect = self.background.get_rect() #Get the the background rectangle
             self.size = self.background.get_size()          #Get dimentions of the window
-=======
-        self.background = pygame.image.load(background) #Load the background image 
-        self.State = False
-        self.backgroundRect = self.background.get_rect() #Get the the background rectangle
-        self.size = self.background.get_size()          #Get dimentions of the window
-        self.__screenDimentions = (screenHeight,screenWidth)
->>>>>>> FETCH_HEAD
+            self.__screenDimentions = (screenHeight,screenWidth)
         
         if backgroundImage == False:
             self.background = pygame.Surface(self.display.get_size())
-            self.background = self.background.convert((250,250,250))
+            self.background = self.background.convert()
+            self.background.fill((250,250,250))
             self.display.blit(self.background,(0,0))
 
         self.State = False

@@ -15,13 +15,10 @@ import pygame #We need this to run anything
 import sys #again used to run quick sequence
 import display #used for p1, p2
 from mapSelection import mapSelect
-<<<<<<< HEAD
-from display import display
-=======
 from city import city
 from collectorBot import collectorBot
+from display import display
 
->>>>>>> FETCH_HEAD
 #MODULES FOR PART 1
 import wikipedia #displays  treasure information
 #MODULES FOR PART 2
@@ -106,8 +103,6 @@ def main(mapSelect,display):
 	#screen = display.display(city.getImage())   #Passes the image of the city as the background. Requires an instance of city to have been created.
 	#screen.setCollectorBot(cBot.returnlocationX(), cBot.returnLocationY(), cBot.returnImage()) #Set the location for the collector bot. Requires a location of a new bot to have been specified.
 
-<<<<<<< HEAD
+
 main(mapSelect,display)
-=======
-main(mapSelect)
->>>>>>> FETCH_HEAD
+
