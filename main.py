@@ -104,6 +104,10 @@ def main(mapSelect):
 					print "not on button"
 
 
+	displayScreen = display(False,670,600)
+
+	treasureButtonChest = treasureSelect("Chest",30,40,"ASSETS/chest.png",130,100)
+	displayScreen.add
 	
 	#mapButtonLondon.cityText(None,20,28,12,"Please select your location",(10,10,10))
 

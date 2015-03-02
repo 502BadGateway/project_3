@@ -46,6 +46,8 @@ class display:      #Class which handles all the display functionality.
         cityName = pygame.transform.scale(cityName,(btn.buttonHeight,btn.buttonWidth))
         self.display.blit(cityName,(btn.buttonX,btn.buttonY))
 
+    def addTreasureBtn
+
         
     def pictureDisplay(self,screenHeight,screenWidth,backgroundImage):
         self.display = pygame.display.set_mode(screenHeight,screenWidth)
