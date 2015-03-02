@@ -15,6 +15,8 @@ import pygame #We need this to run anything
 import sys #again used to run quick sequence
 import display #used for p1, p2
 from mapSelection import mapSelect
+from city import city
+from collectorBot import collectorBot
 
 #MODULES FOR PART 1
 import wikipedia #displays  treasure information
@@ -53,6 +55,7 @@ def main(mapSelect):
 				#print "click",x,y
 				if  x>30 and x<160 and y>40 and y<140:
 					print "London Clicked"
+                                        lon = city("London",[])
 					#self.mapSelected = "ASSETS\staticmapLondon.png" # what will be referenced later to know what map to use.
 					#treasurePos(mapSelected)
 				elif x>190 and x<320 and y>40 and y<140:
