@@ -30,7 +30,7 @@ class Robot:
     def returnLocationX():  #Return the X location of the bot
         return self.__locationX
 
-    def returnRectY(self):  #Return the Y location of the bot
+    def returnLocationY(self):  #Return the Y location of the bot
         return self.__locationY
 
     def returnPoints(self):
