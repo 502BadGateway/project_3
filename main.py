@@ -15,31 +15,34 @@ import pygame #We need this to run anything
 import sys #again used to run quick sequence
 import display #used for p1, p2
 from mapSelection import mapSelect
-
+from display import display
 #MODULES FOR PART 1
 import wikipedia #displays  treasure information
 #MODULES FOR PART 2
 import random #needed to choose trap
 
 
-def main(mapSelect):
+def main(mapSelect,display):
 
 	pygame.init() #initialise pygame
 	clock = pygame.time.Clock() #we will need this for ade's timer
 
-	#this is temp, it will use the display class later
+	#this is temporary, it will use the display class later
+	"""
 	philsScreen = pygame.display.set_mode((510,320)) 
 	philsBackground = pygame.Surface(philsScreen.get_size())
 	philsBackground = philsBackground.convert()
 	philsBackground.fill((250,250,250))
-	philsScreen.blit(philsBackground,(0,0))
+	philsScreen.blit(philsBackground,(0,0))"""
 
-	mapButtonLondon = mapSelect("London",30,40,"ASSETS/London.png",130,100,philsScreen)
-	mapButtonParis = mapSelect("Paris",190,40,"ASSETS/Paris.png",130,100,philsScreen)
-	mapButtonNewYork = mapSelect("New York",350,40,"ASSETS/New York.png",130,100,philsScreen)
-	mapButtonTokyo = mapSelect("Tokyo",30,180,"ASSETS/Tokyo.png",130,100,philsScreen)
-	mapButtonJohannesburg = mapSelect("Johannesburg",190,180,"ASSETS/Johannesburg.png",130,100,philsScreen)
-	mapButtonBerlin = mapSelect("Berlin",350,180,"ASSETS/Berlin.png",130,100,philsScreen)
+	buttonDisplay = display(False,510,320)
+
+	mapButtonLondon = mapSelect("London",30,40,"ASSETS/London.png",130,100,display)
+	mapButtonParis = mapSelect("Paris",190,40,"ASSETS/Paris.png",130,100,display)
+	mapButtonNewYork = mapSelect("New York",350,40,"ASSETS/New York.png",130,100,display)
+	mapButtonTokyo = mapSelect("Tokyo",30,180,"ASSETS/Tokyo.png",130,100,display)
+	mapButtonJohannesburg = mapSelect("Johannesburg",190,180,"ASSETS/Johannesburg.png",130,100,display)
+	mapButtonBerlin = mapSelect("Berlin",350,180,"ASSETS/Berlin.png",130,100,display)
 	pygame.display.flip()
 
 	while 1:
@@ -91,4 +94,4 @@ def main(mapSelect):
 	#screen = display.display(city.getImage())   #Passes the image of the city as the background. Requires an instance of city to have been created.
 	#screen.setCollectorBot(cBot.returnlocationX(), cBot.returnLocationY(), cBot.returnImage()) #Set the location for the collector bot. Requires a location of a new bot to have been specified.
 
-main(mapSelect)
+main(mapSelect,display)

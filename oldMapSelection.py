@@ -19,12 +19,12 @@ class mapSelect():
 		#load in button images
 
 
-		self.London = pygame.image.load("ASSETS\London.png")
-		self.Paris = pygame.image.load("ASSETS\Paris.png")
-		self.NewYork = pygame.image.load("ASSETS\New York.png")
-		self.Tokyo = pygame.image.load("ASSETS\Tokyo 2.png")
-		self.johannesburg = pygame.image.load("ASSETS\Johannesburg.png")
-		self.Berlin = pygame.image.load("ASSETS\Berlin.png")
+		self.London = pygame.image.load("ASSETS/London.png")
+		self.Paris = pygame.image.load("ASSETS/Paris.png")
+		self.NewYork = pygame.image.load("ASSETS/New York.png")
+		self.Tokyo = pygame.image.load("ASSETS/Tokyo 2.png")
+		self.johannesburg = pygame.image.load("ASSETS/Johannesburg.png")
+		self.Berlin = pygame.image.load("ASSETS/Berlin.png")
 
 		#make all the images the same size
 		self.London = pygame.transform.scale(self.London,(130,100))
@@ -61,27 +61,27 @@ class mapSelect():
 					if  x>30 and x<160 and y>40 and y<140:
 						print "London Clicked"
 						self.mapSelected = "ASSETS\staticmapLondon.png" # what will be referenced later to know what map to use.
-						treasurePos(mapSelected)
+						#treasurePos(mapSelected)
 					elif x>190 and x<320 and y>40 and y<140:
 						print "Paris Clicked"
 						mapSelected = "ASSETS\staticmapParis.png"
-						treasurePos(mapSelected)
+						#treasurePos(mapSelected)
 					elif x>350 and x<480 and y>40 and y<140:
 						print "New York Clicked"
 						self.mapSelected = "ASSETS\staticmapNewYork.png"
-						treasurePos(mapSelected)
+						#treasurePos(mapSelected)
 					elif x>30 and x<160 and y>180 and y<280:
 						print "Tokyo Clicked"
 						self.mapSelected = "ASSETS\staticmapTokyo.png"
-						treasurePos(mapSelected)
+						#treasurePos(mapSelected)
 					elif x>190 and x<320 and y>180 and y<280:
 						print "Johannesburg Clicked"
 						self.mapSelected = "ASSETS\staticmapJohannesburg.png"
-						treasurePos(mapSelected)
+						#treasurePos(mapSelected)
 					elif x>350 and x<480 and y>180 and y<280:
 						print "Berlin Clicked"
 						self.mapSelected = "ASSETS\staticmapBerlin.png"
-						treasurePos(mapSelected)
+						#treasurePos(mapSelected)
 					else:
 						print "not on button"
 

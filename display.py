@@ -6,26 +6,43 @@ import wikipedia
 
 
 class display:      #Class which handles all the display functionality.
-    def __init__(self, background,screenHeight,screenwidth,font,fontSize): #Creates a display 
+    def __init__(self, backgroundImage,screenHeight,screenWidth): #Creates a display 
 
         pygame.init()
+        self.size = screenWidth, screenHeight
+        self.display = pygame.display.set_mode((self.size))     #Set the screen up
 
         #DATA --------------
-        self.background = pygame.image.load(background) #Load the background image 
-        self.State = False
-        self.backgroundRect = self.background.get_rect() #Get the the background rectangle
-        self.size = self.background.get_size()          #Get dimentions of the window
+        if backgroundImage != False:
+            self.background = pygame.image.load(backgroundImage) #Load the background image 
+            self.backgroundRect = self.background.get_rect() #Get the the background rectangle
+            self.size = self.background.get_size()          #Get dimentions of the window
         
+        if backgroundImage == False:
+            self.background = pygame.Surface(self.display.get_size())
+            self.background = self.background.convert((250,250,250))
+            self.display.blit(self.background,(0,0))
+
+        self.State = False
         pygame.font.init()                              #Initialise fonts
 
-        self.display = pygame.display.set_mode((screenHeight, screenwidth))     #Set the screen up
-        self.defaultFont = pygame.font.Font(font, fontSize)          #
+        self.defaultFont = pygame.font.Font(None, 28)          #
         
         self.render()                                   #Call render
 
         return
 
+    def fillDisplay(self,screenHeight,screenWidth,colour):
+        self.display = pygame.display.set_mode(screenHeight,screenWidth)
+        self.background = pygame.Surface(self.display.get_size)
+        self.background = self.background.convert(colour)
+        self.display.blit(self.background,(0,0))
         
+    def pictureDisplay(self,screenHeight,screenWidth,backgroundImage):
+        self.display = pygame.display.set_mode(screenHeight,screenWidth)
+        self.background = pygame.image.load(backgroundImage)
+        self.display.blit(self.background,(0,0))
+
     def setCollectorBot(self,x,y,image, pygame_im=False):   #Set the location of the robot
         if pygame_im == False:                          #If we're not giving a pygame surface
             robot_image = pygame.image.load(image)  #Load the image
