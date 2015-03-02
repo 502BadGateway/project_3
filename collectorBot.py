@@ -35,22 +35,22 @@ class collectorBot(robot.Robot):      #Class for the collector robot. Inherits f
       else:
         print "There are no Traps here!"
         
-#TIME VARIABLE
-#user inputs time in minutes and seconds
-minutes = input("How many minutes: ") 
-seconds = input("Number of seconds: ")
-
-startTime = time.time()
-finishTime = startTime + seconds
-
-count = 0
-
-while time.time() < finishTime:
-  count += 1
-  print count
-  time.sleep(1) #sleep for a second
-
-print "Time is up!"  
+##TIME VARIABLE
+##user inputs time in minutes and seconds
+#minutes = input("How many minutes: ") 
+#seconds = input("Number of seconds: ")
+#
+#startTime = time.time()
+#finishTime = startTime + seconds
+#
+#count = 0
+#
+#while time.time() < finishTime:
+#  count += 1
+#  print count
+#  time.sleep(1) #sleep for a second
+#
+#print "Time is up!"  
 
 
 
