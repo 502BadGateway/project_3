@@ -10,7 +10,7 @@ class display:      #Class which handles all the display functionality.
 
         pygame.init()
         self.size = screenWidth, screenHeight
-        self.display = pygame.display.set_mode((self.size))     #Set the screen up
+        displayScreen = pygame.display.set_mode((self.size))     #Set the screen up
 
         #DATA --------------
         if backgroundImage != False:
@@ -20,17 +20,17 @@ class display:      #Class which handles all the display functionality.
             self.__screenDimentions = (screenHeight,screenWidth)
         
         if backgroundImage == False:
-            self.background = pygame.Surface(self.display.get_size())
+            self.background = pygame.Surface(displayScreen.get_size())
             self.background = self.background.convert()
             self.background.fill((250,250,250))
-            self.display.blit(self.background,(0,0))
+            displayScreen.blit(self.background,(0,0))
 
         self.State = False
         pygame.font.init()                              #Initialise fonts
 
         self.defaultFont = pygame.font.Font(None, 28)          #
         
-        self.render()                                   #Call render
+        #self.render()                                   #Call render
 
         return
 
@@ -39,6 +39,12 @@ class display:      #Class which handles all the display functionality.
         self.background = pygame.Surface(self.display.get_size)
         self.background = self.background.convert(colour)
         self.display.blit(self.background,(0,0))
+
+    def addMapSelectBtn(self, btn):
+        cityName = pygame.image.load(btn.imageLocation)
+        cityName = pygame.transform.scale(cityName,(btn.buttonHeight,btn.buttonWidth))
+        self.display.blit(cityName,(btn.buttonX,btn.buttonY))
+
         
     def pictureDisplay(self,screenHeight,screenWidth,backgroundImage):
         self.display = pygame.display.set_mode(screenHeight,screenWidth)

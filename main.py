@@ -32,21 +32,28 @@ def main(mapSelect,display):
 
 	#this is temporary, it will use the display class later
 	"""
-	philsScreen = pygame.display.set_mode((510,320)) 
-	philsBackground = pygame.Surface(philsScreen.get_size())
-	philsBackground = philsBackground.convert()
-	philsBackground.fill((250,250,250))
-	philsScreen.blit(philsBackground,(0,0))"""
+	displayScreen = pygame.display.set_mode((510,320)) 
+	displayBackground = pygame.Surface(displayScreen.get_size())
+	displayBackground = displayBackground.convert()
+	displayBackground.fill((250,250,250))
+	displayScreen.blit(displayBackground,(0,0))"""
 
-	buttonDisplay = display(False,510,320)
+	displayScreen = display(False,510,320)
 
-	mapButtonLondon = mapSelect("London",30,40,"ASSETS/London.png",130,100,display)
-	mapButtonParis = mapSelect("Paris",190,40,"ASSETS/Paris.png",130,100,display)
-	mapButtonNewYork = mapSelect("New York",350,40,"ASSETS/New York.png",130,100,display)
-	mapButtonTokyo = mapSelect("Tokyo",30,180,"ASSETS/Tokyo.png",130,100,display)
-	mapButtonJohannesburg = mapSelect("Johannesburg",190,180,"ASSETS/Johannesburg.png",130,100,display)
-	mapButtonBerlin = mapSelect("Berlin",350,180,"ASSETS/Berlin.png",130,100,display)
-	pygame.display.flip()
+	mapButtonLondon = mapSelect("London",30,40,"ASSETS/London.png",130,100)
+	displayScreen.addMapSelectBtn(mapButtonLondon)
+	mapButtonParis = mapSelect("Paris",190,40,"ASSETS/Paris.png",130,100)
+	displayScreen.addMapSelectBtn(mapButtonParis)
+	mapButtonNewYork = mapSelect("New York",350,40,"ASSETS/New York.png",130,100)
+	displayScreen.addMapSelectBtn(mapButtonNewYork)
+	mapButtonTokyo = mapSelect("Tokyo",30,180,"ASSETS/Tokyo.png",130,100)
+	displayScreen.addMapSelectBtn(mapButtonTokyo)
+	mapButtonJohannesburg = mapSelect("Johannesburg",190,180,"ASSETS/Johannesburg.png",130,100)
+	displayScreen.addMapSelectBtn(mapButtonJohannesburg)
+	mapButtonBerlin = mapSelect("Berlin",350,180,"ASSETS/Berlin.png",130,100)
+	displayScreen.addMapSelectBtn(mapButtonBerlin)
+
+	displayScreen.render()
 
 	while 1:
 		for event in pygame.event.get():

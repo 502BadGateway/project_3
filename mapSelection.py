@@ -1,9 +1,12 @@
 import pygame
 class mapSelect():
-	def __init__(self,cityName,buttonX,buttonY,imageLocation,buttonHeight,buttonWidth,philsScreen):
-		self.cityName = pygame.image.load(imageLocation)
-		self.cityName = pygame.transform.scale(self.cityName,(buttonHeight,buttonWidth))
-		philsScreen.blit(self.cityName,(buttonX,buttonY))
+	def __init__(self,cityName,buttonX,buttonY,imageLocation,buttonHeight,buttonWidth):
+		self.cityName = cityName
+		self.buttonX = buttonX
+		self.buttonY = buttonY
+		self.imageLocation = imageLocation
+		self.buttonHeight = buttonHeight
+		self.buttonWidth = buttonWidth		
 
 
 
