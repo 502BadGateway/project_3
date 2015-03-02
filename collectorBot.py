@@ -1,4 +1,4 @@
-import robot.py
+import robot
 import time
 #Landmark1 - London
 #Landmark2 - Paris
