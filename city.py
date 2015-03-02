@@ -9,4 +9,8 @@ class city():
 		self.__image = self.arena.ret_image() 
                 print "City setup finished"
 
+
+        def ret_image(self):
+            return self.__image
+
 		
