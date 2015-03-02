@@ -15,6 +15,7 @@ class display:      #Class which handles all the display functionality.
         self.State = False
         self.backgroundRect = self.background.get_rect() #Get the the background rectangle
         self.size = self.background.get_size()          #Get dimentions of the window
+        self.screenDimentions = (screenHeight,screenWidth)
         
         pygame.font.init()                              #Initialise fonts
 
