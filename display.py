@@ -9,8 +9,8 @@ class display:      #Class which handles all the display functionality.
     def __init__(self, backgroundImage,screenHeight,screenWidth): #Creates a display 
 
         pygame.init()
-        self.size = screenWidth, screenHeight
-        displayScreen = pygame.display.set_mode((self.size))     #Set the screen up
+        self.size = screenHeight,screenWidth
+        self.display = pygame.display.set_mode((self.size))     #Set the screen up
 
         #DATA --------------
         if backgroundImage != False:
@@ -20,10 +20,11 @@ class display:      #Class which handles all the display functionality.
             self.__screenDimentions = (screenHeight,screenWidth)
         
         if backgroundImage == False:
-            self.background = pygame.Surface(displayScreen.get_size())
+            self.background = pygame.Surface(self.display.get_size())
+            self.backgroundRect = (screenWidth,screenHeight)
             self.background = self.background.convert()
             self.background.fill((250,250,250))
-            displayScreen.blit(self.background,(0,0))
+            self.display.blit(self.background,(0,0))
 
         self.State = False
         pygame.font.init()                              #Initialise fonts

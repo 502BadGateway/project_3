@@ -104,6 +104,7 @@ def main(mapSelect,display):
 					print "not on button"
 
 
+	
 	#mapButtonLondon.cityText(None,20,28,12,"Please select your location",(10,10,10))
 
 def collectBot(city):
