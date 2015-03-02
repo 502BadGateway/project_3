@@ -13,10 +13,18 @@ class display:      #Class which handles all the display functionality.
         self.display = pygame.display.set_mode((self.size))     #Set the screen up
 
         #DATA --------------
+<<<<<<< HEAD
         if backgroundImage != False:
             self.background = pygame.image.load(backgroundImage) #Load the background image 
             self.backgroundRect = self.background.get_rect() #Get the the background rectangle
             self.size = self.background.get_size()          #Get dimentions of the window
+=======
+        self.background = pygame.image.load(background) #Load the background image 
+        self.State = False
+        self.backgroundRect = self.background.get_rect() #Get the the background rectangle
+        self.size = self.background.get_size()          #Get dimentions of the window
+        self.__screenDimentions = (screenHeight,screenWidth)
+>>>>>>> FETCH_HEAD
         
         if backgroundImage == False:
             self.background = pygame.Surface(self.display.get_size())
@@ -100,6 +108,9 @@ class display:      #Class which handles all the display functionality.
         textSurface.set_colorkey((0,0,2))
         self.display.blit(textSurface, rect)
         self.state = False
+
+    def returnScreenSizes(self):
+        return self.__screenDimensions
 
 
     def render_textrect(self,landInfo, font, rect, text_color, background_color, justification=0): #this code will wordwrap text for you IT IS NOT MINE it is from "http://www.pygame.org/pcr/text_rect/index.php"

@@ -15,7 +15,13 @@ import pygame #We need this to run anything
 import sys #again used to run quick sequence
 import display #used for p1, p2
 from mapSelection import mapSelect
+<<<<<<< HEAD
 from display import display
+=======
+from city import city
+from collectorBot import collectorBot
+
+>>>>>>> FETCH_HEAD
 #MODULES FOR PART 1
 import wikipedia #displays  treasure information
 #MODULES FOR PART 2
@@ -56,26 +62,32 @@ def main(mapSelect,display):
 				#print "click",x,y
 				if  x>30 and x<160 and y>40 and y<140:
 					print "London Clicked"
+                                        City = city("London",[])
 					#self.mapSelected = "ASSETS\staticmapLondon.png" # what will be referenced later to know what map to use.
 					#treasurePos(mapSelected)
 				elif x>190 and x<320 and y>40 and y<140:
 					print "Paris Clicked"
+                                        City = city("Paris", [])
 					#mapSelected = "ASSETS\staticmapParis.png"
 					#treasurePos(mapSelected)
 				elif x>350 and x<480 and y>40 and y<140:
 					print "New York Clicked"
+                                        City = city("NewYork",[]) 
 					#self.mapSelected = "ASSETS\staticmapNewYork.png"
 					#treasurePos(mapSelected)
 				elif x>30 and x<160 and y>180 and y<280:
 					print "Tokyo Clicked"
+                                        City = city("Tokyo",[])
 					#self.mapSelected = "ASSETS\staticmapTokyo.png"
 					#treasurePos(mapSelected)
 				elif x>190 and x<320 and y>180 and y<280:
 					print "Johannesburg Clicked"
+                                        City = city("Johannesburg",[])
 					#self.mapSelected = "ASSETS\staticmapJohannesburg.png"
 					#treasurePos(mapSelected)
 				elif x>350 and x<480 and y>180 and y<280:
 					print "Berlin Clicked"
+                                        City = city("Berlin",[])
 					#self.mapSelected = "ASSETS\staticmapBerlin.png"
 					#treasurePos(mapSelected)
 				else:
@@ -94,4 +106,8 @@ def main(mapSelect,display):
 	#screen = display.display(city.getImage())   #Passes the image of the city as the background. Requires an instance of city to have been created.
 	#screen.setCollectorBot(cBot.returnlocationX(), cBot.returnLocationY(), cBot.returnImage()) #Set the location for the collector bot. Requires a location of a new bot to have been specified.
 
+<<<<<<< HEAD
 main(mapSelect,display)
+=======
+main(mapSelect)
+>>>>>>> FETCH_HEAD
