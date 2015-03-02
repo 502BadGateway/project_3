@@ -1,8 +1,11 @@
+import pygame
 class mapSelect():
-	def __init__(self,cityName,buttonX,buttonY,imageLocation,buttonHeight,buttonWidth):
-		self.cityName = pygame.image.load(self.imageLocation)
+	def __init__(self,cityName,buttonX,buttonY,imageLocation,buttonHeight,buttonWidth,philsScreen):
+		self.cityName = pygame.image.load(imageLocation)
 		self.cityName = pygame.transform.scale(self.cityName,(buttonHeight,buttonWidth))
-		self.display.blit(self.cityName,(buttonX,buttonY))
+		philsScreen.blit(self.cityName,(buttonX,buttonY))
+
+
 
 		def cityText(self,textFont,textSize,textLocationX,textLocationY,textStatment,textColour):
 			self.font = pygame.self.font.Font(textFont, textSize)

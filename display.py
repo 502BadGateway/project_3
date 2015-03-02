@@ -6,7 +6,7 @@ import wikipedia
 
 
 class display:      #Class which handles all the display functionality.
-    def __init__(self, background): #Creates a display 
+    def __init__(self, background,screenHeight,screenwidth,font,fontSize): #Creates a display 
 
         pygame.init()
 
@@ -18,8 +18,8 @@ class display:      #Class which handles all the display functionality.
         
         pygame.font.init()                              #Initialise fonts
 
-        self.display = pygame.display.set_mode((640, 479))     #Set the screen up
-        self.defaultFont = pygame.font.Font(None, 22)          #
+        self.display = pygame.display.set_mode((screenHeight, screenwidth))     #Set the screen up
+        self.defaultFont = pygame.font.Font(font, fontSize)          #
         
         self.render()                                   #Call render
 

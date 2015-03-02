@@ -11,7 +11,7 @@ class mapSelect():
 		self.size = width, height = 510, 320
 		self.display = pygame.display.set_mode(self.size)
 		self.background = pygame.Surface(self.display.get_size())
-		self.background =self. background.convert()
+		self.background = self.background.convert()
 		self.background.fill((250, 250, 250))
 		self.display.blit(self.background,(0,0))
 		#pygame.display.set_catption("Map Selection")
