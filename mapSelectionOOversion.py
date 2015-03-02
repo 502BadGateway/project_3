@@ -1,7 +1,7 @@
 class mapSelect():
-	def __init__(self,cityName,buttonX,buttonY):
-		self.cityName = pygame.image.load("ASSETS\ ",cityName,".png")
-		self.cityName = pygame.transform.scale(self.cityName,(130,100))
+	def __init__(self,cityName,buttonX,buttonY,imageLocation,buttonHeight,buttonWidth):
+		self.cityName = pygame.image.load(self.imageLocation)
+		self.cityName = pygame.transform.scale(self.cityName,(buttonHeight,buttonWidth))
 		self.display.blit(self.cityName,(buttonX,buttonY))
 
 		def cityText(self,textFont,textSize,textLocationX,textLocationY,textStatment,textColour):
