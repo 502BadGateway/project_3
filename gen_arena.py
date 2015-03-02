@@ -124,8 +124,8 @@ class arena:        #Class for the arena
 
         return
 
-    def ret_image(self, arena):    #Return the full image
-        return arena.__full_image
+    def ret_image(self, ):    #Return the full image
+        return self.__full_image
 
 
     def ret_element_value (self, row, column):  #Returns the value of the specified arena element. 
