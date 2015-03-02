@@ -27,7 +27,7 @@ class Robot:
         arena.put(self.locationX+1, self.locationY)
         self.check()
 
-    def returnLocationX():  #Return the X location of the bot
+    def returnLocationX(self):  #Return the X location of the bot
         return self.__locationX
 
     def returnLocationY(self):  #Return the Y location of the bot
