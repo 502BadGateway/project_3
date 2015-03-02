@@ -55,27 +55,32 @@ def main(mapSelect):
 				#print "click",x,y
 				if  x>30 and x<160 and y>40 and y<140:
 					print "London Clicked"
-                                        lon = city("London",[])
+                                        City = city("London",[])
 					#self.mapSelected = "ASSETS\staticmapLondon.png" # what will be referenced later to know what map to use.
 					#treasurePos(mapSelected)
 				elif x>190 and x<320 and y>40 and y<140:
 					print "Paris Clicked"
+                                        City = city("Paris", [])
 					#mapSelected = "ASSETS\staticmapParis.png"
 					#treasurePos(mapSelected)
 				elif x>350 and x<480 and y>40 and y<140:
 					print "New York Clicked"
+                                        City = city("NewYork",[]) 
 					#self.mapSelected = "ASSETS\staticmapNewYork.png"
 					#treasurePos(mapSelected)
 				elif x>30 and x<160 and y>180 and y<280:
 					print "Tokyo Clicked"
+                                        City = city("Tokyo",[])
 					#self.mapSelected = "ASSETS\staticmapTokyo.png"
 					#treasurePos(mapSelected)
 				elif x>190 and x<320 and y>180 and y<280:
 					print "Johannesburg Clicked"
+                                        City = city("Johannesburg",[])
 					#self.mapSelected = "ASSETS\staticmapJohannesburg.png"
 					#treasurePos(mapSelected)
 				elif x>350 and x<480 and y>180 and y<280:
 					print "Berlin Clicked"
+                                        City = city("Berlin",[])
 					#self.mapSelected = "ASSETS\staticmapBerlin.png"
 					#treasurePos(mapSelected)
 				else:
