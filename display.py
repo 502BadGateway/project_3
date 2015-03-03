@@ -1,6 +1,6 @@
 import pygame
 import wikipedia
-from PIL import Image
+#from PIL import Image
 
 #Creates display and handles all the functionality of drawing to the display.
 #Functions get given data from other displayable objects 
