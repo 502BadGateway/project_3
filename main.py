@@ -47,19 +47,19 @@ def selectSort(): #defines function
 				x, y = event.pos #if this is ^ true then we save location of mouse click
 				#print "click",x,y
 				if  x>30 and x<160 and y>40 and y<140: #check to see if we clicked on the button
-					print "Bubble Sort Selectd"
+					print "Bubble Sort Selected"
                                         return "BubbleSort" #....then we return the sort, in this case bubble sort
                         elif event.type == pygame.MOUSEBUTTONDOWN: #if that doesnt ^ then check to see if any of them is a mouse click
 				x, y = event.pos #if this is ^ true then we save location of mouse click
 				#print "click",x,y
 				if  x>190 and x<320 and y>40 and y<140: #check to see if we clicked on the button
-					print "Merge Sort Selectd"
+					print "Merge Sort Selected"
                                         return "MergeSort" #....then we return the sort, in this case Merge sort
                         elif event.type == pygame.MOUSEBUTTONDOWN: #if that doesnt ^ then check to see if any of them is a mouse click
 				x, y = event.pos #if this is ^ true then we save location of mouse click
 				#print "click",x,y
 				if  x>350 and x<480 and y>40 and y<140: #check to see if we clicked on the button
-					print "Insertion Sort Selectd"
+					print "Insertion Sort Selected"
                                         return "InsertionSort" #....then we return the sort, in this case Heap sort               
 					
 	
@@ -178,7 +178,7 @@ def main(mapSelect):
 
 	i = 0
 	while i < 5:
-		for event in pygame.event.get()
+		for event in pygame.event.get():
 			if event.type == pygame.QUIT:
 				sys.exit()
 			elif event.type == pygame.MOUSEBUTTONNDOWN:
@@ -230,7 +230,7 @@ def main(mapSelect):
 				elif x>190 and x<320 and y>460 and y<560:
 					print "Tiara Clicked"
 					i = i + 1
-				elif x>350 nd x<480 and y>460 and y<560:
+				elif x>350 and x<480 and y>460 and y<560:
 					print "Emerald Clicked"
 					i = i + 1 
 				else:
