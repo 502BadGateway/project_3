@@ -302,13 +302,13 @@ def collectBot(city, x, y, wishlist):
 
 
 
-    while True:
-        for item in wishlist:
+    while True: #While true TODO Add proper clause to quit program
+        for item in wishlist:   #Render the wish list list
             textString = str(item.getName())+"    Score"+str(item.returnPoints())+"    Collected: "+str(item.returnCollected())
             screen.CreateText(textString, (0,0,0,0), 40)
 
         screen.setCollectorBot(cBot.returnLocationX(), cBot.returnLocationY(), cBot.returnImage()) #Set the location for the collector bot. Requires a location of a new bot to have been specified.
-        screen.render()
+        screen.render() #render
 
 wishlist = [10]
 wishlist[0] = treasure(1,1,10,"TREASURE", 6, "ASSETS/car.png")
