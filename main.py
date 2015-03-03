@@ -147,7 +147,110 @@ def main(mapSelect):
 	displayScreen = display(False,670,600)
 
 	treasureButtonChest = treasureSelect("Chest",30,40,"ASSETS/chest.png",130,100)
-	displayScreen.add
+	displayScreen.addTreasureBtn(treasureButtonChest)
+	treasureButtonCoin = treasureSelect("Coin",190,40,"ASSETS/coin.png",130,100)
+	displayScreen.addTreasureBtn(treasureButtonCion)
+	treasureButtonCrown = treasureSelect("Crown",350,40,"ASSETS/crown.png",130,100)
+	displayScreen.addTreasureBtn(treasureButtonCrown)
+	treasureButtonDiamond = treasureSelect("Diamond",510,40,"ASSETS/diamond.png",130,100)
+	displayScreen.addTreasureBtn(treasureButtonDiamond)
+	treasureButtonDiamondBlock = treasureSelect("DiamondBlock",30,180,"ASSETS/diamondBlock",130,100)
+	displayScreen.addTreasureBtn(treasureButtonDiamondBlock)
+	treasureButtonEmeraldBlock = treasureSelect("EmeraldBlock",190,180,"ASSETS/emeraldBlock.png",130,100)
+	displayScreen.addTreasureBtn(treasureButtonEmeraldBlock)
+	treasureButtonGoldBar = treasureSelect("GoldBar",350,180,"ASSETS/goldBar.png",130,100)
+	displayScreen.addTreasureBtn(treasureButtonGoldBar)
+	treasureButtonGoldBlock = treasureSelect("GoldBlock",510,180,"ASSETS/goldBlock.png",130,100)
+	displayScreen.addTreasureBtn(treasureButtonGoldBlock)
+	treasureButtonGoldBlock = treasureSelect("Iron",30,320,"ASSETS/iron.png",130,100)
+	displayScreen.addTreasureBtn(treasureButtonIron)
+	treasureButtonLapis = treasureSelect("Lapis",190,320,"ASSETS/lapis.png",130,100)
+	displayScreen.addTreasureBtn(treasureButtonLapis)
+	treasureButtonLapisBlock = treasureSelect("LapisBlock",350,320,"ASSETS/lapisBlock.png",130,100)
+	displayScreen.addTreasureBtn(treasureButtonLapisBlock)
+	treasureButtonRing = treasureSelect("Ring",510,320,"ASSETS/ring.png",130,100)
+	displayScreen.addTreasureBtn(treasureButtonRing)
+	treasureButtonSword = treasureSelect("Sword",30,460,"ASSETS/sword.png",130,100)
+	displayScreen.addTreasureBtn(treasureButtonSword)
+	treasureButtonTiara = treasureSelect("Tiara",190,460,"ASSETS/tiara.png",130,100)
+	displayScreen.addTreasureBtn(treasureButtonTiara)
+	treasureButtonEmerald = treasureSelect("Emerald",350,460,"ASSETS/emerald.png",130,100)
+
+	i = 0
+	while i < 5:
+		for event in pygame.event.get()
+			if event.type == pygame.QUIT:
+				sys.exit()
+			elif event.type == pygame.MOUSEBUTTONNDOWN:
+				if  x>30 and x<160 and y>40 and y<140:
+					print "Chest Clicked"
+					i = i + 1
+					treasureList[i] = treasureButtonChest
+				elif x>190 and x<320 and y>40 and y<140:
+					print "Coin Clicked"
+					i = i + 1
+					treasureList[i] = treasureButtonCoin
+				elif x>350 and x<480 and y>40 and y<140:
+					print "Crown Clicked"
+					i = i + 1
+					treasureList[i] = treasureButtonCrown
+				elif x>510 and x<640 and y>40 and y<140:
+					print "Diamond Clicked"
+					i = i + 1
+					treasureList[i] = treasureButtonDiamond
+				elif x>30 and x<160 and y>180 and y<280:
+					print "Diamond Block Clicked"
+					i = i + 1
+					treasureList[i] = treasureButtonDiamondBlock
+				elif x>190 and x<320 and y>180 and y<280:
+					print "Emerald Block Clicked"
+					i = i + 1
+					treasureList[i] = treasureButtonEmeraldBlock
+				elif x>350 and x<480 and y>180 and y<280:
+					print "Gold Bar Clicked"
+					i = i + 1
+				elif x>510 and x<640 and y>180 and y<280:
+					print "Gold Block Clicked"
+					i = i + 1
+				elif x>30 and x<160 and y>320 and y<420:
+					print "Iron Clicked"
+					i = i + 1
+				elif x>190 and x<320 and y>320 and y<420:
+					print "Lapis"
+					i = i + 1
+				elif x>350 and x<480 and y>320 and y<420:
+					print "Lapis Block Clicked"
+					i = i + 1
+				elif x>510 and x<640 and y>320 and y<420:
+					print "Ring Clicked"
+					i = i + 1
+				elif x>30 and x<160 and y>460 and y<560:
+					print "Sword Clicked"
+					i = i + 1 
+				elif x>190 and x<320 and y>460 and y<560:
+					print "Tiara Clicked"
+					i = i + 1
+				elif x>350 nd x<480 and y>460 and y<560:
+					print "Emerald Clicked"
+					i = i + 1 
+				else:
+					print "not on button" 				
+
+	backgroundImage = pygame.image.load("staticmapLondon.png")
+
+	displayScreen = display(backgroundImage,1280,960)
+
+	i = 0
+	while i < 15:
+		for event in pygame.event.get():
+			if event.type == pygame.MOUSEBUTTONNDOWN:
+				if (array[x][y] == 1 or array[x][y] == 2)# this needs to be changed matches up for actual name of the array
+					x, y = event.pos
+					treasurePosListX[i] = x
+					treasurePosListY[i] = y
+					i=i+1
+				else:
+					print "Not on road"
 	
 	#mapButtonLondon.cityText(None,20,28,12,"Please select your location",(10,10,10))
 
