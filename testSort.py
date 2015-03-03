@@ -332,7 +332,7 @@ for x in range(0,1): #should be a while loop. but i want to test stuff first.
 	PUT YOUR SORTING ALGORITH HERE BELOW!
     """
 
-    
+
 
 	for passnum in range(len(treasureList)-1,0,-1):
 		for i in range(passnum):
