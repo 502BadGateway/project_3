@@ -83,8 +83,8 @@ class sortBot(pygame.sprite.Sprite): #calls sprite base class
 
 	def moveLeft(self): #moves robot left
 		if(self.loaded == False):
-			for i in range(0,28): #moves 140 pixels
-				self.rect.x -= 5 #left 2 pixels
+			for i in range(0,14): #moves 140 pixels
+				self.rect.x -= 10 #left 2 pixels
 				screen.blit(background, (0, 0)) #makes the background blit
 				self.update() #updates something else
 				for i in treasureList: #goes through the treasures argh
@@ -94,8 +94,8 @@ class sortBot(pygame.sprite.Sprite): #calls sprite base class
 			self.location = self.location - 1 #change the array location
 			print self.location #DEBUG print whut
 		if(self.loaded == True):
-			for i in range(0,28): #moves 140 pixels
-				self.rect.x -= 5 #left 2 pixels
+			for i in range(0,14): #moves 140 pixels
+				self.rect.x -= 10 #left 2 pixels
 				self.carrying.rect.x = self.rect.x
 				self.carrying.rect.y = self.rect.y
 				screen.blit(background, (0, 0)) #makes the background blit
@@ -109,8 +109,8 @@ class sortBot(pygame.sprite.Sprite): #calls sprite base class
 
 	def moveRight(self): #moves robot right
 		if(self.loaded == False):
-			for i in range(0,28): #moves for 140 pixels (one block yeah)
-				self.rect.x += 5 #right two pixels
+			for i in range(0,14): #moves for 140 pixels (one block yeah)
+				self.rect.x += 10 #right two pixels
 				screen.blit(background, (0, 0)) #blit the background
 				self.update() #updates the screen bro
 				for i in treasureList: #loops through the treasures, this is bad code
@@ -119,8 +119,8 @@ class sortBot(pygame.sprite.Sprite): #calls sprite base class
 				time.sleep(0.001) #GO TO SLEEP PLEASE 
 			self.location = self.location + 1 #change the location in array
 		elif(self.loaded == True):
-			for i in range(0,28): #moves 140 pixels
-				self.rect.x += 5 #left 2 pixels
+			for i in range(0,14): #moves 140 pixels
+				self.rect.x += 10 #left 2 pixels
 				self.carrying.rect.x = self.rect.x
 				self.carrying.rect.y = self.rect.y
 				screen.blit(background, (0, 0)) #makes the background blit
@@ -139,7 +139,7 @@ class sortBot(pygame.sprite.Sprite): #calls sprite base class
 	def moveUp(self): #moves the robot up to treasure yay
 		if(self.loaded == False):
 			while self.rect.y > 230: #move up, until you are under treasure
-				self.rect.y -= 5 #moves up 2 pixels
+				self.rect.y -= 10 #moves up 2 pixels
 				screen.blit(background, (0, 0)) #blit dat background
 				self.update() #update that robot
 				for i in treasureList: #the treasure list again
@@ -148,7 +148,7 @@ class sortBot(pygame.sprite.Sprite): #calls sprite base class
 				time.sleep(0.001) #sleeping
 		elif(self.loaded == True):#
 			while self.rect.y > 230:
-				self.rect.y -= 5 #moves up 2 pixels
+				self.rect.y -= 10 #moves up 2 pixels
 				self.carrying.rect.x = self.rect.x
 				self.carrying.rect.y = self.rect.y
 				screen.blit(background, (0, 0)) #blit dat background
@@ -162,7 +162,7 @@ class sortBot(pygame.sprite.Sprite): #calls sprite base class
 	def moveDown(self):
 		if(self.loaded == False):
 			while self.rect.y < 500:
-				self.rect.y += 5
+				self.rect.y += 10
 				screen.blit(background, (0,0))
 				self.update()
 				for i in treasureList:
@@ -171,7 +171,7 @@ class sortBot(pygame.sprite.Sprite): #calls sprite base class
 				time.sleep(0.001)
 		elif(self.loaded == True):
 			while self.rect.y < 500:
-				self.rect.y += 5
+				self.rect.y += 10
 				self.carrying.rect.x = self.rect.x
 				self.carrying.rect.y = self.rect.y
 				screen.blit(background, (0,0))
@@ -330,26 +330,21 @@ for x in range(0,1): #should be a while loop. but i want to test stuff first.
 
 	"""
 	PUT YOUR SORTING ALGORITH HERE BELOW!
+    """
 
-def bubbleSort(alist):
-    for passnum in range(len(alist)-1,0,-1):
-        for i in range(passnum):
-            if alist[i]>alist[i+1]:
-                temp = alist[i]
-                alist[i] = alist[i+1]
-                alist[i+1] = temp
+    
 
-alist = [5,3,2,1,4,0]
-bubbleSort(alist)
-print(alist)
-
+	for passnum in range(len(treasureList)-1,0,-1):
+		for i in range(passnum):
+			if treasureList[i] > treasureList[i + 1]:
+				theSortBot.swap(i, i + 1)
 
 	#PUT YOUR STUFF HERE GUYS
 	#USE theSortBot.swap(n,m)
 	#and run the file
 
 
-	theSortBot.swap(0,5)
+	
 
 
 	"""
