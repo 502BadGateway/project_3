@@ -170,5 +170,5 @@ def collectBot(city, x, y):
         screen.render()
     
 
-City = main(mapSelect)
+City, Sort = main(mapSelect)
 collectBot(City, 0, 02)
