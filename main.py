@@ -144,8 +144,11 @@ def main(mapSelect):
 					print "not on button"
 
 
-	displayScreen = display(False,670,600)
+	displayScreen = display(False,670,600)#creates a white display for buttons to be placed on
 
+	#places all the buttons
+     #                                        left corner
+	#items handed are as followed ---     name   x   y   file locations    size x&y
 	treasureButtonChest = treasureSelect("Chest",30,40,"ASSETS/chest.png",130,100)
 	displayScreen.addTreasureBtn(treasureButtonChest)
 	treasureButtonCoin = treasureSelect("Coin",190,40,"ASSETS/coin.png",130,100)
@@ -176,6 +179,7 @@ def main(mapSelect):
 	displayScreen.addTreasureBtn(treasureButtonTiara)
 	treasureButtonEmerald = treasureSelect("Emerald",350,460,"ASSETS/emerald.png",130,100)
 
+# this waits for the user to click on 5 different treasures
 	i = 0
 	while i < 5:
 		for event in pygame.event.get():
@@ -185,72 +189,97 @@ def main(mapSelect):
 				if  x>30 and x<160 and y>40 and y<140:
 					print "Chest Clicked"
 					i = i + 1
-					treasureList[i] = treasureButtonChest
+					treasureList[i] = treasureButtonChest.treasureName
 				elif x>190 and x<320 and y>40 and y<140:
 					print "Coin Clicked"
 					i = i + 1
-					treasureList[i] = treasureButtonCoin
+					treasureList[i] = treasureButtonCoin.treasureName
 				elif x>350 and x<480 and y>40 and y<140:
 					print "Crown Clicked"
 					i = i + 1
-					treasureList[i] = treasureButtonCrown
+					treasureList[i] = treasureButtonCrown.treasureName
 				elif x>510 and x<640 and y>40 and y<140:
 					print "Diamond Clicked"
 					i = i + 1
-					treasureList[i] = treasureButtonDiamond
+					treasureList[i] = treasureButtonDiamond.treasureName
 				elif x>30 and x<160 and y>180 and y<280:
 					print "Diamond Block Clicked"
 					i = i + 1
-					treasureList[i] = treasureButtonDiamondBlock
+					treasureList[i] = treasureButtonDiamondBlock.treasureName
 				elif x>190 and x<320 and y>180 and y<280:
 					print "Emerald Block Clicked"
 					i = i + 1
-					treasureList[i] = treasureButtonEmeraldBlock
+					treasureList[i] = treasureButtonEmeraldBlock.treasureName
 				elif x>350 and x<480 and y>180 and y<280:
 					print "Gold Bar Clicked"
 					i = i + 1
+					treasureList[i] = treasureButtonGoldBar.treasureName
 				elif x>510 and x<640 and y>180 and y<280:
 					print "Gold Block Clicked"
 					i = i + 1
+					treasureList[i] = treasureButtonGoldBlock.treasureName
 				elif x>30 and x<160 and y>320 and y<420:
 					print "Iron Clicked"
 					i = i + 1
+					treasureList[i] = treasureButtonIron.treasureName
 				elif x>190 and x<320 and y>320 and y<420:
 					print "Lapis"
 					i = i + 1
+					treasureList[i] = treasureButtonLapis.treasureName
 				elif x>350 and x<480 and y>320 and y<420:
 					print "Lapis Block Clicked"
 					i = i + 1
+					treasureList[i] = treasureButtonLapisBlock.treasureName
 				elif x>510 and x<640 and y>320 and y<420:
 					print "Ring Clicked"
 					i = i + 1
+					treasureList[i] = treasureButtonRing.treasureName
 				elif x>30 and x<160 and y>460 and y<560:
 					print "Sword Clicked"
 					i = i + 1 
+					treasureList[i] = treasureButtonSword.treasureName
 				elif x>190 and x<320 and y>460 and y<560:
 					print "Tiara Clicked"
 					i = i + 1
+					treasureList[i] = treasureButtonTiara.treasureName
 				elif x>350 and x<480 and y>460 and y<560:
 					print "Emerald Clicked"
 					i = i + 1 
+					treasureList[i] = treasureButtonEmerald.treasureName
 				else:
 					print "not on button" 				
 
 	backgroundImage = pygame.image.load("staticmapLondon.png")
 
-	displayScreen = display(backgroundImage,1280,960)
-
+	displayScreen = display(backgroundImage,1280,960)#loads the map selected as background for user to place treasure and traps on
+	
+#places the treasure
 	i = 0
+	treasureNum = 5 #this may need to be changed depending on what num represent which 
 	while i < 15:
 		for event in pygame.event.get():
 			if event.type == pygame.MOUSEBUTTONNDOWN:
-				if (array[x][y] == 1 or array[x][y] == 2)# this needs to be changed matches up for actual name of the array
-					x, y = event.pos
-					treasurePosListX[i] = x
+				x, y = event.pos
+				if (city.arena.ret_element_value(x,y) == 1 or city.arena.ret_element_value(x,y) == 2):
+					treasurePosListX[i] = x #puts location in 2 lists for reference later if needed
 					treasurePosListY[i] = y
+					city.arena.ret_element_value(x,y) = treasureNum #changes the number in the array from a road to the relevant treasure number the treasures will always be placed in the same order, the order they are in arrayNumberReference.txt
+					treasureNum = treasureNum + 1 #im want to reserve numbers 5 to 19 for treasures 
 					i=i+1
 				else:
 					print "Not on road"
+	
+#places the traps
+	j=0
+	while j < 5:
+		for event in pygame.event.get():
+			if event.type == pygame.MOUSEBUTTONNDOWN:
+				x, y = event.pos
+				if (city.arena.ret_element_value(x,y) == 1 or city.arena.ret_element_value(x,y) == 2):
+					trapPosListX[j] = x
+					trapPosListY[j] = y
+					ity.arena.ret_element_value(x,y) = 3 #might need to be changed, im assuming that 3 is traps
+
 	
 	#mapButtonLondon.cityText(None,20,28,12,"Please select your location",(10,10,10))
 

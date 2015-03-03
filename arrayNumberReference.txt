@@ -1,0 +1,23 @@
+This is the list of what I (Phil) have used to reverence various things in the array
+for reference: 
+
+5 = chest
+6 = coin
+7 = crown
+8 = diamond
+9 = diamond block
+10 = emerald
+11 = emerald block
+12 = goldbar
+13 = gold block
+14 = iron
+15 = lapis
+16 = lapis block
+17 = ring
+18 = sword
+19 = tiara
+
+0 = off road
+1 = road
+2 = road
+3 = trap
