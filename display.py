@@ -46,9 +46,12 @@ class display:      #Class which handles all the display functionality.
         cityName = pygame.image.load(btn.imageLocation)
         cityName = pygame.transform.scale(cityName,(btn.buttonHeight,btn.buttonWidth))
         self.display.blit(cityName,(btn.buttonX,btn.buttonY))
-
-
         
+    def addSortSelectBtn(self, btn):
+        sortName = pygame.image.load(btn.imageLocation)
+        sortName = pygame.transform.scale(sortName,(btn.buttonHeight,btn.buttonWidth))
+        self.display.blit(sortName,(btn.buttonX,btn.buttonY))
+
     def pictureDisplay(self,screenHeight,screenWidth,backgroundImage):
         self.display = pygame.display.set_mode(screenHeight,screenWidth)
         self.background = pygame.image.load(backgroundImage)
