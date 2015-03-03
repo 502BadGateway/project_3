@@ -19,9 +19,6 @@ class arena:        #Class for the arena
             self.__height = len(self.__arena)
             self.__width = len(self.__arena[0])
             self.__image = "ASSETS/staticmap"+str(city)+".png"
-            __tmp_image = Image.open(self.__image) #get a copy of the image
-            self.__full_image = __tmp_image.convert("RGB") #Convert image to RGB colourspace (Given image from pygeo is in indexed Colour)
-            self.__full_image.load() #Reload image to make sure that i saved properly.
             return
         if dummy == True:
             import PIL #import python image lib
