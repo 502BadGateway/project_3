@@ -30,6 +30,7 @@ def selectSort(): #defines function
 	sortButtons = []#created empty list
 	sortButtons.append (sortSelect("bubbleSort",30,40,"ASSETS/bubbleSort.png",130,100)) #creates a instance of a class and puts it into the end of the sort buttons list
 	sortButtons.append (sortSelect("mergeSort",190,40,"ASSETS/mergeSort.png",130,100))
+	sortButtons.append (sortSelect("heapSort",350,40,"ASSETS/mergeSort.png",130,100))
 	
 	for btns in sortButtons: #this states for every button in that list it will...
 	    sortScreen.addSortSelectBtn(btns) #...display that button
