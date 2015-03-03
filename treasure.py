@@ -1,3 +1,4 @@
+from entity import entity
 class treasure(entity):
 
     def __init__(self, x, y, points, name, val, image):
