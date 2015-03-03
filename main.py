@@ -32,7 +32,7 @@ def selectSort(): #defines function
 	sortButtons.append (sortSelect("mergeSort",190,40,"ASSETS/mergeSort.png",130,100))
 	
 	for btns in sortButtons: #this states for every button in that list it will...
-	    displayScreen.addSortSelectBtn(btns) #...display that button
+	    sortScreen.addSortSelectBtn(btns) #...display that button
 	    
 	sortScreen.render()#actually draws the button
 	
