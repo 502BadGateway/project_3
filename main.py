@@ -18,6 +18,7 @@ from mapSelection import mapSelect
 from city import city
 from collectorBot import collectorBot
 from display import display
+from treasure import treasure
 from sortSelection import sortSelect #from sort selection file. import sort select class
 
 #MODULES FOR PART 1
@@ -283,7 +284,9 @@ def main(mapSelect):
 	
 	#mapButtonLondon.cityText(None,20,28,12,"Please select your location",(10,10,10))
 
-def collectBot(city, x, y):
+def collectBot(city, x, y, wishlist):
+    
+
     #Here we will create a new map selection instance.
     #Then we will retrive the data from that to use later.
     print city.ret_image_path()
@@ -297,10 +300,18 @@ def collectBot(city, x, y):
 	#Passes the image of the city as the background. Requires an instance of city to have been created.
     screen.setCollectorBot(cBot.returnLocationX(), cBot.returnLocationY(), cBot.returnImage()) #Set the location for the collector bot. Requires a location of a new bot to have been specified.
 
+
+
     while True:
+        for item in wishlist:
+            textString = str(item.getName())+"    Score"+str(item.returnPoints())+"    Collected: "+str(item.returnCollected())
+            screen.CreateText(textString, (0,0,0,0), 40)
+
         screen.setCollectorBot(cBot.returnLocationX(), cBot.returnLocationY(), cBot.returnImage()) #Set the location for the collector bot. Requires a location of a new bot to have been specified.
         screen.render()
-    
+
+wishlist = [10]
+wishlist[0] = treasure(1,1,10,"TREASURE", 6, "ASSETS/car.png")
 
 City, Sort = main(mapSelect)
-collectBot(City, 0, 02)
+collectBot(City, 0, 02, wishlist)
