@@ -48,6 +48,18 @@ def selectSort(): #defines function
 				if  x>30 and x<160 and y>40 and y<140: #check to see if we clicked on the button
 					print "Bubble Sort Selectd"
                                         return "BubbleSort" #....then we return the sort, in this case bubble sort
+                        elif event.type == pygame.MOUSEBUTTONDOWN: #if that doesnt ^ then check to see if any of them is a mouse click
+				x, y = event.pos #if this is ^ true then we save location of mouse click
+				#print "click",x,y
+				if  x>190 and x<320 and y>40 and y<140: #check to see if we clicked on the button
+					print "Merge Sort Selectd"
+                                        return "MergeSort" #....then we return the sort, in this case Merge sort
+                         elif event.type == pygame.MOUSEBUTTONDOWN: #if that doesnt ^ then check to see if any of them is a mouse click
+				x, y = event.pos #if this is ^ true then we save location of mouse click
+				#print "click",x,y
+				if  x>350 and x<480 and y>40 and y<140: #check to see if we clicked on the button
+					print "Heap Sort Selectd"
+                                        return "HeapSort" #....then we return the sort, in this case Heap sort               
 					
 	
 def main(mapSelect):
@@ -98,13 +110,15 @@ def main(mapSelect):
 				elif x>190 and x<320 and y>40 and y<140:
 					print "Paris Clicked"
                                         City = city("Paris", [])
-                                        return City
+                                        Sort = selectSort()
+                                        return City, Sort
 					#mapSelected = "ASSETS\staticmapParis.png"
 					#treasurePos(mapSelected)
 				elif x>350 and x<480 and y>40 and y<140:
 					print "New York Clicked"
                                         City = city("NewYork",[]) 
-                                        return City
+                                        Sort = selectSort()
+                                        return City, Sort
 					#self.mapSelected = "ASSETS\staticmapNewYork.png"
 					#treasurePos(mapSelected)
 				elif x>30 and x<160 and y>180 and y<280:
