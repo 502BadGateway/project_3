@@ -40,18 +40,17 @@ def main(mapSelect):
 
 	displayScreen = display(510,320, False)
 
-	mapButtonLondon = mapSelect("London",30,40,"ASSETS/London.png",130,100)
-	displayScreen.addMapSelectBtn(mapButtonLondon)
-	mapButtonParis = mapSelect("Paris",190,40,"ASSETS/Paris.png",130,100)
-	displayScreen.addMapSelectBtn(mapButtonParis)
-	mapButtonNewYork = mapSelect("New York",350,40,"ASSETS/New York.png",130,100)
-	displayScreen.addMapSelectBtn(mapButtonNewYork)
-	mapButtonTokyo = mapSelect("Tokyo",30,180,"ASSETS/Tokyo.png",130,100)
-	displayScreen.addMapSelectBtn(mapButtonTokyo)
-	mapButtonJohannesburg = mapSelect("Johannesburg",190,180,"ASSETS/Johannesburg.png",130,100)
-	displayScreen.addMapSelectBtn(mapButtonJohannesburg)
-	mapButtonBerlin = mapSelect("Berlin",350,180,"ASSETS/Berlin.png",130,100)
-	displayScreen.addMapSelectBtn(mapButtonBerlin)
+        buttons = []
+
+        buttons.append(mapSelect("London",30,40,"ASSETS/London.png",130,100))
+	buttons.append(mapSelect("Paris",190,40,"ASSETS/Paris.png",130,100))
+	buttons.append(mapSelect("New York",350,40,"ASSETS/New York.png",130,100))
+	buttons.append(mapSelect("Tokyo",30,180,"ASSETS/Tokyo.png",130,100))
+	buttons.append(mapSelect("Johannesburg",190,180,"ASSETS/Johannesburg.png",130,100))
+	buttons.append(mapSelect("Berlin",350,180,"ASSETS/Berlin.png",130,100))
+
+        for btns in buttons:
+	    displayScreen.addMapSelectBtn(btns)
 
 	displayScreen.render()
 
