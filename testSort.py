@@ -268,24 +268,31 @@ collectorBot inventory will be 7 treasures.
 
 treasure0 = treasure()  #ALL THIS ISNT NEEDED I DONT THINK
 treasure0.image = pygame.image.load('ASSETS/treasure-0.png')
+treasure0.points = 0
 
 treasure1 = treasure() #create object treasure2
 treasure1.image = pygame.image.load('ASSETS/treasure-1.png')
+treasure1.points = 1
 
 treasure2 = treasure() #create object treasure3
 treasure2.image = pygame.image.load('ASSETS/treasure-2.png')
+treasure2.points = 2
 
 treasure3 = treasure() #create object treasure4
 treasure3.image = pygame.image.load('ASSETS/treasure-3.png')
+treasure3.points = 3
 
 treasure4 = treasure() #create object treasure5
 treasure4.image = pygame.image.load('ASSETS/treasure-4.png')
+treasure4.points = 4
 
 treasure5 = treasure() #ok so you get the point, but i want the lines on the github
 treasure5.image = pygame.image.load('ASSETS/treasure-5.png')
+treasure5.points = 5
 
 treasure6 = treasure() #I mean, just give me my degree already
 treasure6.image = pygame.image.load('ASSETS/treasure-6.png')
+treasure6.points = 6
 
 treasureList = [treasure6, treasure2, treasure1, treasure3, treasure4, treasure0, treasure5]
 
@@ -332,11 +339,11 @@ for x in range(0,1): #should be a while loop. but i want to test stuff first.
 	PUT YOUR SORTING ALGORITH HERE BELOW!
     """
 
-    
+
 
 	for passnum in range(len(treasureList)-1,0,-1):
 		for i in range(passnum):
-			if treasureList[i] > treasureList[i + 1]:
+			if treasureList[i].points > treasureList[i + 1].points:
 				theSortBot.swap(i, i + 1)
 
 	#PUT YOUR STUFF HERE GUYS
