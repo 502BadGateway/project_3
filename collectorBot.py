@@ -23,6 +23,7 @@ class collectorBot(Robot):      #Class for the collector robot. Inherits from th
                 if treasure.getArenaValue in self.wishlist: #If we are, then see if they're in our wishlist
                     self.__inventory.append(treasure)       #If so then add them to the inventory
                     self.__points += 1                      #And add to the score
+                    treasure.setCollected(True)
                 else:
                     return (false, treasure)    #If we're on top of a treasure, but its not in the wish list. Then return false and the treasure so we can display the relevent information.
 
