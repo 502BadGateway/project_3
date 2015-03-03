@@ -8,9 +8,18 @@ class treasure(entity):
         self.__y = y
 
         self.__points = points 
+
+        self.__collected = False
         
 
     def returnPoints(self):
         return self.__points
-    
+
+    def returnCollected(self):
+        return self.__collected
+   
+    def setCollected(self, val):
+        self.__collected = val 
+        return
+
 
