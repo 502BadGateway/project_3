@@ -13,9 +13,6 @@ class arena:        #Class for the arena
     def __init__(self, city, treasureList, image="", dummy=True, save_list=False):
 
         
-        import PIL #import python image lib
-        import Image #Apparently Image is a seperate lib
-
         if dummy != False:      #If we need to specify dummy, pre-prepared arena data.
             import test_lists
             self.__arena = test_lists.cities[city]
@@ -26,6 +23,10 @@ class arena:        #Class for the arena
             self.__full_image = __tmp_image.convert("RGB") #Convert image to RGB colourspace (Given image from pygeo is in indexed Colour)
             self.__full_image.load() #Reload image to make sure that i saved properly.
             return
+        if dummy == True:
+            import PIL #import python image lib
+            import Image #Apparently Image is a seperate lib
+
         
 #-------Data-------------------------------------------------------------------------------        
         if save_list == True:
