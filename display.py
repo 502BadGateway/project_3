@@ -92,10 +92,12 @@ class display:      #Class which handles all the display functionality.
         self.state = True
         return
 
-    def CreateText(self, landInfo, positionVar):
+    def CreateText(self, landInfo, positionVar, padding):
+
+        if padding != 0:
+            positionVar = (positionVar[0]+40, positionVar[1]+40, positionVar[2]+40, positionVar[3]+40)
 
         self.state = False
-
         textFont = pygame.font.Font(None,15)
         infoText = textFont.render(str(landInfo),1,(10,10,10))
         textPos = pygame.Rect(positionVar) #positionVar needs to be given to this method, it should be in the format "600,10,0,0" and "600,30,0,0"
