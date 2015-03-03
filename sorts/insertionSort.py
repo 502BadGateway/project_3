@@ -10,6 +10,6 @@ def insertionSort(aList):
 #currentvalue = aList[0]
 #aList[0] = aList[5]
 #aList[5] = currentvalue
-aList = [0, 1, 2, 3, 4, 5, 6]
+aList = [0, 1, 2, 3, 4, 5, 6, 7]
 insertionSort(aList)
 print(aList)
