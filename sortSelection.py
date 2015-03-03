@@ -1,5 +1,5 @@
 import pygame
-class mapSelect():
+class sortSelect():
 	def __init__(self,sortName,buttonX,buttonY,imageLocation,buttonHeight,buttonWidth):
 		self.sortName = sortName
 		self.buttonX = buttonX
