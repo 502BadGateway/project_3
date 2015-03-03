@@ -30,7 +30,7 @@ def selectSort(): #defines function
 	sortButtons = []#created empty list
 	sortButtons.append (sortSelect("bubbleSort",30,40,"ASSETS/bubbleSort.png",130,100)) #creates a instance of a class and puts it into the end of the sort buttons list
 	sortButtons.append (sortSelect("mergeSort",190,40,"ASSETS/mergeSort.png",130,100))
-	sortButtons.append (sortSelect("heapSort",350,40,"ASSETS/mergeSort.png",130,100))
+	sortButtons.append (sortSelect("insertionSort",350,40,"ASSETS/insertionSort.png",130,100))
 	
 	for btns in sortButtons: #this states for every button in that list it will...
 	    sortScreen.addSortSelectBtn(btns) #...display that button
@@ -59,8 +59,8 @@ def selectSort(): #defines function
 				x, y = event.pos #if this is ^ true then we save location of mouse click
 				#print "click",x,y
 				if  x>350 and x<480 and y>40 and y<140: #check to see if we clicked on the button
-					print "Heap Sort Selectd"
-                                        return "HeapSort" #....then we return the sort, in this case Heap sort               
+					print "Insertion Sort Selectd"
+                                        return "InsertionSort" #....then we return the sort, in this case Heap sort               
 					
 	
 def main(mapSelect):
