@@ -25,7 +25,7 @@ import wikipedia #displays  treasure information
 #MODULES FOR PART 2
 import random #needed to choose trap
 
-def sortSelect (): #defines function
+def selectSort(): #defines function
 	sortScreen= display(510,320,False) #creates display
 	sortButtons = []#created empty list
 	sortButtons.append (sortSelect("bubbleSort",30,40,"ASSETS/bubbleSort.png",130,100)) #creates a instance of a class and puts it into the end of the sort buttons list
@@ -91,7 +91,7 @@ def main(mapSelect):
 				if  x>30 and x<160 and y>40 and y<140:
 					print "London Clicked"
                                         City = city("London",[])
-                                        Sort = sortSelect ()
+                                        Sort = selectSort()
                                         return City,Sort 
 					#self.mapSelected = "ASSETS\staticmapLondon.png" # what will be referenced later to know what map to use.
 					#treasurePos(mapSelected)
