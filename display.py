@@ -49,7 +49,6 @@ class display:      #Class which handles all the display functionality.
         
     def addSortSelectBtn(self, btn):
         sortName = pygame.image.load(btn.imageLocation)
-        sortName = pygame.transform.scale(sortName,(btn.buttonHeight,btn.buttonWidth))
         self.display.blit(sortName,(btn.buttonX,btn.buttonY))
 
     def pictureDisplay(self,screenHeight,screenWidth,backgroundImage):
