@@ -25,7 +25,17 @@ import wikipedia #displays  treasure information
 #MODULES FOR PART 2
 import random #needed to choose trap
 
-
+def sortSelect (): #defines function
+	sortScreen= display(510,320,False) #creates display
+	sortButtons = []#created empty list
+	sortButtons.append (sortSelect("bubbleSort",30,40,"ASSETS/bubbleSort.png"130,100)) #creates a instance of a class and puts it into the end of the sort buttons list
+	sortButtons.append (sortSelect("mergeSort",190,40,"ASSETS/mergeSort.png"130,100))
+	
+	for btns in sortButtons: #this states for every button in that list it will...
+	    displayScreen.addSortSelectBtn(btns) #...display that button
+	    
+	sortScreen.render()#actually draws the button
+	
 def main(mapSelect):
 
 	pygame.init() #initialise pygame
