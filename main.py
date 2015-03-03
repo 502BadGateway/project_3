@@ -18,6 +18,7 @@ from mapSelection import mapSelect
 from city import city
 from collectorBot import collectorBot
 from display import display
+from sortSelect import sortSelect
 
 #MODULES FOR PART 1
 import wikipedia #displays  treasure information
