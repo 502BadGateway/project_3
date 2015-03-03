@@ -55,7 +55,7 @@ def selectSort(): #defines function
 				if  x>190 and x<320 and y>40 and y<140: #check to see if we clicked on the button
 					print "Merge Sort Selectd"
                                         return "MergeSort" #....then we return the sort, in this case Merge sort
-                         elif event.type == pygame.MOUSEBUTTONDOWN: #if that doesnt ^ then check to see if any of them is a mouse click
+                        elif event.type == pygame.MOUSEBUTTONDOWN: #if that doesnt ^ then check to see if any of them is a mouse click
 				x, y = event.pos #if this is ^ true then we save location of mouse click
 				#print "click",x,y
 				if  x>350 and x<480 and y>40 and y<140: #check to see if we clicked on the button
