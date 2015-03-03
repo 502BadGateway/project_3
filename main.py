@@ -263,7 +263,7 @@ def main(mapSelect):
 				if (city.arena.ret_element_value(x,y) == 1 or city.arena.ret_element_value(x,y) == 2):
 					treasurePosListX[i] = x #puts location in 2 lists for reference later if needed
 					treasurePosListY[i] = y
-					city.arena.ret_element_value(x,y) = treasureNum #changes the number in the array from a road to the relevant treasure number the treasures will always be placed in the same order, the order they are in arrayNumberReference.txt
+					treasureNum = city.arena.ret_element_value(x,y)  #changes the number in the array from a road to the relevant treasure number the treasures will always be placed in the same order, the order they are in arrayNumberReference.txt
 					treasureNum = treasureNum + 1 #im want to reserve numbers 5 to 19 for treasures 
 					i=i+1
 				else:
@@ -278,7 +278,7 @@ def main(mapSelect):
 				if (city.arena.ret_element_value(x,y) == 1 or city.arena.ret_element_value(x,y) == 2):
 					trapPosListX[j] = x
 					trapPosListY[j] = y
-					ity.arena.ret_element_value(x,y) = 3 #might need to be changed, im assuming that 3 is traps
+					city.arena.put(x,y, 3) #might need to be changed, im assuming that 3 is traps
 
 	
 	#mapButtonLondon.cityText(None,20,28,12,"Please select your location",(10,10,10))
