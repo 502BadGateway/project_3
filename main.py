@@ -36,6 +36,20 @@ def sortSelect (): #defines function
 	    
 	sortScreen.render()#actually draws the button
 	
+	while 1: #loops forever
+		for event in pygame.event.get(): #will look at all the event that pygame has stored
+			if event.type == pygame.QUIT: #tries to find if any of them are quit
+				sys.exit() #then it would quit
+
+			#detects which button the user has clicked on
+			elif event.type == pygame.MOUSEBUTTONDOWN: #if that doesnt ^ then check to see if any of them is a mouse click
+				x, y = event.pos #if this is ^ true then we save location of mouse click
+				#print "click",x,y
+				if  x>30 and x<160 and y>40 and y<140: #check to see if we clicked on the button
+					print "Bubble Sort Selectd"
+                                        return "BubbleSort" #....then we return the sort, in this case bubble sort
+					
+	
 def main(mapSelect):
 
 	pygame.init() #initialise pygame
@@ -77,7 +91,8 @@ def main(mapSelect):
 				if  x>30 and x<160 and y>40 and y<140:
 					print "London Clicked"
                                         City = city("London",[])
-                                        return City
+                                        Sort = sortSelect ()
+                                        return City,Sort 
 					#self.mapSelected = "ASSETS\staticmapLondon.png" # what will be referenced later to know what map to use.
 					#treasurePos(mapSelected)
 				elif x>190 and x<320 and y>40 and y<140:
