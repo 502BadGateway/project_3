@@ -95,7 +95,7 @@ def selectMap(mapSelect):
 					City = city("London",[])
 					Sort = selectSort()
 					Treasure = selectTreasure()
-					TreasureTrap = selectTreasureTrap()
+					TreasureTrap = selectTreasureTrap(City)
 					return City, Sort, Treasure, TreasureTrap 
 					#self.mapSelected = "ASSETS\staticmapLondon.png" # what will be referenced later to know what map to use.
 					#treasurePos(mapSelected)
@@ -104,7 +104,7 @@ def selectMap(mapSelect):
 					City = city("Paris", [])
 					Sort = selectSort()
 					Treasure = selectTreasure()
-					TreasureTrap = selectTreasureTrap()
+					TreasureTrap = selectTreasureTrap(City)
 					return City, Sort, Treasure, TreasureTrap
 					#mapSelected = "ASSETS\staticmapParis.png"
 					#treasurePos(mapSelected)
@@ -113,7 +113,7 @@ def selectMap(mapSelect):
 					City = city("NewYork",[]) 
 					Sort = selectSort()
 					Treasure = selectTreasure()
-					TreasureTrap = selectTreasureTrap()
+					TreasureTrap = selectTreasureTrap(City)
 					return City, Sort, Treasure, TreasureTrap
 					#self.mapSelected = "ASSETS\staticmapNewYork.png"
 					#treasurePos(mapSelected)
@@ -122,7 +122,7 @@ def selectMap(mapSelect):
 					City = city("Tokyo",[])
 					Sort = selectSort
 					Treasure = selectTreasure()
-					TreasureTrap = selectTreasureTrap()
+					TreasureTrap = selectTreasureTrap(City)
 					return City, Sort, Treasure, TreasureTrap
 					#self.mapSelected = "ASSETS\staticmapTokyo.png"
 					#treasurePos(mapSelected)
@@ -131,7 +131,7 @@ def selectMap(mapSelect):
 					City = city("Johannesburg",[])
 					Sort = selectSort()
 					Treasure = selectTreasure()
-					TreasureTrap = selectTreasureTrap()
+					TreasureTrap = selectTreasureTrap(City)
 					return City, Sort, Treasure, TreasureTrap
 					#self.mapSelected = "ASSETS\staticmapJohannesburg.png"
 					#treasurePos(mapSelected)
@@ -140,7 +140,7 @@ def selectMap(mapSelect):
 					City = city("Berlin",[])
 					Sort = selectSort()
 					Treasure = selectTreasure()
-					TreasureTrap = selectTreasureTrap()
+					TreasureTrap = selectTreasureTrap(City)
 					return City, Sort, Treasure, TreasureTrap
 					#self.mapSelected = "ASSETS\staticmapBerlin.png"
 					#treasurePos(mapSelected)
@@ -253,37 +253,46 @@ def selectTreasure():
         return treasureList
 	
 
-def selectTreasureTrap():
-	backgroundImage = "ASSETS/staticmapLondon.png"
+def selectTreasureTrap(city):
+        city.arena.show_arena()
+	backgroundImage = city.ret_image_path()
 
 	displayScreen = display(backgroundImage,1280,960)#loads the map selected as background for user to place treasure and traps on
 
 #places the treasure
 	i = 0
-	treasureNum = 5 #this may need to be changed depending on what num represent which 
-	while i < 15:
+	treasureNum = 6 #this may need to be changed depending on what num represent which 
+	while i < 5:
+                displayScreen.render()
 		for event in pygame.event.get():
-			if event.type == pygame.MOUSEBUTTONNDOWN:
+			if event.type == pygame.MOUSEBUTTONDOWN:
 				x, y = event.pos
-				if (city.arena.ret_element_value(x,y) == 1 or city.arena.ret_element_value(x,y) == 2):
-					treasurePosListX[i] = x #puts location in 2 lists for reference later if needed
-					treasurePosListY[i] = y
-					city.arena.put(x,y, treasureNum)  #changes the number in the array from a road to the relevant treasure number the treasures will always be placed in the same order, the order they are in arrayNumberReference.txt
+                                print x,y                         
+				if (city.arena.ret_element_value(y/3, x/3) == 1 or city.arena.ret_element_value(y/3, x/3) == 2):
+#					treasurePosListX[i] = x #puts location in 2 lists for reference later if needed
+#					treasurePosListY[i] = y
+					city.arena.put(y/3,x/3, treasureNum)  #changes the number in the array from a road to the relevant treasure number the treasures will always be placed in the same order, the order they are in arrayNumberReference.txt
 					treasureNum = treasureNum + 1 #im want to reserve numbers 5 to 19 for treasures 
 					i=i+1
 				else:
 					print "Not on road"
+        print "done placing treasures"
 	
 #places the traps
 	j=0
 	while j < 3:
+                print "placing traps"
 		for event in pygame.event.get():
-			if event.type == pygame.MOUSEBUTTONNDOWN:
+			if event.type == pygame.MOUSEBUTTONDOWN:
 				x, y = event.pos
-				if (city.arena.ret_element_value(x,y) == 1 or city.arena.ret_element_value(x,y) == 2):
-					trapPosListX[j] = x
-					trapPosListY[j] = y
-					city.arena.put(x,y, 3) #might need to be changed, im assuming that 3 is traps
+                                print x,y                         
+				if (city.arena.ret_element_value(y/3, x/3) == 1 or city.arena.ret_element_value(y/3,x/3) == 2):
+#					trapPosListX[j] = x
+#					trapPosListY[j] = y
+					city.arena.put(y/3,x/3, 3) #might need to be changed, im assuming that 3 is traps
+                                else:
+                                    print "Not on a road"
+        print "Done placing traps"
 
 	
 	#mapButtonLondon.cityText(None,20,28,12,"Please select your location",(10,10,10))
@@ -361,6 +370,7 @@ def collectBot(city, robots, wishlist, Treasure):
 
 
 City, Sort, Treasure, TreasureTrap = selectMap(mapSelect)
+City.arena.show_arena()
 robots = []
 robots = findRobotLocation(City.arena, "Barry", [], [], Treasure)
 collectBot(City, robots, Treasure, Treasure)
