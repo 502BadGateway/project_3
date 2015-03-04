@@ -155,7 +155,7 @@ def selectTreasure():
 	treasureButton = []
 
 	 #                                        left corner
-	#items handed are as followed ---     name   x   y   file locations    size x&y
+	#items handed are as followed ---     name   x   y   file locations   size x&y
 	treasureButton.append(treasureSelect("Chest",30,40,"ASSETS/chest.png",130,100))
 	treasureButton.append(treasureSelect("Coin",190,40,"ASSETS/coins.png",130,100))
 	treasureButton.append(treasureSelect("Crown",350,40,"ASSETS/crown.png",130,100))
@@ -174,13 +174,17 @@ def selectTreasure():
 
 	for btn in treasureButton:
 		displayScreen.addTreasureBtn(btn)
+
+	displayScreen.render
 # this waits for the user to click on 5 different treasures
 	i = 0
-	while i < 5:
+	while i < 10:
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT:
 				sys.exit()
-			elif event.type == pygame.MOUSEBUTTONNDOWN:
+
+			elif event.type == pygame.MOUSEBUTTONDOWN:
+				x, y =event.pos
 				if  x>30 and x<160 and y>40 and y<140:
 					print "Chest Clicked"
 					i = i + 1
@@ -246,7 +250,7 @@ def selectTreasure():
 
 	backgroundImage = pygame.image.load("staticmapLondon.png")
 
-	displayScreen = display(backgroundImage,1280,960)#loads the map selected as background for user to place treasure and traps on
+	#displayScreen = display(backgroundImage,1280,960)#loads the map selected as background for user to place treasure and traps on
 
 
 def selectTreasureTrap():
