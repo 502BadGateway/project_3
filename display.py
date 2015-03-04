@@ -47,7 +47,7 @@ class display:      #Class which handles all the display functionality.
         cityName = pygame.transform.scale(cityName,(btn.buttonHeight,btn.buttonWidth))
         self.display.blit(cityName,(btn.buttonX,btn.buttonY))
 
-    def addTreasureBtn(self):
+    def addTreasureBtn(self, btn):
         treasureName = pygame.image.load(btn.imageLocation)
         treasureName = pygame.transform.scale(treasureName,(btn.buttonHeight,btn.buttonWidth))
         self.display.blit(treasureName,(btn.buttonX,btn.buttonY))

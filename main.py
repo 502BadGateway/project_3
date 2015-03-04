@@ -20,7 +20,7 @@ from collectorBot import collectorBot
 from display import display
 from treasure import treasure
 from sortSelection import sortSelect #from sort selection file. import sort select class
-
+from treasureSelectClass import treasureSelect
 #MODULES FOR PART 1
 import wikipedia #displays  treasure information
 #MODULES FOR PART 2
@@ -61,8 +61,9 @@ def selectSort(): #defines function
 				#print "click",x,y
 				if  x>350 and x<480 and y>40 and y<140: #check to see if we clicked on the button
 					print "Insertion Sort Selected"
-					return "InsertionSort" #....then we return the sort, in this case Heap sort               
-					
+					return "InsertionSort" #....then we return the sort, in this case Heap sort    
+
+
 def selectMap(mapSelect):
 	displayScreen = display(False,510,320)
 
@@ -70,7 +71,7 @@ def selectMap(mapSelect):
 
 	buttons.append(mapSelect("London",30,40,"ASSETS/London.png",130,100))
 	buttons.append(mapSelect("Paris",190,40,"ASSETS/Paris.png",130,100))
-	buttons.append(mapSelect("New York",350,40,"ASSETS/New York.png",130,100))
+	buttons.append(mapSelect("New York",350,40,"ASSETS/NewYork.png",130,100))
 	buttons.append(mapSelect("Tokyo",30,180,"ASSETS/Tokyo.png",130,100))
 	buttons.append(mapSelect("Johannesburg",190,180,"ASSETS/Johannesburg.png",130,100))
 	buttons.append(mapSelect("Berlin",350,180,"ASSETS/Berlin.png",130,100))
@@ -156,10 +157,10 @@ def selectTreasure():
 	 #                                        left corner
 	#items handed are as followed ---     name   x   y   file locations    size x&y
 	treasureButton.append(treasureSelect("Chest",30,40,"ASSETS/chest.png",130,100))
-	treasureButton.append(treasureSelect("Coin",190,40,"ASSETS/coin.png",130,100))
+	treasureButton.append(treasureSelect("Coin",190,40,"ASSETS/coins.png",130,100))
 	treasureButton.append(treasureSelect("Crown",350,40,"ASSETS/crown.png",130,100))
 	treasureButton.append(treasureSelect("Diamond",510,40,"ASSETS/diamond.png",130,100))
-	treasureButton.append(treasureSelect("DiamondBlock",30,180,"ASSETS/diamondBlock",130,100))
+	treasureButton.append(treasureSelect("DiamondBlock",30,180,"ASSETS/diamondBlock.png",130,100))
 	treasureButton.append(treasureSelect("EmeraldBlock",190,180,"ASSETS/emeraldBlock.png",130,100))
 	treasureButton.append(treasureSelect("GoldBar",350,180,"ASSETS/goldBar.png",130,100))
 	treasureButton.append(treasureSelect("GoldBlock",510,180,"ASSETS/goldBlock.png",130,100))
