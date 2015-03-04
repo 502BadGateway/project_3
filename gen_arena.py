@@ -21,13 +21,16 @@ class arena:        #Class for the arena
             self.__image = "ASSETS/staticmap"+str(city)+".png"
             return
         if dummy == True:
-            import PIL #import python image lib
             import Image #Apparently Image is a seperate lib
+            self.__image = "ASSETS/staticmap"+str(city)+".png"
+            
 
         
 #-------Data-------------------------------------------------------------------------------        
         if save_list == True:
             self.__image = image 
+            import PIL #import python image lib
+            import Image
         else:
             image = str(city)+".png"
 
@@ -41,8 +44,8 @@ class arena:        #Class for the arena
         self.__height = 0
         self.__width = 0
         
-        self.color_percentage = 5   #The percentage of color that must be in a tile for it to be counted as a road or not Higher means the roads must be bigger to register
-        self.tile_size        = 5   #The size of individual tiles. 
+        self.color_percentage = 2   #The percentage of color that must be in a tile for it to be counted as a road or not Higher means the roads must be bigger to register
+        self.tile_size        = 3   #The size of individual tiles. 
 
         self.__treasures = []        #List of treasure objects placed on the arena
 #------------------------------------------------------------------------------------------
