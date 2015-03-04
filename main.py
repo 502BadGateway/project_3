@@ -254,7 +254,7 @@ def selectTreasure():
 	
 
 def selectTreasureTrap():
-	backgroundImage = pygame.image.load("ASSETS/staticmapLondon.png")
+	backgroundImage = "ASSETS/staticmapLondon.png"
 
 	displayScreen = display(backgroundImage,1280,960)#loads the map selected as background for user to place treasure and traps on
 
@@ -334,6 +334,7 @@ def collectBot(city, robots, wishlist, Treasure):
 
 	#Here we will create a new map selection instance.
 	#Then we will retrive the data from that to use later.
+        print "PATH"
 	print city.ret_image_path()
 
 	screen = display(city.ret_image_path(),1280, 960)
