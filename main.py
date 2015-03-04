@@ -251,7 +251,7 @@ def selectTreasure():
 	
 
 def selectTreasureTrap():
-	backgroundImage = pygame.image.load("staticmapLondon.png")
+	backgroundImage = pygame.image.load("ASSETS/staticmapLondon.png")
 
 	displayScreen = display(backgroundImage,1280,960)#loads the map selected as background for user to place treasure and traps on
 
