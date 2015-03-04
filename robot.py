@@ -11,21 +11,17 @@ class Robot:
 
 
     def moveUp(self, arena): #Change the location of the robot to make it move up
-        self.locationY -= 1
-        arena.put(self.locationX, self.locationY-1)
-        self.check()
-    def moveDown(self):
-        self.locationY += 1
-        arena.put(self.locationX, self.locationY+1)
-        self.check()
-    def moveLeft(self):
-        self.locationX += 1
-        arena.put(self.locationX-1, self.locationY)
-        self.check()
-    def moveRight(self):
-        self.locationX += 1
-        arena.put(self.locationX+1, self.locationY)
-        self.check()
+        self.__locationY -= 1
+        arena.put(self.__locationX, self.__locationY-1, 5)
+    def moveDown(self, arena):
+        self.__locationY += 1
+        arena.put(self.__locationX, self.__locationY+1, 5)
+    def moveLeft(self, arena):
+        self.__locationX += 1
+        arena.put(self.__locationX-1, self.__locationY,5)
+    def moveRight(self, arena):
+        self.__locationX += 1
+        arena.put(self.__locationX+1, self.__locationY,5)
 
     def returnLocationX(self):  #Return the X location of the bot
         return self.__locationX
