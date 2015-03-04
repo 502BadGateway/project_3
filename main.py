@@ -154,23 +154,24 @@ def selectTreasure():
 	#places all the buttons
 	treasureButton = []
 
+        treasureList = [] #List holding all the treasures
 	 #                                        left corner
 	#items handed are as followed ---     name   x   y   file locations   size x&y
-	treasureButton.append(treasureSelect("Chest",30,40,"ASSETS/chest.png",130,100))
-	treasureButton.append(treasureSelect("Coin",190,40,"ASSETS/coins.png",130,100))
-	treasureButton.append(treasureSelect("Crown",350,40,"ASSETS/crown.png",130,100))
-	treasureButton.append(treasureSelect("Diamond",510,40,"ASSETS/diamond.png",130,100))
-	treasureButton.append(treasureSelect("DiamondBlock",30,180,"ASSETS/diamondBlock.png",130,100))
-	treasureButton.append(treasureSelect("EmeraldBlock",190,180,"ASSETS/emeraldBlock.png",130,100))
-	treasureButton.append(treasureSelect("GoldBar",350,180,"ASSETS/goldBar.png",130,100))
-	treasureButton.append(treasureSelect("GoldBlock",510,180,"ASSETS/goldBlock.png",130,100))
-	treasureButton.append(treasureSelect("Iron",30,320,"ASSETS/iron.png",130,100))
-	treasureButton.append(treasureSelect("Lapis",190,320,"ASSETS/lapis.png",130,100))
-	treasureButton.append(treasureSelect("LapisBlock",350,320,"ASSETS/lapisBlock.png",130,100))
-	treasureButton.append(treasureSelect("Ring",510,320,"ASSETS/ring.png",130,100))
-	treasureButton.append(treasureSelect("Sword",30,460,"ASSETS/sword.png",130,100))
-	treasureButton.append(treasureSelect("Tiara",190,460,"ASSETS/tiara.png",130,100))
-	treasureButton.append(treasureSelect("Emerald",350,460,"ASSETS/emerald.png",130,100))
+	treasureButton.append(treasureSelect("Chest",30,40,"ASSETS/treasures/chest.png",130,100))
+	treasureButton.append(treasureSelect("Coin",190,40,"ASSETS/treasures/coins.png",130,100))
+	treasureButton.append(treasureSelect("Crown",350,40,"ASSETS/treasures/crown.png",130,100))
+	treasureButton.append(treasureSelect("Diamond",510,40,"ASSETS/treasures/diamond.png",130,100))
+	treasureButton.append(treasureSelect("DiamondBlock",30,180,"ASSETS/treasures/diamondblock.png",130,100))
+	treasureButton.append(treasureSelect("EmeraldBlock",190,180,"ASSETS/treasures/emeraldblock.png",130,100))
+	treasureButton.append(treasureSelect("GoldBar",350,180,"ASSETS/treasures/goldbar.png",130,100))
+	treasureButton.append(treasureSelect("GoldBlock",510,180,"ASSETS/treasures/goldblock.png",130,100))
+	treasureButton.append(treasureSelect("Iron",30,320,"ASSETS/treasures/iron.png",130,100))
+	treasureButton.append(treasureSelect("Lapis",190,320,"ASSETS/treasures/lapis.png",130,100))
+	treasureButton.append(treasureSelect("LapisBlock",350,320,"ASSETS/treasures/lapisblock.png",130,100))
+	treasureButton.append(treasureSelect("Ring",510,320,"ASSETS/treasures/ring.png",130,100))
+	treasureButton.append(treasureSelect("Sword",30,460,"ASSETS/treasures/sword.png",130,100))
+	treasureButton.append(treasureSelect("Tiara",190,460,"ASSETS/treasures/tiara.png",130,100))
+	treasureButton.append(treasureSelect("Emerald",350,460,"ASSETS/treasures/emerald.png",130,100))
 
 	for btn in treasureButton:
 		displayScreen.addTreasureBtn(btn)
@@ -188,8 +189,8 @@ def selectTreasure():
 				if  x>30 and x<160 and y>40 and y<140:
 					print "Chest Clicked"
 					i = i + 1
-					#treasureList[i] = treasureButtonChest.treasureName
-				elif x>190 and x<320 and y>40 and y<140:
+                                        treasureList.append(treasure(x,y,"Chest", 6, "ASSETS/Chest.png"))
+                                elif x>190 and x<320 and y>40 and y<140:
 					print "Coin Clicked"
 					i = i + 1
 					#treasureList[i] = treasureButtonCoin.treasureName
