@@ -34,8 +34,8 @@ def selectSort(): #defines function
 	sortButtons.append (sortSelect("insertionSort",350,40,"ASSETS/insertionSort.png",130,100))
 	
 	for btns in sortButtons: #this states for every button in that list it will...
-	    sortScreen.addSortSelectBtn(btns) #...display that button
-	    
+		sortScreen.addSortSelectBtn(btns) #...display that button
+		
 	sortScreen.render()#actually draws the button
 	
 	while 1: #loops forever
@@ -49,34 +49,34 @@ def selectSort(): #defines function
 				#print "click",x,y
 				if  x>30 and x<160 and y>40 and y<140: #check to see if we clicked on the button
 					print "Bubble Sort Selected"
-                                        return "BubbleSort" #....then we return the sort, in this case bubble sort
-                        elif event.type == pygame.MOUSEBUTTONDOWN: #if that doesnt ^ then check to see if any of them is a mouse click
+					return "BubbleSort" #....then we return the sort, in this case bubble sort
+					elif event.type == pygame.MOUSEBUTTONDOWN: #if that doesnt ^ then check to see if any of them is a mouse click
 				x, y = event.pos #if this is ^ true then we save location of mouse click
 				#print "click",x,y
 				if  x>190 and x<320 and y>40 and y<140: #check to see if we clicked on the button
 					print "Merge Sort Selected"
-                                        return "MergeSort" #....then we return the sort, in this case Merge sort
-                        elif event.type == pygame.MOUSEBUTTONDOWN: #if that doesnt ^ then check to see if any of them is a mouse click
+					return "MergeSort" #....then we return the sort, in this case Merge sort
+					elif event.type == pygame.MOUSEBUTTONDOWN: #if that doesnt ^ then check to see if any of them is a mouse click
 				x, y = event.pos #if this is ^ true then we save location of mouse click
 				#print "click",x,y
 				if  x>350 and x<480 and y>40 and y<140: #check to see if we clicked on the button
 					print "Insertion Sort Selected"
-                                        return "InsertionSort" #....then we return the sort, in this case Heap sort               
+					return "InsertionSort" #....then we return the sort, in this case Heap sort               
 					
 def mapButtonCreate():
 	displayScreen = display(510,320, False)
 
-        buttons = []
+		buttons = []
 
-    buttons.append(mapSelect("London",30,40,"ASSETS/London.png",130,100))
+	buttons.append(mapSelect("London",30,40,"ASSETS/London.png",130,100))
 	buttons.append(mapSelect("Paris",190,40,"ASSETS/Paris.png",130,100))
 	buttons.append(mapSelect("New York",350,40,"ASSETS/New York.png",130,100))
 	buttons.append(mapSelect("Tokyo",30,180,"ASSETS/Tokyo.png",130,100))
 	buttons.append(mapSelect("Johannesburg",190,180,"ASSETS/Johannesburg.png",130,100))
 	buttons.append(mapSelect("Berlin",350,180,"ASSETS/Berlin.png",130,100))
 
-    for btns in buttons:
-	    displayScreen.addMapSelectBtn(btns)
+	for btns in buttons:
+		displayScreen.addMapSelectBtn(btns)
 
 	displayScreen.render()
 
@@ -91,41 +91,41 @@ def mapButtonCreate():
 				#print "click",x,y
 				if  x>30 and x<160 and y>40 and y<140:
 					print "London Clicked"
-                                        City = city("London",[])
-                                        Sort = selectSort()
-                                        return City,Sort 
+										City = city("London",[])
+										Sort = selectSort()
+										return City,Sort 
 					#self.mapSelected = "ASSETS\staticmapLondon.png" # what will be referenced later to know what map to use.
 					#treasurePos(mapSelected)
 				elif x>190 and x<320 and y>40 and y<140:
 					print "Paris Clicked"
-                                        City = city("Paris", [])
-                                        Sort = selectSort()
-                                        return City, Sort
+										City = city("Paris", [])
+										Sort = selectSort()
+										return City, Sort
 					#mapSelected = "ASSETS\staticmapParis.png"
 					#treasurePos(mapSelected)
 				elif x>350 and x<480 and y>40 and y<140:
 					print "New York Clicked"
-                                        City = city("NewYork",[]) 
-                                        Sort = selectSort()
-                                        return City, Sort
+										City = city("NewYork",[]) 
+										Sort = selectSort()
+										return City, Sort
 					#self.mapSelected = "ASSETS\staticmapNewYork.png"
 					#treasurePos(mapSelected)
 				elif x>30 and x<160 and y>180 and y<280:
 					print "Tokyo Clicked"
-                                        City = city("Tokyo",[])
-                                        return City
+										City = city("Tokyo",[])
+										return City
 					#self.mapSelected = "ASSETS\staticmapTokyo.png"
 					#treasurePos(mapSelected)
 				elif x>190 and x<320 and y>180 and y<280:
 					print "Johannesburg Clicked"
-                                        City = city("Johannesburg",[])
-                                        return City
+										City = city("Johannesburg",[])
+										return City
 					#self.mapSelected = "ASSETS\staticmapJohannesburg.png"
 					#treasurePos(mapSelected)
 				elif x>350 and x<480 and y>180 and y<280:
 					print "Berlin Clicked"
-                                        City = city("Berlin",[])
-                                        return City
+										City = city("Berlin",[])
+										return City
 					#self.mapSelected = "ASSETS\staticmapBerlin.png"
 					#treasurePos(mapSelected)
 				else:
@@ -135,38 +135,28 @@ def treasureButtoncreate():
 	displayScreen = display(False,670,600)#creates a white display for buttons to be placed on
 
 	#places all the buttons
-     #                                        left corner
-	#items handed are as followed ---     name   x   y   file locations    size x&y
-	treasureButtonChest = treasureSelect("Chest",30,40,"ASSETS/chest.png",130,100)
-	displayScreen.addTreasureBtn(treasureButtonChest)
-	treasureButtonCoin = treasureSelect("Coin",190,40,"ASSETS/coin.png",130,100)
-	displayScreen.addTreasureBtn(treasureButtonCion)
-	treasureButtonCrown = treasureSelect("Crown",350,40,"ASSETS/crown.png",130,100)
-	displayScreen.addTreasureBtn(treasureButtonCrown)
-	treasureButtonDiamond = treasureSelect("Diamond",510,40,"ASSETS/diamond.png",130,100)
-	displayScreen.addTreasureBtn(treasureButtonDiamond)
-	treasureButtonDiamondBlock = treasureSelect("DiamondBlock",30,180,"ASSETS/diamondBlock",130,100)
-	displayScreen.addTreasureBtn(treasureButtonDiamondBlock)
-	treasureButtonEmeraldBlock = treasureSelect("EmeraldBlock",190,180,"ASSETS/emeraldBlock.png",130,100)
-	displayScreen.addTreasureBtn(treasureButtonEmeraldBlock)
-	treasureButtonGoldBar = treasureSelect("GoldBar",350,180,"ASSETS/goldBar.png",130,100)
-	displayScreen.addTreasureBtn(treasureButtonGoldBar)
-	treasureButtonGoldBlock = treasureSelect("GoldBlock",510,180,"ASSETS/goldBlock.png",130,100)
-	displayScreen.addTreasureBtn(treasureButtonGoldBlock)
-	treasureButtonGoldBlock = treasureSelect("Iron",30,320,"ASSETS/iron.png",130,100)
-	displayScreen.addTreasureBtn(treasureButtonIron)
-	treasureButtonLapis = treasureSelect("Lapis",190,320,"ASSETS/lapis.png",130,100)
-	displayScreen.addTreasureBtn(treasureButtonLapis)
-	treasureButtonLapisBlock = treasureSelect("LapisBlock",350,320,"ASSETS/lapisBlock.png",130,100)
-	displayScreen.addTreasureBtn(treasureButtonLapisBlock)
-	treasureButtonRing = treasureSelect("Ring",510,320,"ASSETS/ring.png",130,100)
-	displayScreen.addTreasureBtn(treasureButtonRing)
-	treasureButtonSword = treasureSelect("Sword",30,460,"ASSETS/sword.png",130,100)
-	displayScreen.addTreasureBtn(treasureButtonSword)
-	treasureButtonTiara = treasureSelect("Tiara",190,460,"ASSETS/tiara.png",130,100)
-	displayScreen.addTreasureBtn(treasureButtonTiara)
-	treasureButtonEmerald = treasureSelect("Emerald",350,460,"ASSETS/emerald.png",130,100)
+	treasureButton = []
 
+	 #                                        left corner
+	#items handed are as followed ---     name   x   y   file locations    size x&y
+	treasureButton.append(treasureSelect("Chest",30,40,"ASSETS/chest.png",130,100))
+	treasureButton.append(treasureSelect("Coin",190,40,"ASSETS/coin.png",130,100))
+	treasureButton.append(treasureSelect("Crown",350,40,"ASSETS/crown.png",130,100))
+	treasureButton.append(treasureSelect("Diamond",510,40,"ASSETS/diamond.png",130,100))
+	treasureButton.append(treasureSelect("DiamondBlock",30,180,"ASSETS/diamondBlock",130,100))
+	treasureButton.append(treasureSelect("EmeraldBlock",190,180,"ASSETS/emeraldBlock.png",130,100))
+	treasureButton.append(treasureSelect("GoldBar",350,180,"ASSETS/goldBar.png",130,100))
+	treasureButton.append(treasureSelect("GoldBlock",510,180,"ASSETS/goldBlock.png",130,100))
+	treasureButton.append(treasureSelect("Iron",30,320,"ASSETS/iron.png",130,100))
+	treasureButton.append(treasureSelect("Lapis",190,320,"ASSETS/lapis.png",130,100))
+	treasureButton.append(treasureSelect("LapisBlock",350,320,"ASSETS/lapisBlock.png",130,100))
+	treasureButton.append(treasureSelect("Ring",510,320,"ASSETS/ring.png",130,100))
+	treasureButton.append(treasureSelect("Sword",30,460,"ASSETS/sword.png",130,100))
+	treasureButton.append(treasureSelect("Tiara",190,460,"ASSETS/tiara.png",130,100))
+	treasureButton.append(treasureSelect("Emerald",350,460,"ASSETS/emerald.png",130,100))
+
+	for btn in treasureButton:
+		displayScreen.addTreasureBtn(btn)
 # this waits for the user to click on 5 different treasures
 	i = 0
 	while i < 5:
@@ -290,30 +280,30 @@ def main(mapSelect):
 
 
 def collectBot(city, x, y, wishlist):
-    
+	
 
-    #Here we will create a new map selection instance.
-    #Then we will retrive the data from that to use later.
-    print city.ret_image_path()
+	#Here we will create a new map selection instance.
+	#Then we will retrive the data from that to use later.
+	print city.ret_image_path()
 
-    screen = display(1280, 960, city.ret_image_path())
+	screen = display(1280, 960, city.ret_image_path())
 
 	#Create a new collector bot. Relies on having an already created City, arena, wishlist and treasurelist.
-    cBot = collectorBot(city.arena, [], [], x, y)
+	cBot = collectorBot(city.arena, [], [], x, y)
 	
 	#Create a new instance of a display - For the collector bot thingy
 	#Passes the image of the city as the background. Requires an instance of city to have been created.
-    screen.setCollectorBot(cBot.returnLocationX(), cBot.returnLocationY(), cBot.returnImage()) #Set the location for the collector bot. Requires a location of a new bot to have been specified.
+	screen.setCollectorBot(cBot.returnLocationX(), cBot.returnLocationY(), cBot.returnImage()) #Set the location for the collector bot. Requires a location of a new bot to have been specified.
 
 
 
-    while True: #While true TODO Add proper clause to quit program
-        for item in wishlist:   #Render the wish list list
-            textString = str(item.getName())+"    Score"+str(item.returnPoints())+"    Collected: "+str(item.returnCollected())
-            screen.CreateText(textString, (0,0,0,0), 40)
-        cBot.updateLocation(city.arena)
-        screen.setCollectorBot(cBot.returnLocationX(), cBot.returnLocationY(), cBot.returnImage()) #Set the location for the collector bot. Requires a location of a new bot to have been specified.
-        screen.render() #render
+	while True: #While true TODO Add proper clause to quit program
+		for item in wishlist:   #Render the wish list list
+			textString = str(item.getName())+"    Score"+str(item.returnPoints())+"    Collected: "+str(item.returnCollected())
+			screen.CreateText(textString, (0,0,0,0), 40)
+		cBot.updateLocation(city.arena)
+		screen.setCollectorBot(cBot.returnLocationX(), cBot.returnLocationY(), cBot.returnImage()) #Set the location for the collector bot. Requires a location of a new bot to have been specified.
+		screen.render() #render
 
 wishlist = [10]
 wishlist[0] = treasure(1,1,10,"TREASURE", 6, "ASSETS/car.png")
