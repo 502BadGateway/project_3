@@ -93,45 +93,53 @@ def mapButtonCreate():
 					print "London Clicked"
 					City = city("London",[])
 					Sort = selectSort()
-					return City,Sort 
+					return City,Sort, treasure 
 					#self.mapSelected = "ASSETS\staticmapLondon.png" # what will be referenced later to know what map to use.
 					#treasurePos(mapSelected)
 				elif x>190 and x<320 and y>40 and y<140:
 					print "Paris Clicked"
 					City = city("Paris", [])
 					Sort = selectSort()
-					return City, Sort
+					Treasure = selectTreasure()
+					return City, Sort, treasure
 					#mapSelected = "ASSETS\staticmapParis.png"
 					#treasurePos(mapSelected)
 				elif x>350 and x<480 and y>40 and y<140:
 					print "New York Clicked"
 					City = city("NewYork",[]) 
 					Sort = selectSort()
-					return City, Sort
+					Treasure = selectTreasure()
+					return City, Sort, treasure
 					#self.mapSelected = "ASSETS\staticmapNewYork.png"
 					#treasurePos(mapSelected)
 				elif x>30 and x<160 and y>180 and y<280:
 					print "Tokyo Clicked"
 					City = city("Tokyo",[])
-					return City
+					Sort = selectSort
+					Treasure = selectTreasure()
+					return City, Sort, selectTreasure()
 					#self.mapSelected = "ASSETS\staticmapTokyo.png"
 					#treasurePos(mapSelected)
 				elif x>190 and x<320 and y>180 and y<280:
 					print "Johannesburg Clicked"
 					City = city("Johannesburg",[])
-					return City
+					Sort = selectSort()
+					Treasure = selectTreasure()
+					return City, Sort, selectTreasure()
 					#self.mapSelected = "ASSETS\staticmapJohannesburg.png"
 					#treasurePos(mapSelected)
 				elif x>350 and x<480 and y>180 and y<280:
 					print "Berlin Clicked"
 					City = city("Berlin",[])
-					return City
+					Sort = selectSort()
+					Treasure = selectTreasure()
+					return City, Sort, selectTreasure()
 					#self.mapSelected = "ASSETS\staticmapBerlin.png"
 					#treasurePos(mapSelected)
 				else:
 					print "not on button"
 
-def treasureButtonCreate():
+def selectTreasure():
 	displayScreen = display(False,670,600)#creates a white display for buttons to be placed on
 
 	#places all the buttons
