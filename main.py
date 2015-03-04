@@ -93,9 +93,9 @@ def mapSelect():
 					print "London Clicked"
 					City = city("London",[])
 					Sort = selectSort()
-					treasure = selectTreasure()
-					
-					return City, Sort, treasure 
+					Treasure = selectTreasure()
+					TreasureTrap = selectTreasureTrap
+					return City, Sort, Treasure, TreasureTrap 
 					#self.mapSelected = "ASSETS\staticmapLondon.png" # what will be referenced later to know what map to use.
 					#treasurePos(mapSelected)
 				elif x>190 and x<320 and y>40 and y<140:
@@ -103,7 +103,8 @@ def mapSelect():
 					City = city("Paris", [])
 					Sort = selectSort()
 					Treasure = selectTreasure()
-					return City, Sort, treasure
+					TreasureTrap = selectTreasureTrap
+					return City, Sort, Treasure, TreasureTrap
 					#mapSelected = "ASSETS\staticmapParis.png"
 					#treasurePos(mapSelected)
 				elif x>350 and x<480 and y>40 and y<140:
@@ -111,7 +112,8 @@ def mapSelect():
 					City = city("NewYork",[]) 
 					Sort = selectSort()
 					Treasure = selectTreasure()
-					return City, Sort, treasure
+					TreasureTrap = selectTreasureTrap
+					return City, Sort, Treasure, TreasureTrap
 					#self.mapSelected = "ASSETS\staticmapNewYork.png"
 					#treasurePos(mapSelected)
 				elif x>30 and x<160 and y>180 and y<280:
@@ -119,7 +121,8 @@ def mapSelect():
 					City = city("Tokyo",[])
 					Sort = selectSort
 					Treasure = selectTreasure()
-					return City, Sort, treasure
+					TreasureTrap = selectTreasureTrap
+					return City, Sort, Treasure, TreasureTrap
 					#self.mapSelected = "ASSETS\staticmapTokyo.png"
 					#treasurePos(mapSelected)
 				elif x>190 and x<320 and y>180 and y<280:
@@ -127,7 +130,8 @@ def mapSelect():
 					City = city("Johannesburg",[])
 					Sort = selectSort()
 					Treasure = selectTreasure()
-					return City, Sort, treasure
+					TreasureTrap = selectTreasureTrap
+					return City, Sort, Treasure, TreasureTrap
 					#self.mapSelected = "ASSETS\staticmapJohannesburg.png"
 					#treasurePos(mapSelected)
 				elif x>350 and x<480 and y>180 and y<280:
@@ -135,7 +139,8 @@ def mapSelect():
 					City = city("Berlin",[])
 					Sort = selectSort()
 					Treasure = selectTreasure()
-					return City, Sort, treasure
+					TreasureTrap = selectTreasureTrap
+					return City, Sort, Treasure, TreasureTrap
 					#self.mapSelected = "ASSETS\staticmapBerlin.png"
 					#treasurePos(mapSelected)
 				else:
