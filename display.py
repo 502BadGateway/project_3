@@ -6,7 +6,7 @@ import wikipedia
 
 
 class display:      #Class which handles all the display functionality.
-    def __init__(self,screenHeight,screenWidth, backgroundImage=False): #Creates a display 
+    def __init__(self,backgroundImage, screenHeight,screenWidth): #Creates a display 
 
         pygame.init()
         self.size = screenHeight,screenWidth
