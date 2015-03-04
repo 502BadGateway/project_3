@@ -50,13 +50,13 @@ def selectSort(): #defines function
 				if  x>30 and x<160 and y>40 and y<140: #check to see if we clicked on the button
 					print "Bubble Sort Selected"
 					return "BubbleSort" #....then we return the sort, in this case bubble sort
-					elif event.type == pygame.MOUSEBUTTONDOWN: #if that doesnt ^ then check to see if any of them is a mouse click
+			elif event.type == pygame.MOUSEBUTTONDOWN: #if that doesnt ^ then check to see if any of them is a mouse click
 				x, y = event.pos #if this is ^ true then we save location of mouse click
 				#print "click",x,y
 				if  x>190 and x<320 and y>40 and y<140: #check to see if we clicked on the button
 					print "Merge Sort Selected"
 					return "MergeSort" #....then we return the sort, in this case Merge sort
-					elif event.type == pygame.MOUSEBUTTONDOWN: #if that doesnt ^ then check to see if any of them is a mouse click
+			elif event.type == pygame.MOUSEBUTTONDOWN: #if that doesnt ^ then check to see if any of them is a mouse click
 				x, y = event.pos #if this is ^ true then we save location of mouse click
 				#print "click",x,y
 				if  x>350 and x<480 and y>40 and y<140: #check to see if we clicked on the button
@@ -66,7 +66,7 @@ def selectSort(): #defines function
 def mapButtonCreate():
 	displayScreen = display(510,320, False)
 
-		buttons = []
+	buttons = []
 
 	buttons.append(mapSelect("London",30,40,"ASSETS/London.png",130,100))
 	buttons.append(mapSelect("Paris",190,40,"ASSETS/Paris.png",130,100))
@@ -91,47 +91,47 @@ def mapButtonCreate():
 				#print "click",x,y
 				if  x>30 and x<160 and y>40 and y<140:
 					print "London Clicked"
-										City = city("London",[])
-										Sort = selectSort()
-										return City,Sort 
+					City = city("London",[])
+					Sort = selectSort()
+					return City,Sort 
 					#self.mapSelected = "ASSETS\staticmapLondon.png" # what will be referenced later to know what map to use.
 					#treasurePos(mapSelected)
 				elif x>190 and x<320 and y>40 and y<140:
 					print "Paris Clicked"
-										City = city("Paris", [])
-										Sort = selectSort()
-										return City, Sort
+					City = city("Paris", [])
+					Sort = selectSort()
+					return City, Sort
 					#mapSelected = "ASSETS\staticmapParis.png"
 					#treasurePos(mapSelected)
 				elif x>350 and x<480 and y>40 and y<140:
 					print "New York Clicked"
-										City = city("NewYork",[]) 
-										Sort = selectSort()
-										return City, Sort
+					City = city("NewYork",[]) 
+					Sort = selectSort()
+					return City, Sort
 					#self.mapSelected = "ASSETS\staticmapNewYork.png"
 					#treasurePos(mapSelected)
 				elif x>30 and x<160 and y>180 and y<280:
 					print "Tokyo Clicked"
-										City = city("Tokyo",[])
-										return City
+					City = city("Tokyo",[])
+					return City
 					#self.mapSelected = "ASSETS\staticmapTokyo.png"
 					#treasurePos(mapSelected)
 				elif x>190 and x<320 and y>180 and y<280:
 					print "Johannesburg Clicked"
-										City = city("Johannesburg",[])
-										return City
+					City = city("Johannesburg",[])
+					return City
 					#self.mapSelected = "ASSETS\staticmapJohannesburg.png"
 					#treasurePos(mapSelected)
 				elif x>350 and x<480 and y>180 and y<280:
 					print "Berlin Clicked"
-										City = city("Berlin",[])
-										return City
+					City = city("Berlin",[])
+					return City
 					#self.mapSelected = "ASSETS\staticmapBerlin.png"
 					#treasurePos(mapSelected)
 				else:
 					print "not on button"
 
-def treasureButtoncreate():
+def treasureButtonCreate():
 	displayScreen = display(False,670,600)#creates a white display for buttons to be placed on
 
 	#places all the buttons
