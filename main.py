@@ -27,7 +27,7 @@ import wikipedia #displays  treasure information
 import random #needed to choose trap
 
 def selectSort(): #defines function
-	sortScreen= display(510,320,False) #creates display
+	sortScreen= display(False,510,320) #creates display
 	sortButtons = []#created empty list
 	sortButtons.append (sortSelect("bubbleSort",30,40,"ASSETS/bubbleSort.png",130,100)) #creates a instance of a class and puts it into the end of the sort buttons list
 	sortButtons.append (sortSelect("mergeSort",190,40,"ASSETS/mergeSort.png",130,100))
@@ -63,8 +63,8 @@ def selectSort(): #defines function
 					print "Insertion Sort Selected"
 					return "InsertionSort" #....then we return the sort, in this case Heap sort               
 					
-def mapSelect():
-	displayScreen = display(510,320, False)
+def selectMap(mapSelect):
+	displayScreen = display(False,510,320)
 
 	buttons = []
 
@@ -302,7 +302,7 @@ def collectBot(city, x, y, wishlist):
 	#Then we will retrive the data from that to use later.
 	print city.ret_image_path()
 
-	screen = display(1280, 960, city.ret_image_path())
+	screen = display(city.ret_image_path(),1280, 960)
 
 	#Create a new collector bot. Relies on having an already created City, arena, wishlist and treasurelist.
 	cBot = collectorBot(city.arena, wishlist, [], x, y)
@@ -327,5 +327,5 @@ wishlist = list()
 wishlist.append(treasure(1,1,10,"TREASURE", 6, "ASSETS/car.png"))
 wishlist.append(treasure(1,1,10,"TREASURE", 6, "ASSETS/car.png"))
 
-City, Sort = mapSelect(mapSelect)
+City, Sort = selectMap(mapSelect)
 collectBot(City, 170, 16, wishlist)
