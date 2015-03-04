@@ -189,7 +189,7 @@ def selectTreasure():
 				if  x>30 and x<160 and y>40 and y<140:
 					print "Chest Clicked"
 					i = i + 1
-                                        treasureList.append(treasure(x,y,"Chest", 6, "ASSETS/Chest.png"))
+                                        treasureList.append(treasure(x,y, 4, "Chest", 6, "ASSETS/Chest.png"))
                                 elif x>190 and x<320 and y>40 and y<140:
 					print "Coin Clicked"
 					i = i + 1
@@ -249,6 +249,8 @@ def selectTreasure():
 				else:
 					print "not on button" 				
 
+                
+        return treasureList
 	
 
 def selectTreasureTrap():
@@ -286,6 +288,31 @@ def selectTreasureTrap():
 	
 	#mapButtonLondon.cityText(None,20,28,12,"Please select your location",(10,10,10))
 
+
+
+def findRobotLocation(ar, name, robotList, wishlist, treasureList):
+    width = ar.ret_size()[0]-1        #Get the width and heights of the array
+    height = ar.ret_size()[1]-1
+
+    print "Using width:"+str(width) #dbg
+    print "Using height:"+str(height)
+    
+    placed = False                  #Store if we've placed anything
+    x = 0
+    rand_row = random.randint(0,height) #Pick a random row to spawn a trafficlight
+
+    while x <= width-1 or placed != True:   #While we havent looked at every item in the row, and havent placed a light
+        if ar.ret_element_value(rand_row, x) == 1 or ar.ret_element_value(rand_row, x) == 2:    #Check that the item we're on is a road.
+            print "ROBOT:"
+            print rand_row, x
+            bot = collectorBot(ar, wishlist, treasureList, rand_row, x)                                    #Create a new robot!
+            robotList.append(bot)
+            ar.put(rand_row, x, 5)                                                            #Save it in the arena
+            placed = True                       #Move on
+            break
+        x += 1
+    return robotList 
+
 	
 def main(mapSelect):
 
@@ -302,7 +329,7 @@ def main(mapSelect):
 
 
 
-def collectBot(city, x, y, wishlist):
+def collectBot(city, robots, wishlist, Treasure):
 	
 
 	#Here we will create a new map selection instance.
@@ -311,8 +338,7 @@ def collectBot(city, x, y, wishlist):
 
 	screen = display(city.ret_image_path(),1280, 960)
 
-	#Create a new collector bot. Relies on having an already created City, arena, wishlist and treasurelist.
-	cBot = collectorBot(city.arena, wishlist, [], x, y)
+    #Create a new collector bot. Relies on having an already created City, arena, wishlist and treasurelist.
 	
 	#Create a new instance of a display - For the collector bot thingy
 	#Passes the image of the city as the background. Requires an instance of city to have been created.
@@ -321,18 +347,19 @@ def collectBot(city, x, y, wishlist):
 
 
 	while True: #While true TODO Add proper clause to quit program
-		cBot.updateLocation(city.arena)
                 locY = 0
 		for item in wishlist:   #Render the wish list list
                         locY += 10
 			textString = str(item.getName())+"    Score"+str(item.returnPoints())+"    Collected: "+str(item.returnCollected())
 		 	screen.CreateText(textString, (0,locY,0,0), 40)
-		screen.setCollectorBot(cBot.returnLocationX(),cBot.returnLocationY(), cBot.returnImage()) #Set the location for the collector bot. Requires a location of a new bot to have been specified.
+                for bots in robots:
+	        	bots.updateLocation(city.arena)
+	        	screen.setCollectorBot(bots.returnLocationX(),bots.returnLocationY(), bots.returnImage()) #Set the location for the collector bot. Requires a location of a new bot to have been specified.
+                        
 		screen.render() #render
 
-wishlist = list()
-wishlist.append(treasure(1,1,10,"TREASURE", 6, "ASSETS/car.png"))
-wishlist.append(treasure(1,1,10,"TREASURE", 6, "ASSETS/car.png"))
 
 City, Sort, Treasure, TreasureTrap = selectMap(mapSelect)
-collectBot(City, 170, 16, wishlist)
+robots = []
+robots = findRobotLocation(City.arena, "Barry", [], [], Treasure)
+collectBot(City, robots, Treasure, Treasure)
