@@ -69,7 +69,7 @@ class display:      #Class which handles all the display functionality.
         robot_image = pygame.transform.scale(robot_image, (20,20))
         self.display.blit(robot_image, (y*10, x*10))
         self.State = False
-        return None
+        return 
 
     def setTreasureCollect(self,x,y,image, pygame_im=False):    #Set the location of the landmark
         if pygame_im == False:                          #If we're not giving a pygame surface
