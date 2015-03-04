@@ -63,32 +63,19 @@ def selectSort(): #defines function
 					print "Insertion Sort Selected"
                                         return "InsertionSort" #....then we return the sort, in this case Heap sort               
 					
-	
-def main(mapSelect):
-
-	pygame.init() #initialise pygame
-	clock = pygame.time.Clock() #we will need this for ade's timer
-
-	#this is temporary, it will use the display class later
-	"""
-	displayScreen = pygame.display.set_mode((510,320)) 
-	displayBackground = pygame.Surface(displayScreen.get_size())
-	displayBackground = displayBackground.convert()
-	displayBackground.fill((250,250,250))
-	displayScreen.blit(displayBackground,(0,0))"""
-
+def mapButtonCreate():
 	displayScreen = display(510,320, False)
 
         buttons = []
 
-        buttons.append(mapSelect("London",30,40,"ASSETS/London.png",130,100))
+    buttons.append(mapSelect("London",30,40,"ASSETS/London.png",130,100))
 	buttons.append(mapSelect("Paris",190,40,"ASSETS/Paris.png",130,100))
 	buttons.append(mapSelect("New York",350,40,"ASSETS/New York.png",130,100))
 	buttons.append(mapSelect("Tokyo",30,180,"ASSETS/Tokyo.png",130,100))
 	buttons.append(mapSelect("Johannesburg",190,180,"ASSETS/Johannesburg.png",130,100))
 	buttons.append(mapSelect("Berlin",350,180,"ASSETS/Berlin.png",130,100))
 
-        for btns in buttons:
+    for btns in buttons:
 	    displayScreen.addMapSelectBtn(btns)
 
 	displayScreen.render()
@@ -144,7 +131,7 @@ def main(mapSelect):
 				else:
 					print "not on button"
 
-
+def treasureButtoncreate():
 	displayScreen = display(False,670,600)#creates a white display for buttons to be placed on
 
 	#places all the buttons
@@ -253,7 +240,9 @@ def main(mapSelect):
 	backgroundImage = pygame.image.load("staticmapLondon.png")
 
 	displayScreen = display(backgroundImage,1280,960)#loads the map selected as background for user to place treasure and traps on
-	
+
+
+def treasureTrapCreate():
 #places the treasure
 	i = 0
 	treasureNum = 5 #this may need to be changed depending on what num represent which 
@@ -283,6 +272,22 @@ def main(mapSelect):
 
 	
 	#mapButtonLondon.cityText(None,20,28,12,"Please select your location",(10,10,10))
+
+	
+def main(mapSelect):
+
+	pygame.init() #initialise pygame
+	clock = pygame.time.Clock() #we will need this for ade's timer
+
+	#this is temporary, it will use the display class later
+	"""
+	displayScreen = pygame.display.set_mode((510,320)) 
+	displayBackground = pygame.Surface(displayScreen.get_size())
+	displayBackground = displayBackground.convert()
+	displayBackground.fill((250,250,250))
+	displayScreen.blit(displayBackground,(0,0))"""
+
+
 
 def collectBot(city, x, y, wishlist):
     
