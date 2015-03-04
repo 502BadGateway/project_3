@@ -254,7 +254,6 @@ def selectTreasure():
 	
 
 def selectTreasureTrap(city):
-        city.arena.show_arena()
 	backgroundImage = city.ret_image_path()
 
 	displayScreen = display(backgroundImage,1280,960)#loads the map selected as background for user to place treasure and traps on
@@ -344,7 +343,6 @@ def collectBot(city, robots, wishlist, Treasure):
 	#Here we will create a new map selection instance.
 	#Then we will retrive the data from that to use later.
         print "PATH"
-	print city.ret_image_path()
 
 	screen = display(city.ret_image_path(),1280, 960)
 
@@ -370,7 +368,6 @@ def collectBot(city, robots, wishlist, Treasure):
 
 
 City, Sort, Treasure, TreasureTrap = selectMap(mapSelect)
-City.arena.show_arena()
 robots = []
 robots = findRobotLocation(City.arena, "Barry", [], [], Treasure)
 collectBot(City, robots, Treasure, Treasure)
