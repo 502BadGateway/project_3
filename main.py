@@ -175,10 +175,10 @@ def selectTreasure():
 	for btn in treasureButton:
 		displayScreen.addTreasureBtn(btn)
 
-	displayScreen.render
+	displayScreen.render()
 # this waits for the user to click on 5 different treasures
 	i = 0
-	while i < 10:
+	while i < 11:
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT:
 				sys.exit()
@@ -188,72 +188,73 @@ def selectTreasure():
 				if  x>30 and x<160 and y>40 and y<140:
 					print "Chest Clicked"
 					i = i + 1
-					treasureList[i] = treasureButtonChest.treasureName
+					#treasureList[i] = treasureButtonChest.treasureName
 				elif x>190 and x<320 and y>40 and y<140:
 					print "Coin Clicked"
 					i = i + 1
-					treasureList[i] = treasureButtonCoin.treasureName
+					#treasureList[i] = treasureButtonCoin.treasureName
 				elif x>350 and x<480 and y>40 and y<140:
 					print "Crown Clicked"
 					i = i + 1
-					treasureList[i] = treasureButtonCrown.treasureName
+					#treasureList[i] = treasureButtonCrown.treasureName
 				elif x>510 and x<640 and y>40 and y<140:
 					print "Diamond Clicked"
 					i = i + 1
-					treasureList[i] = treasureButtonDiamond.treasureName
+					#treasureList[i] = treasureButtonDiamond.treasureName
 				elif x>30 and x<160 and y>180 and y<280:
 					print "Diamond Block Clicked"
 					i = i + 1
-					treasureList[i] = treasureButtonDiamondBlock.treasureName
+					#treasureList[i] = treasureButtonDiamondBlock.treasureName
 				elif x>190 and x<320 and y>180 and y<280:
 					print "Emerald Block Clicked"
 					i = i + 1
-					treasureList[i] = treasureButtonEmeraldBlock.treasureName
+					#treasureList[i] = treasureButtonEmeraldBlock.treasureName
 				elif x>350 and x<480 and y>180 and y<280:
 					print "Gold Bar Clicked"
 					i = i + 1
-					treasureList[i] = treasureButtonGoldBar.treasureName
+					#treasureList[i] = treasureButtonGoldBar.treasureName
 				elif x>510 and x<640 and y>180 and y<280:
 					print "Gold Block Clicked"
 					i = i + 1
-					treasureList[i] = treasureButtonGoldBlock.treasureName
+					#treasureList[i] = treasureButtonGoldBlock.treasureName
 				elif x>30 and x<160 and y>320 and y<420:
 					print "Iron Clicked"
 					i = i + 1
-					treasureList[i] = treasureButtonIron.treasureName
+					#treasureList[i] = treasureButtonIron.treasureName
 				elif x>190 and x<320 and y>320 and y<420:
 					print "Lapis"
 					i = i + 1
-					treasureList[i] = treasureButtonLapis.treasureName
+					#treasureList[i] = treasureButtonLapis.treasureName
 				elif x>350 and x<480 and y>320 and y<420:
 					print "Lapis Block Clicked"
 					i = i + 1
-					treasureList[i] = treasureButtonLapisBlock.treasureName
+					#treasureList[i] = treasureButtonLapisBlock.treasureName
 				elif x>510 and x<640 and y>320 and y<420:
 					print "Ring Clicked"
 					i = i + 1
-					treasureList[i] = treasureButtonRing.treasureName
+					#treasureList[i] = treasureButtonRing.treasureName
 				elif x>30 and x<160 and y>460 and y<560:
 					print "Sword Clicked"
 					i = i + 1 
-					treasureList[i] = treasureButtonSword.treasureName
+					#treasureList[i] = treasureButtonSword.treasureName
 				elif x>190 and x<320 and y>460 and y<560:
 					print "Tiara Clicked"
 					i = i + 1
-					treasureList[i] = treasureButtonTiara.treasureName
+					#treasureList[i] = treasureButtonTiara.treasureName
 				elif x>350 and x<480 and y>460 and y<560:
 					print "Emerald Clicked"
 					i = i + 1 
-					treasureList[i] = treasureButtonEmerald.treasureName
+					#treasureList[i] = treasureButtonEmerald.treasureName
 				else:
 					print "not on button" 				
 
-	backgroundImage = pygame.image.load("staticmapLondon.png")
-
-	#displayScreen = display(backgroundImage,1280,960)#loads the map selected as background for user to place treasure and traps on
-
+	
 
 def selectTreasureTrap():
+	backgroundImage = pygame.image.load("staticmapLondon.png")
+
+	displayScreen = display(backgroundImage,1280,960)#loads the map selected as background for user to place treasure and traps on
+
 #places the treasure
 	i = 0
 	treasureNum = 5 #this may need to be changed depending on what num represent which 
@@ -332,5 +333,5 @@ wishlist = list()
 wishlist.append(treasure(1,1,10,"TREASURE", 6, "ASSETS/car.png"))
 wishlist.append(treasure(1,1,10,"TREASURE", 6, "ASSETS/car.png"))
 
-City, Sort = selectMap(mapSelect)
+City, Sort, Treasure, TreasureTrap = selectMap(mapSelect)
 collectBot(City, 170, 16, wishlist)
