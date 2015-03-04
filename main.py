@@ -95,7 +95,7 @@ def selectMap(mapSelect):
 					City = city("London",[])
 					Sort = selectSort()
 					Treasure = selectTreasure()
-					TreasureTrap = selectTreasureTrap
+					TreasureTrap = selectTreasureTrap()
 					return City, Sort, Treasure, TreasureTrap 
 					#self.mapSelected = "ASSETS\staticmapLondon.png" # what will be referenced later to know what map to use.
 					#treasurePos(mapSelected)
@@ -104,7 +104,7 @@ def selectMap(mapSelect):
 					City = city("Paris", [])
 					Sort = selectSort()
 					Treasure = selectTreasure()
-					TreasureTrap = selectTreasureTrap
+					TreasureTrap = selectTreasureTrap()
 					return City, Sort, Treasure, TreasureTrap
 					#mapSelected = "ASSETS\staticmapParis.png"
 					#treasurePos(mapSelected)
@@ -113,7 +113,7 @@ def selectMap(mapSelect):
 					City = city("NewYork",[]) 
 					Sort = selectSort()
 					Treasure = selectTreasure()
-					TreasureTrap = selectTreasureTrap
+					TreasureTrap = selectTreasureTrap()
 					return City, Sort, Treasure, TreasureTrap
 					#self.mapSelected = "ASSETS\staticmapNewYork.png"
 					#treasurePos(mapSelected)
@@ -122,7 +122,7 @@ def selectMap(mapSelect):
 					City = city("Tokyo",[])
 					Sort = selectSort
 					Treasure = selectTreasure()
-					TreasureTrap = selectTreasureTrap
+					TreasureTrap = selectTreasureTrap()
 					return City, Sort, Treasure, TreasureTrap
 					#self.mapSelected = "ASSETS\staticmapTokyo.png"
 					#treasurePos(mapSelected)
@@ -131,7 +131,7 @@ def selectMap(mapSelect):
 					City = city("Johannesburg",[])
 					Sort = selectSort()
 					Treasure = selectTreasure()
-					TreasureTrap = selectTreasureTrap
+					TreasureTrap = selectTreasureTrap()
 					return City, Sort, Treasure, TreasureTrap
 					#self.mapSelected = "ASSETS\staticmapJohannesburg.png"
 					#treasurePos(mapSelected)
@@ -140,7 +140,7 @@ def selectMap(mapSelect):
 					City = city("Berlin",[])
 					Sort = selectSort()
 					Treasure = selectTreasure()
-					TreasureTrap = selectTreasureTrap
+					TreasureTrap = selectTreasureTrap()
 					return City, Sort, Treasure, TreasureTrap
 					#self.mapSelected = "ASSETS\staticmapBerlin.png"
 					#treasurePos(mapSelected)
