@@ -1,5 +1,6 @@
 from robot import Robot
 import time
+import random
 #Landmark1 - London
 #Landmark2 - Paris
 #Landmark3 - Johnasaburgg
@@ -14,6 +15,8 @@ class collectorBot(Robot):      #Class for the collector robot. Inherits from th
         self.__wishlist = set([])#Define with wishlist and inventory varS
         self.__inventory = [] 
         self.__treasureList = treasureList 
+        #self.__locationX = x
+        #self.__locationY = y
     
     def treasureCheck(self, arena): #checks for treasures around this location. TODO Should make sure that Phil knows what order this funtion expects the treasures in.
 
@@ -36,6 +39,25 @@ class collectorBot(Robot):      #Class for the collector robot. Inherits from th
         self.__points -= 1
       else:
         print "There are no Traps here!"
+
+
+    def updateLocation(self, arena):
+        rnd = random.randint(0,4)
+        if rnd == 0:
+            if arena.ret_element_value(self.returnLocationX(), self.returnLocationY()+1) == 1 or arena.ret_element_value(self.returnLocationX(), self.returnLocationY()+1) == 2: 
+                print "Hey!"
+                self.moveDown(arena)
+        if rnd == 2:
+            if arena.ret_element_value(self.returnLocationX()+1, self.returnLocationY()) == 1 or arena.ret_element_value(self.returnLocationX()+1, self.returnLocationY()) == 2: 
+                self.moveRight(arena)
+        if rnd == 3:
+            if arena.ret_element_value(self.returnLocationX(), self.returnLocationY()-1) == 1 or arena.ret_element_value(self.returnLocationX(), self.returnLocationY()-1) == 2: 
+                self.moveUp(arena)
+        if rnd == 4:
+            if arena.ret_element_value(self.returnLocationX()-1, self.returnLocationY()) == 1 or arena.ret_element_value(self.returnLocationX()-1, self.returnLocationY()) == 2: 
+                self.moveLeft(arena)
+
+
         
 ##TIME VARIABLE
 ##user inputs time in minutes and seconds
