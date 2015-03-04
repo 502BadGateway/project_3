@@ -306,7 +306,7 @@ def collectBot(city, x, y, wishlist):
         for item in wishlist:   #Render the wish list list
             textString = str(item.getName())+"    Score"+str(item.returnPoints())+"    Collected: "+str(item.returnCollected())
             screen.CreateText(textString, (0,0,0,0), 40)
-
+        cBot.updateLocation(city.arena)
         screen.setCollectorBot(cBot.returnLocationX(), cBot.returnLocationY(), cBot.returnImage()) #Set the location for the collector bot. Requires a location of a new bot to have been specified.
         screen.render() #render
 
@@ -314,4 +314,4 @@ wishlist = [10]
 wishlist[0] = treasure(1,1,10,"TREASURE", 6, "ASSETS/car.png")
 
 City, Sort = main(mapSelect)
-collectBot(City, 0, 02, wishlist)
+collectBot(City, 170, 16, wishlist)
