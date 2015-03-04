@@ -292,24 +292,27 @@ def collectBot(city, x, y, wishlist):
 	screen = display(1280, 960, city.ret_image_path())
 
 	#Create a new collector bot. Relies on having an already created City, arena, wishlist and treasurelist.
-	cBot = collectorBot(city.arena, [], [], x, y)
+	cBot = collectorBot(city.arena, wishlist, [], x, y)
 	
 	#Create a new instance of a display - For the collector bot thingy
 	#Passes the image of the city as the background. Requires an instance of city to have been created.
-	screen.setCollectorBot(cBot.returnLocationX(), cBot.returnLocationY(), cBot.returnImage()) #Set the location for the collector bot. Requires a location of a new bot to have been specified.
+	#screen.setCollectorBot(cBot.returnLocationX(), cBot.returnLocationY(), cBot.returnImage()) #Set the location for the collector bot. Requires a location of a new bot to have been specified.
 
 
 
 	while True: #While true TODO Add proper clause to quit program
-		for item in wishlist:   #Render the wish list list
-			textString = str(item.getName())+"    Score"+str(item.returnPoints())+"    Collected: "+str(item.returnCollected())
-			screen.CreateText(textString, (0,0,0,0), 40)
 		cBot.updateLocation(city.arena)
-		screen.setCollectorBot(cBot.returnLocationX(), cBot.returnLocationY(), cBot.returnImage()) #Set the location for the collector bot. Requires a location of a new bot to have been specified.
+                locY = 0
+		for item in wishlist:   #Render the wish list list
+                        locY += 10
+			textString = str(item.getName())+"    Score"+str(item.returnPoints())+"    Collected: "+str(item.returnCollected())
+		 	screen.CreateText(textString, (0,locY,0,0), 40)
+		screen.setCollectorBot(cBot.returnLocationX(),cBot.returnLocationY(), cBot.returnImage()) #Set the location for the collector bot. Requires a location of a new bot to have been specified.
 		screen.render() #render
 
-wishlist = [10]
-wishlist[0] = treasure(1,1,10,"TREASURE", 6, "ASSETS/car.png")
+wishlist = list()
+wishlist.append(treasure(1,1,10,"TREASURE", 6, "ASSETS/car.png"))
+wishlist.append(treasure(1,1,10,"TREASURE", 6, "ASSETS/car.png"))
 
 City, Sort = mapButtonCreate(mapSelect)
-collectBot(City, 170, 16, wishlist)
+collectBot(City, 10, 16, wishlist)
