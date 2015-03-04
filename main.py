@@ -273,7 +273,7 @@ def selectTreasureTrap():
 	
 #places the traps
 	j=0
-	while j < 5:
+	while j < 3:
 		for event in pygame.event.get():
 			if event.type == pygame.MOUSEBUTTONNDOWN:
 				x, y = event.pos
