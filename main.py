@@ -63,7 +63,7 @@ def selectSort(): #defines function
 					print "Insertion Sort Selected"
                                         return "InsertionSort" #....then we return the sort, in this case Heap sort               
 					
-def mapButtonCreate():
+def mapButtonCreate(wishlist):
     displayScreen = display(510,320, False)
 
     buttons = []
@@ -113,19 +113,22 @@ def mapButtonCreate():
 			elif x>30 and x<160 and y>180 and y<280:
 				print "Tokyo Clicked"
                                 City = city("Tokyo",[])
-                                return City
+                                Sort = selectSort()
+                                return City, Sort
 				#self.mapSelected = "ASSETS\staticmapTokyo.png"
 				#treasurePos(mapSelected)
 			elif x>190 and x<320 and y>180 and y<280:
 				print "Johannesburg Clicked"
                                 City = city("Johannesburg",[])
-                                return City
+                                Sort = selectSort()
+                                return City, Sort
 				#self.mapSelected = "ASSETS\staticmapJohannesburg.png"
 				#treasurePos(mapSelected)
 			elif x>350 and x<480 and y>180 and y<280:
 				print "Berlin Clicked"
                                 City = city("Berlin",[])
-                                return City
+                                Sort = selectSort()
+                                return City, Sort
 				#self.mapSelected = "ASSETS\staticmapBerlin.png"
 				#treasurePos(mapSelected)
 			else:
@@ -318,5 +321,5 @@ def collectBot(city, x, y, wishlist):
 wishlist = [10]
 wishlist[0] = treasure(1,1,10,"TREASURE", 6, "ASSETS/car.png")
 
-City, Sort = main(mapSelect)
+City, Sort = mapButtonCreate(mapSelect)
 collectBot(City, 170, 16, wishlist)
