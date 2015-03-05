@@ -268,8 +268,6 @@ def selectTreasureTrap(city):
 				x, y = event.pos
                                 print x,y                         
 				if (city.arena.ret_element_value(y/3, x/3) == 1 or city.arena.ret_element_value(y/3, x/3) == 2):
-#					treasurePosListX[i] = x #puts location in 2 lists for reference later if needed
-#					treasurePosListY[i] = y
 					city.arena.put(y/3,x/3, treasureNum)  #changes the number in the array from a road to the relevant treasure number the treasures will always be placed in the same order, the order they are in arrayNumberReference.txt
 					treasureNum = treasureNum + 1 #im want to reserve numbers 5 to 19 for treasures 
 					i=i+1
@@ -286,8 +284,6 @@ def selectTreasureTrap(city):
 				x, y = event.pos
                                 print x,y                         
 				if (city.arena.ret_element_value(y/3, x/3) == 1 or city.arena.ret_element_value(y/3,x/3) == 2):
-#					trapPosListX[j] = x
-#					trapPosListY[j] = y
 					city.arena.put(y/3,x/3, 3) #might need to be changed, im assuming that 3 is traps
                                 else:
                                     print "Not on a road"
