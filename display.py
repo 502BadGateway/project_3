@@ -14,8 +14,8 @@ class display:      #Class which handles all the display functionality.
 
         #DATA --------------
         if backgroundImage != False:
-            self.background = pygame.image.load(backgroundImage) #Load the background image 
             print backgroundImage
+            self.background = pygame.image.load(backgroundImage) #Load the background image 
             self.backgroundRect = self.background.get_rect() #Get the the background rectangle
             self.size = self.background.get_size()          #Get dimentions of the window
             self.__screenDimentions = (screenHeight,screenWidth)
