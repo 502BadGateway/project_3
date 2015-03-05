@@ -250,8 +250,8 @@ def selectTreasure():
 				else:
 					print "not on button" 				
 
-				
-		return treasureList
+	        print "got here?"			
+	return treasureList
 	
 
 def selectTreasureTrap(city):
@@ -267,15 +267,15 @@ def selectTreasureTrap(city):
 		for event in pygame.event.get():
 			if event.type == pygame.MOUSEBUTTONDOWN:
 				x, y = event.pos
-				print x,y                         
-				if (city.arena.ret_element_value(y/3, x/3) == 1 or city.arena.ret_element_value(y/3, x/3) == 2):
+				print y,x                         
+				if city.arena.ret_element_value(y/3, x/3) == 1 or city.arena.ret_element_value(y/3, x/3) == 2:
+                                        print "in loop"
 					city.arena.put(y/3,x/3, treasureNum)  #changes the number in the array from a road to the relevant treasure number the treasures will always be placed in the same order, the order they are in arrayNumberReference.txt
 					treasureNum = treasureNum + 1 #im want to reserve numbers 5 to 19 for treasures 
 					i=i+1
 				else:
 					print "Not on road"
-		print "done placing treasures"
-	
+        print "Done placeing treasures"	
 #places the traps
 	j=0
 	while j < 3:
@@ -286,6 +286,7 @@ def selectTreasureTrap(city):
 				print x,y                         
 				if (city.arena.ret_element_value(y/3, x/3) == 1 or city.arena.ret_element_value(y/3,x/3) == 2):
 					city.arena.put(y/3,x/3, 3) #might need to be changed, im assuming that 3 is traps
+                                        print "Placed road"
 				else:
 					print "Not on a road"
 		print "Done placing traps"
