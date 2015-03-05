@@ -297,6 +297,7 @@ def selectTreasureTrap(city, treasureStringList):
 #places the traps
     j=0
     while j < 3:
+        displayScreen.render()
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 sys.exit()
