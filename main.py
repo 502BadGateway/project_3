@@ -157,7 +157,7 @@ def selectTreasure():
 	 #                                        left corner
 	#items handed are as followed ---     name   x   y   file locations   size x&y
 	treasureButton.append(treasureSelect("Chest",30,40,"ASSETS/chest.png",130,100))
-	treasureButton.append(treasureSelect("Coin",190,40,"ASSETS/coins.png",130,100))
+	treasureButton.append(treasureSelect("Coins",190,40,"ASSETS/coins.png",130,100))
 	treasureButton.append(treasureSelect("Crown",350,40,"ASSETS/crown.png",130,100))
 	treasureButton.append(treasureSelect("Diamond",510,40,"ASSETS/diamond.png",130,100))
 	treasureButton.append(treasureSelect("DiamondBlock",30,180,"ASSETS/diamondBlock.png",130,100))
@@ -188,63 +188,63 @@ def selectTreasure():
 				if  x>30 and x<160 and y>40 and y<140:
 					print "Chest Clicked"
 					i = i + 1
-					#treasureList[i] = treasureButtonChest.treasureName
+					treasureList[i] = "Chest"
 				elif x>190 and x<320 and y>40 and y<140:
-					print "Coin Clicked"
+					print "Coins Clicked"
 					i = i + 1
-					#treasureList[i] = treasureButtonCoin.treasureName
+					treasureList[i] = "Coins"
 				elif x>350 and x<480 and y>40 and y<140:
 					print "Crown Clicked"
 					i = i + 1
-					#treasureList[i] = treasureButtonCrown.treasureName
+					treasureList[i] = "Crown"
 				elif x>510 and x<640 and y>40 and y<140:
 					print "Diamond Clicked"
 					i = i + 1
-					#treasureList[i] = treasureButtonDiamond.treasureName
+					treasureList[i] = "Diamond"
 				elif x>30 and x<160 and y>180 and y<280:
 					print "Diamond Block Clicked"
 					i = i + 1
-					#treasureList[i] = treasureButtonDiamondBlock.treasureName
+					treasureList[i] = DiamondBlock
 				elif x>190 and x<320 and y>180 and y<280:
 					print "Emerald Block Clicked"
 					i = i + 1
-					#treasureList[i] = treasureButtonEmeraldBlock.treasureName
+					treasureList[i] = "EmeraldBlock"
 				elif x>350 and x<480 and y>180 and y<280:
 					print "Gold Bar Clicked"
 					i = i + 1
-					#treasureList[i] = treasureButtonGoldBar.treasureName
+					treasureList[i] = "GoldBar"
 				elif x>510 and x<640 and y>180 and y<280:
 					print "Gold Block Clicked"
 					i = i + 1
-					#treasureList[i] = treasureButtonGoldBlock.treasureName
+					treasureList[i] = "GoldBlock"
 				elif x>30 and x<160 and y>320 and y<420:
 					print "Iron Clicked"
 					i = i + 1
-					#treasureList[i] = treasureButtonIron.treasureName
+					treasureList[i] = "Iron"
 				elif x>190 and x<320 and y>320 and y<420:
 					print "Lapis"
 					i = i + 1
-					#treasureList[i] = treasureButtonLapis.treasureName
+					treasureList[i] = "Lapis"
 				elif x>350 and x<480 and y>320 and y<420:
 					print "Lapis Block Clicked"
 					i = i + 1
-					#treasureList[i] = treasureButtonLapisBlock.treasureName
+					treasureList[i] = "LapisBlock"
 				elif x>510 and x<640 and y>320 and y<420:
 					print "Ring Clicked"
 					i = i + 1
-					#treasureList[i] = treasureButtonRing.treasureName
+					treasureList[i] = "Ring"
 				elif x>30 and x<160 and y>460 and y<560:
 					print "Sword Clicked"
 					i = i + 1 
-					#treasureList[i] = treasureButtonSword.treasureName
+					treasureList[i] = "Sword"
 				elif x>190 and x<320 and y>460 and y<560:
 					print "Tiara Clicked"
 					i = i + 1
-					#treasureList[i] = treasureButtonTiara.treasureName
+					treasureList[i] = "Tiara"
 				elif x>350 and x<480 and y>460 and y<560:
 					print "Emerald Clicked"
 					i = i + 1 
-					#treasureList[i] = treasureButtonEmerald.treasureName
+					treasureList[i] = "Emerald"
 				else:
 					print "not on button" 				
 
