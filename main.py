@@ -179,8 +179,9 @@ def selectTreasure():
 
 	displayScreen.render()
 # this waits for the user to click on 5 different treasures
+	
 	i = 0
-	while i < 11:
+	while i < 10:
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT:
 				sys.exit()
@@ -190,63 +191,63 @@ def selectTreasure():
 				if  x>30 and x<160 and y>40 and y<140:
 					print "Chest Clicked"
 					i = i + 1
-					treasureList[i] = "Chest"
+					treasureWishList[i] = "Chest"
 				elif x>190 and x<320 and y>40 and y<140:
 					print "Coin Clicked"
 					i = i + 1
-					treasureList[i] = "Coins"
+					treasureWishList[i] = "Coins"
 				elif x>350 and x<480 and y>40 and y<140:
 					print "Crown Clicked"
 					i = i + 1
-					treasureList[i] = "Crown"
+					treasureWishList[i] = "Crown"
 				elif x>510 and x<640 and y>40 and y<140:
 					print "Diamond Clicked"
 					i = i + 1
-					treasureList[i] = "Diamond"
+					treasureWishList[i] = "Diamond"
 				elif x>30 and x<160 and y>180 and y<280:
 					print "Diamond Block Clicked"
 					i = i + 1
-					treasureList[i] = DiamondBlock
+					treasureWishList[i] = DiamondBlock
 				elif x>190 and x<320 and y>180 and y<280:
 					print "Emerald Block Clicked"
 					i = i + 1
-					treasureList[i] = "EmeraldBlock"
+					treasureWishList[i] = "EmeraldBlock"
 				elif x>350 and x<480 and y>180 and y<280:
 					print "Gold Bar Clicked"
 					i = i + 1
-					treasureList[i] = "GoldBar"
+					treasureWishList[i] = "GoldBar"
 				elif x>510 and x<640 and y>180 and y<280:
 					print "Gold Block Clicked"
 					i = i + 1
-					treasureList[i] = "GoldBlock"
+					treasureWishList[i] = "GoldBlock"
 				elif x>30 and x<160 and y>320 and y<420:
 					print "Iron Clicked"
 					i = i + 1
-					treasureList[i] = "Iron"
+					treasureWishList[i] = "Iron"
 				elif x>190 and x<320 and y>320 and y<420:
 					print "Lapis"
 					i = i + 1
-					treasureList[i] = "Lapis"
+					treasureWishList[i] = "Lapis"
 				elif x>350 and x<480 and y>320 and y<420:
 					print "Lapis Block Clicked"
 					i = i + 1
-					treasureList[i] = "LapisBlock"
+					treasureWishList[i] = "LapisBlock"
 				elif x>510 and x<640 and y>320 and y<420:
 					print "Ring Clicked"
 					i = i + 1
-					treasureList[i] = "Ring"
+					treasureWishList[i] = "Ring"
 				elif x>30 and x<160 and y>460 and y<560:
 					print "Sword Clicked"
 					i = i + 1 
-					treasureList[i] = "Sword"
+					treasureWishList[i] = "Sword"
 				elif x>190 and x<320 and y>460 and y<560:
 					print "Tiara Clicked"
 					i = i + 1
-					treasureList[i] = "Tiara"
+					treasureWishList[i] = "Tiara"
 				elif x>350 and x<480 and y>460 and y<560:
 					print "Emerald Clicked"
 					i = i + 1 
-					treasureList[i] = "Emerald"
+					treasureWishList[i] = "Emerald"
 				else:
 					print "not on button" 				
 
