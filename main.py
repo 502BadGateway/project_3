@@ -154,7 +154,7 @@ def selectTreasure():
 	#places all the buttons
 	treasureButton = []
 
-        treasureList = [] #List holding all the treasures
+	treasureList = [] #List holding all the treasures
 	 #                                        left corner
 	#items handed are as followed ---     name   x   y   file locations   size x&y
 
@@ -191,7 +191,7 @@ def selectTreasure():
 					print "Chest Clicked"
 					i = i + 1
 					treasureList[i] = "Chest"
-                elif x>190 and x<320 and y>40 and y<140:
+				elif x>190 and x<320 and y>40 and y<140:
 					print "Coin Clicked"
 					i = i + 1
 					treasureList[i] = "Coins"
@@ -250,8 +250,8 @@ def selectTreasure():
 				else:
 					print "not on button" 				
 
-                
-        return treasureList
+				
+		return treasureList
 	
 
 def selectTreasureTrap(city):
@@ -263,11 +263,11 @@ def selectTreasureTrap(city):
 	i = 0
 	treasureNum = 6 #this may need to be changed depending on what num represent which 
 	while i < 5:
-                displayScreen.render()
+		displayScreen.render()
 		for event in pygame.event.get():
 			if event.type == pygame.MOUSEBUTTONDOWN:
 				x, y = event.pos
-                                print x,y                         
+				print x,y                         
 				if (city.arena.ret_element_value(y/3, x/3) == 1 or city.arena.ret_element_value(y/3, x/3) == 2):
 #					treasurePosListX[i] = x #puts location in 2 lists for reference later if needed
 #					treasurePosListY[i] = y
@@ -276,23 +276,23 @@ def selectTreasureTrap(city):
 					i=i+1
 				else:
 					print "Not on road"
-        print "done placing treasures"
+		print "done placing treasures"
 	
 #places the traps
 	j=0
 	while j < 3:
-                print "placing traps"
+		print "placing traps"
 		for event in pygame.event.get():
 			if event.type == pygame.MOUSEBUTTONDOWN:
 				x, y = event.pos
-                                print x,y                         
+				print x,y                         
 				if (city.arena.ret_element_value(y/3, x/3) == 1 or city.arena.ret_element_value(y/3,x/3) == 2):
 #					trapPosListX[j] = x
 #					trapPosListY[j] = y
 					city.arena.put(y/3,x/3, 3) #might need to be changed, im assuming that 3 is traps
-                                else:
-                                    print "Not on a road"
-        print "Done placing traps"
+				else:
+					print "Not on a road"
+		print "Done placing traps"
 
 	
 	#mapButtonLondon.cityText(None,20,28,12,"Please select your location",(10,10,10))
@@ -300,27 +300,27 @@ def selectTreasureTrap(city):
 
 
 def findRobotLocation(ar, name, robotList, wishlist, treasureList):
-    width = ar.ret_size()[0]-1        #Get the width and heights of the array
-    height = ar.ret_size()[1]-1
+	width = ar.ret_size()[0]-1        #Get the width and heights of the array
+	height = ar.ret_size()[1]-1
 
-    print "Using width:"+str(width) #dbg
-    print "Using height:"+str(height)
-    
-    placed = False                  #Store if we've placed anything
-    x = 0
-    rand_row = random.randint(0,height) #Pick a random row to spawn a trafficlight
+	print "Using width:"+str(width) #dbg
+	print "Using height:"+str(height)
+	
+	placed = False                  #Store if we've placed anything
+	x = 0
+	rand_row = random.randint(0,height) #Pick a random row to spawn a trafficlight
 
-    while x <= width-1 or placed != True:   #While we havent looked at every item in the row, and havent placed a light
-        if ar.ret_element_value(rand_row, x) == 1 or ar.ret_element_value(rand_row, x) == 2:    #Check that the item we're on is a road.
-            print "ROBOT:"
-            print rand_row, x
-            bot = collectorBot(ar, wishlist, treasureList, rand_row, x)                                    #Create a new robot!
-            robotList.append(bot)
-            ar.put(rand_row, x, 5)                                                            #Save it in the arena
-            placed = True                       #Move on
-            break
-        x += 1
-    return robotList 
+	while x <= width-1 or placed != True:   #While we havent looked at every item in the row, and havent placed a light
+		if ar.ret_element_value(rand_row, x) == 1 or ar.ret_element_value(rand_row, x) == 2:    #Check that the item we're on is a road.
+			print "ROBOT:"
+			print rand_row, x
+			bot = collectorBot(ar, wishlist, treasureList, rand_row, x)                                    #Create a new robot!
+			robotList.append(bot)
+			ar.put(rand_row, x, 5)                                                            #Save it in the arena
+			placed = True                       #Move on
+			break
+		x += 1
+	return robotList 
 
 	
 def main(mapSelect):
@@ -343,11 +343,11 @@ def collectBot(city, robots, wishlist, Treasure):
 
 	#Here we will create a new map selection instance.
 	#Then we will retrive the data from that to use later.
-        print "PATH"
+	print "PATH"
 
 	screen = display(city.ret_image_path(),1280, 960)
 
-    #Create a new collector bot. Relies on having an already created City, arena, wishlist and treasurelist.
+	#Create a new collector bot. Relies on having an already created City, arena, wishlist and treasurelist.
 	
 	#Create a new instance of a display - For the collector bot thingy
 	#Passes the image of the city as the background. Requires an instance of city to have been created.
@@ -356,15 +356,15 @@ def collectBot(city, robots, wishlist, Treasure):
 
 
 	while True: #While true TODO Add proper clause to quit program
-                locY = 0
+		locY = 0
 		for item in wishlist:   #Render the wish list list
-                        locY += 10
+			locY += 10
 			textString = str(item.getName())+"    Score"+str(item.returnPoints())+"    Collected: "+str(item.returnCollected())
-		 	screen.CreateText(textString, (0,locY,0,0), 40)
-                for bots in robots:
-	        	bots.updateLocation(city.arena)
-	        	screen.setCollectorBot(bots.returnLocationX(),bots.returnLocationY(), bots.returnImage()) #Set the location for the collector bot. Requires a location of a new bot to have been specified.
-                        
+			screen.CreateText(textString, (0,locY,0,0), 40)
+			for bots in robots:
+				bots.updateLocation(city.arena)
+				screen.setCollectorBot(bots.returnLocationX(),bots.returnLocationY(), bots.returnImage()) #Set the location for the collector bot. Requires a location of a new bot to have been specified.
+						
 		screen.render() #render
 
 
