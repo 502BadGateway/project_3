@@ -49,18 +49,22 @@ def selectSort(): #defines function
 				#print "click",x,y
 				if  x>30 and x<160 and y>40 and y<140: #check to see if we clicked on the button
 					print "Bubble Sort Selected"
+					#bubbleSorting = BubbleSorting()
 					return "BubbleSort" #....then we return the sort, in this case bubble sort
+
 			elif event.type == pygame.MOUSEBUTTONDOWN: #if that doesnt ^ then check to see if any of them is a mouse click
 				x, y = event.pos #if this is ^ true then we save location of mouse click
 				#print "click",x,y
 				if  x>190 and x<320 and y>40 and y<140: #check to see if we clicked on the button
 					print "Merge Sort Selected"
+					#mergeSorting = MergeSorting()
 					return "MergeSort" #....then we return the sort, in this case Merge sort
 			elif event.type == pygame.MOUSEBUTTONDOWN: #if that doesnt ^ then check to see if any of them is a mouse click
 				x, y = event.pos #if this is ^ true then we save location of mouse click
 				#print "click",x,y
 				if  x>350 and x<480 and y>40 and y<140: #check to see if we clicked on the button
 					print "Insertion Sort Selected"
+					#insertionSorting = InsertionSorting()
 					return "InsertionSort" #....then we return the sort, in this case Heap sort    
 
 
@@ -254,7 +258,7 @@ def selectTreasure():
 
 	print "got here?"			
 	print treasureWishList
-	return treasureList
+	return treasureWishList
 	
 
 def selectTreasureTrap(city):
@@ -333,13 +337,6 @@ def main(mapSelect):
 	clock = pygame.time.Clock() #we will need this for ade's timer
 
 	#this is temporary, it will use the display class later
-	"""
-	displayScreen = pygame.display.set_mode((510,320)) 
-	displayBackground = pygame.Surface(displayScreen.get_size())
-	displayBackground = displayBackground.convert()
-	displayBackground.fill((250,250,250))
-	displayScreen.blit(displayBackground,(0,0))"""
-
 
 
 def collectBot(city, robots, wishlist, Treasure):
