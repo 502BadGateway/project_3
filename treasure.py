@@ -22,4 +22,11 @@ class treasure(entity):
         self.__collected = val 
         return
 
+    def returnLocationX(self):
+        return self.__x
+
+    def returnLocationY(self):
+        return self.__y
+
+
 
