@@ -179,8 +179,9 @@ def selectTreasure():
 
 	displayScreen.render()
 # this waits for the user to click on 5 different treasures
+	
 	i = 0
-	while i < 11:
+	while i < 10:
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT:
 				sys.exit()
