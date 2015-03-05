@@ -291,8 +291,8 @@ def selectTreasureTrap(city, treasureStringList):
                      i=i+1
                 else:
                     print "Not a road"
-            for treasures in treasureList:
-                 displayScreen.setTreasureCollect(treasures.returnLocationX(), treasures.returnLocationY(), treasures.getImage())
+        for treasures in treasureList:
+             displayScreen.setTreasureCollect(treasures.returnLocationX(), treasures.returnLocationY(), treasures.getImage())
 
 #places the traps
     j=0
@@ -311,10 +311,10 @@ def selectTreasureTrap(city, treasureStringList):
                     print "Placed road"
                 else:
                     print "Not on a road"
-                for treasures in treasureList:
-                    displayScreen.setTreasureCollect(treasures.returnLocationX(), treasures.returnLocationY(), treasures.getImage())
-                for traps in trapList:
-                    displayScreen.setTreasureCollect(traps.returnLocationX(), traps.returnLocationY(), traps.getImage())
+        for treasures in treasureList:
+            displayScreen.setTreasureCollect(treasures.returnLocationX(), treasures.returnLocationY(), treasures.getImage())
+        for traps in trapList:
+            displayScreen.setTreasureCollect(traps.returnLocationX(), traps.returnLocationY(), traps.getImage())
     
     return treasureList, trapList
     
