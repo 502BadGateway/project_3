@@ -1,7 +1,7 @@
 This is the list of what I (Phil) have used to reverence various things in the array
 for reference: 
 
-5 = chest
+4 = chest
 6 = coin
 7 = crown
 8 = diamond
@@ -21,3 +21,4 @@ for reference:
 1 = road
 2 = road
 3 = trap
+5 = robot
