@@ -191,7 +191,7 @@ def selectTreasure():
 				if  x>30 and x<160 and y>40 and y<140:
 					print "Chest Clicked"
 					i = i + 1
-					treasureWishList.appent("Chest")
+					treasureWishList.append("Chest")
 				elif x>190 and x<320 and y>40 and y<140:
 					print "Coins Clicked"
 					i = i + 1
@@ -251,11 +251,9 @@ def selectTreasure():
 				else:
 					print "not on button" 				
 
-<<<<<<< HEAD
-				
-=======
-	        print "got here?"			
->>>>>>> FETCH_HEAD
+
+	print "got here?"			
+	print treasureWishList
 	return treasureList
 	
 
@@ -270,7 +268,9 @@ def selectTreasureTrap(city):
 	while i < 5:
 		displayScreen.render()
 		for event in pygame.event.get():
-			if event.type == pygame.MOUSEBUTTONDOWN:
+			if event.type == pygame.QUIT:
+				sys.exit()
+			elif event.type == pygame.MOUSEBUTTONDOWN:
 				x, y = event.pos
 				print y,x                         
 				if city.arena.ret_element_value(y/3, x/3) == 1 or city.arena.ret_element_value(y/3, x/3) == 2:
@@ -286,6 +286,8 @@ def selectTreasureTrap(city):
 	while j < 3:
 		print "placing traps"
 		for event in pygame.event.get():
+			if event.type == pygame.QUIT():
+				sys.exit()
 			if event.type == pygame.MOUSEBUTTONDOWN:
 				x, y = event.pos
 				print x,y                         
