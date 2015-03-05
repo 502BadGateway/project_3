@@ -83,6 +83,9 @@ class arena:        #Class for the arena
 
         print 
         print self.__grid_y, self.__grid_x
+
+        self.gridx = self.__grid_x
+        self.gridy = self.__grid_y
         
         #Now we have the amount of grid boxes we should have. We can create and array with that amount of values.
         #TODO Should save the tiles in an array for future referance. Will fix if have time.

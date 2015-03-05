@@ -14,4 +14,7 @@ class city():
             print self.__image
             return self.__image
 
+        def retArena(self):
+            return self.arena
+
 		
