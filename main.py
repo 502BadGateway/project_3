@@ -489,7 +489,11 @@ def collectBot(city, robots, wishlist, Treasure, Traps):
             locY += 10
             textString = str(item.getName())+"    Score"+str(item.returnPoints())+"    Collected: "+str(item.returnCollected())
             screen.CreateText(textString, (0,locY,0,0), 40)
+
         for item in Traps:
+            screen.setTreasureCollect(item.returnLocationX(), item.returnLocationY(), item.getImage())
+
+        for item in Treasure:
             screen.setTreasureCollect(item.returnLocationX(), item.returnLocationY(), item.getImage())
 
         for bots in robots:
