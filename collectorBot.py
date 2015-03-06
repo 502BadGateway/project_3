@@ -44,18 +44,19 @@ class collectorBot(Robot):      #Class for the collector robot. Inherits from th
     def updateLocation(self, arena):
         rnd = random.randint(0,4)
         if rnd == 0:
-            if arena.ret_element_value(self.returnLocationX(), self.returnLocationY()+1) == 1 or arena.ret_element_value(self.returnLocationX(), self.returnLocationY()+1) == 2: 
-                print "Hey!"
+            if arena.ret_element_value(self.returnLocationX(), self.returnLocationY()+1) != 0 or arena.ret_element_value(self.returnLocationX(), self.returnLocationY()+1) != 0 or arena.ret_element_value(self.returnLocationX(), self.returnLocationY()+2) != 0 or arena.ret_element_value(self.returnLocationX(), self.returnLocationY()+2) != 0:
                 self.moveDown(arena)
-        if rnd == 2:
-            if arena.ret_element_value(self.returnLocationX()+1, self.returnLocationY()) == 1 or arena.ret_element_value(self.returnLocationX()+1, self.returnLocationY()) == 2: 
+        elif rnd == 2:
+            if arena.ret_element_value(self.returnLocationX()+1, self.returnLocationY()) != 0 or arena.ret_element_value(self.returnLocationX()+1, self.returnLocationY()) != 0 or arena.ret_element_value(self.returnLocationX()+2, self.returnLocationY()) != 0 or arena.ret_element_value(self.returnLocationX()+2, self.returnLocationY()) != 0:
                 self.moveRight(arena)
-        if rnd == 3:
-            if arena.ret_element_value(self.returnLocationX(), self.returnLocationY()-1) == 1 or arena.ret_element_value(self.returnLocationX(), self.returnLocationY()-1) == 2: 
+        elif rnd == 3:
+            if arena.ret_element_value(self.returnLocationX(), self.returnLocationY()-1) != 0 or arena.ret_element_value(self.returnLocationX(), self.returnLocationY()-1) != 0 or arena.ret_element_value(self.returnLocationX(), self.returnLocationY()-2) != 0 or arena.ret_element_value(self.returnLocationX(), self.returnLocationY()-2) != 0:
                 self.moveUp(arena)
-        if rnd == 4:
-            if arena.ret_element_value(self.returnLocationX()-1, self.returnLocationY()) == 1 or arena.ret_element_value(self.returnLocationX()-1, self.returnLocationY()) == 2: 
+        elif rnd == 4:
+            if arena.ret_element_value(self.returnLocationX()-1, self.returnLocationY()) != 0 or arena.ret_element_value(self.returnLocationX()-1, self.returnLocationY()) != 0 or arena.ret_element_value(self.returnLocationX()-2, self.returnLocationY()) != 0 or arena.ret_element_value(self.returnLocationX()-2, self.returnLocationY()) != 0:
                 self.moveLeft(arena)
+        else:
+            self.updateLocation(arena)
 
 
         
