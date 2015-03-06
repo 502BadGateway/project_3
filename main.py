@@ -419,7 +419,7 @@ def selectTreasureTrap(city, treasureStringList):
                 print x,y                         
                 if (city.arena.ret_element_value(y/10, x/10) == 1 or city.arena.ret_element_value(y/10,x/10) == 2):
                     city.arena.put(y/10,x/10, 10) #might need to be changed, im assuming that 3 is traps
-                    trapList.append(trap(y/10,x/10, random.randint(0, 100), "Trap", 0, "ASSETS/car.png"))
+                    trapList.append(trap(y/10,x/10, random.randint(0, 100), "Trap", 0, "ASSETS/treasures/trap.png"))
                     j=j+1
                     print "Placed road"
                 else:
@@ -449,7 +449,7 @@ def findRobotLocation(ar, name, robotList, wishlist, treasureList):
         if ar.ret_element_value(rand_row, x) == 1 or ar.ret_element_value(rand_row, x) == 2:    #Check that the item we're on is a road.
             print "ROBOT:"
             print rand_row, x
-            bot = collectorBot(ar, wishlist, treasureList, rand_row, x)                                    #Create a new robot!
+            bot = collectorBot(ar, wishlist, treasureList, rand_row/10, x/10)                                    #Create a new robot!
             robotList.append(bot)
             ar.put(rand_row, x, 5)                                                            #Save it in the arena
             placed = True                       #Move on
@@ -497,7 +497,7 @@ def collectBot(city, robots, wishlist, Treasure, Traps):
             screen.setTreasureCollect(item.returnLocationX(), item.returnLocationY(), item.getImage())
 
         for bots in robots:
-            bots.updateLocation(city.arena)
+            bots.updateLocation(city, city.arena)
             screen.setCollectorBot(bots.returnLocationX(),bots.returnLocationY(), bots.returnImage()) #Set the location for the collector bot. Requires a location of a new bot to have been specified.
                         
         screen.render() #render
