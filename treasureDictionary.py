@@ -1,4 +1,4 @@
-class treasureDictionary:
+class dictionary:
 
 	def __init__(self):
 
