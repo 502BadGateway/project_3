@@ -154,7 +154,6 @@ def selectMap(mapSelect):
 
 
 def selectTreasure():
-<<<<<<< HEAD
 	displayScreen = display(False,670,600)#creates a white display for buttons to be placed on
 
 	#places all the buttons
@@ -267,8 +266,7 @@ def selectTreasure():
 def selectTreasureTrap(city):
 	backgroundImage = city.ret_image_path()
 
-	displayScreen = display(backgroundImage,1280,960)#loads the map selected as background for user to place treasure and traps on
-=======
+	#displayScreen = display(backgroundImage,1280,960)#loads the map selected as background for user to place treasure and traps on
     displayScreen = display(False,670,600)#creates a white display for buttons to be placed on
 
     #places all the buttons
@@ -383,7 +381,6 @@ def selectTreasureTrap(city, treasureStringList):
 
     treasureList = []
     trapList = []
->>>>>>> FETCH_HEAD
 
 #places the treasure
     i = 0
