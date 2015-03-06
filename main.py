@@ -100,8 +100,8 @@ def selectMap(mapSelect):
                     City = city("London",[])
                     Sort = selectSort()
                     Treasure = selectTreasure()
-                    TreasureTrap = selectTreasureTrap(City, Treasure)
-                    return City, Sort, TreasureTrap[0] 
+                    Treasure, Trap = selectTreasureTrap(City, Treasure)
+                    return City, Sort, Treasure, Trap 
                     #self.mapSelected = "ASSETS\staticmapLondon.png" # what will be referenced later to know what map to use.
                     #treasurePos(mapSelected)
                 elif x>190 and x<320 and y>40 and y<140:
@@ -109,8 +109,8 @@ def selectMap(mapSelect):
                     City = city("Paris", [])
                     Sort = selectSort()
                     Treasure = selectTreasure()
-                    TreasureTrap = selectTreasureTrap(City, Treasure)
-                    return City, Sort, Treasure, TreasureTrap
+                    Treasure, Trap = selectTreasureTrap(City, Treasure)
+                    return City, Sort, Treasure, Trap
                     #mapSelected = "ASSETS\staticmapParis.png"
                     #treasurePos(mapSelected)
                 elif x>350 and x<480 and y>40 and y<140:
@@ -118,8 +118,8 @@ def selectMap(mapSelect):
                     City = city("NewYork",[]) 
                     Sort = selectSort()
                     Treasure = selectTreasure()
-                    TreasureTrap = selectTreasureTrap(City, Treasure)
-                    return City, Sort, Treasure, TreasureTrap
+                    Treasure, Trap = selectTreasureTrap(City, Treasure)
+                    return City, Sort, Treasure,Trap
                     #self.mapSelected = "ASSETS\staticmapNewYork.png"
                     #treasurePos(mapSelected)
                 elif x>30 and x<160 and y>180 and y<280:
@@ -127,8 +127,8 @@ def selectMap(mapSelect):
                     City = city("Tokyo",[])
                     Sort = selectSort
                     Treasure = selectTreasure()
-                    TreasureTrap = selectTreasureTrap(City, Treasure)
-                    return City, Sort, Treasure, TreasureTrap
+                    Treasure, Trap = selectTreasureTrap(City, Treasure)
+                    return City, Sort, Treasure, Trap
                     #self.mapSelected = "ASSETS\staticmapTokyo.png"
                     #treasurePos(mapSelected)
                 elif x>190 and x<320 and y>180 and y<280:
@@ -136,8 +136,8 @@ def selectMap(mapSelect):
                     City = city("Johannesburg",[])
                     Sort = selectSort()
                     Treasure = selectTreasure()
-                    TreasureTrap = selectTreasureTrap(City, Treasure)
-                    return City, Sort, Treasure, TreasureTrap
+                    Treasure, Trap = selectTreasureTrap(City, Treasure)
+                    return City, Sort, Treasure, Trap
                     #self.mapSelected = "ASSETS\staticmapJohannesburg.png"
                     #treasurePos(mapSelected)
                 elif x>350 and x<480 and y>180 and y<280:
@@ -145,8 +145,8 @@ def selectMap(mapSelect):
                     City = city("Berlin",[])
                     Sort = selectSort()
                     Treasure = selectTreasure()
-                    TreasureTrap = selectTreasureTrap(City, Treasure)
-                    return City, Sort, Treasure, TreasureTrap
+                    Treasure, Trap = selectTreasureTrap(City, Treasure)
+                    return City, Sort, Treasure,Trap
                     #self.mapSelected = "ASSETS\staticmapBerlin.png"
                     #treasurePos(mapSelected)
                 else:
@@ -306,7 +306,7 @@ def selectTreasureTrap(city, treasureStringList):
                 print x,y                         
                 if (city.arena.ret_element_value(y/10, x/10) == 1 or city.arena.ret_element_value(y/10,x/10) == 2):
                     city.arena.put(y/10,x/10, 10) #might need to be changed, im assuming that 3 is traps
-                    trapList.append(trap(x/10,y/10, random.randint(0, 100), "Trap", 0, "ASSETS/car.png"))
+                    trapList.append(trap(y/10,x/10, random.randint(0, 100), "Trap", 0, "ASSETS/car.png"))
                     j=j+1
                     print "Placed road"
                 else:
@@ -353,7 +353,7 @@ def main(mapSelect):
     #this is temporary, it will use the display class later
 
 
-def collectBot(city, robots, wishlist, Treasure):
+def collectBot(city, robots, wishlist, Treasure, Traps):
     
 
     #Here we will create a new map selection instance.
@@ -376,14 +376,17 @@ def collectBot(city, robots, wishlist, Treasure):
             locY += 10
             textString = str(item.getName())+"    Score"+str(item.returnPoints())+"    Collected: "+str(item.returnCollected())
             screen.CreateText(textString, (0,locY,0,0), 40)
-            for bots in robots:
-                bots.updateLocation(city.arena)
-                screen.setCollectorBot(bots.returnLocationX(),bots.returnLocationY(), bots.returnImage()) #Set the location for the collector bot. Requires a location of a new bot to have been specified.
+        for item in Traps:
+            screen.setTreasureCollect(item.returnLocationX(), item.returnLocationY(), item.getImage())
+
+        for bots in robots:
+            bots.updateLocation(city.arena)
+            screen.setCollectorBot(bots.returnLocationX(),bots.returnLocationY(), bots.returnImage()) #Set the location for the collector bot. Requires a location of a new bot to have been specified.
                         
         screen.render() #render
 
 
-City, Sort, Treasure = selectMap(mapSelect)
+City, Sort, TreasureList, TrapList = selectMap(mapSelect)
 robots = []
-robots = findRobotLocation(City.arena, "Barry", [], [], Treasure)
-collectBot(City, robots, Treasure, Treasure)
+robots = findRobotLocation(City.arena, "Barry", [], [], TreasureList)
+collectBot(City, robots, TreasureList, TreasureList, TrapList)
