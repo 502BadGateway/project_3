@@ -4,12 +4,12 @@ class Sorter:
 
     def __init__(self):
 
-    def swap(self, valOne, valTwo, lst):
+
+    def swap(self, valOne, valTwo, list):
         tmp = None  
 
-        tmp = lst[valOne] # put first val into tmp
-        lst[valOne] = list[valTwo] #replace first value with second
-        lst[valTwo] = tmp  #replace second value with first
+        tmp = list[valOne] # put first val into tmp
+        list[valOne] = list[valTwo] #replace first value with second
+        list[valTwo] = tmp  #replace second value with first
 
-        return lst
-
+        return
