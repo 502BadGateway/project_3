@@ -466,6 +466,9 @@ def wiki(treasureName):
     wikiTextPos = (0,940,0,0)
     display.CreateText(wikiText,wikiTextPos,0)
 
+    #display.render_textrect(wikiText,None,wikiTextPos,(0,0,0))
+
+
 def main(mapSelect):
 
     pygame.init() #initialise pygame
