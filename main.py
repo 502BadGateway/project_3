@@ -155,119 +155,119 @@ def selectMap(mapSelect):
 
 
 def selectTreasure():
-	displayScreen = display(False,670,600)#creates a white display for buttons to be placed on
+    displayScreen = display(False,670,600)#creates a white display for buttons to be placed on
 
-	#places all the buttons
-	treasureButton = []
+    #places all the buttons
+    treasureButton = []
 
-	treasureList = ["Chest","Coin","Diamond","DiamondBlock","EmeraldBlock","GoldBar","GoldBlock","Iron","Lapis","LapisBlock","Ring","Sword","Tiara","Emerald"] #List holding all the treasures
-	 #                                        left corner
-	#items handed are as followed ---     name   x   y   file locations   size x&y
+    treasureList = ["Chest","Coin","Diamond","DiamondBlock","EmeraldBlock","GoldBar","GoldBlock","Iron","Lapis","LapisBlock","Ring","Sword","Tiara","Emerald"] #List holding all the treasures
+     #                                        left corner
+    #items handed are as followed ---     name   x   y   file locations   size x&y
 
-	treasureButton.append(treasureSelect("Chest",30,40,"ASSETS/treasures/chest.png",130,100))
-	treasureButton.append(treasureSelect("Coin",190,40,"ASSETS/treasures/coins.png",130,100))
-	treasureButton.append(treasureSelect("Crown",350,40,"ASSETS/treasures/crown.png",130,100))
-	treasureButton.append(treasureSelect("Diamond",510,40,"ASSETS/treasures/diamond.png",130,100))
-	treasureButton.append(treasureSelect("DiamondBlock",30,180,"ASSETS/treasures/diamondblock.png",130,100))
-	treasureButton.append(treasureSelect("EmeraldBlock",190,180,"ASSETS/treasures/emeraldblock.png",130,100))
-	treasureButton.append(treasureSelect("GoldBar",350,180,"ASSETS/treasures/goldbar.png",130,100))
-	treasureButton.append(treasureSelect("GoldBlock",510,180,"ASSETS/treasures/goldblock.png",130,100))
-	treasureButton.append(treasureSelect("Iron",30,320,"ASSETS/treasures/iron.png",130,100))
-	treasureButton.append(treasureSelect("Lapis",190,320,"ASSETS/treasures/lapis.png",130,100))
-	treasureButton.append(treasureSelect("LapisBlock",350,320,"ASSETS/treasures/lapisblock.png",130,100))
-	treasureButton.append(treasureSelect("Ring",510,320,"ASSETS/treasures/ring.png",130,100))
-	treasureButton.append(treasureSelect("Sword",30,460,"ASSETS/treasures/sword.png",130,100))
-	treasureButton.append(treasureSelect("Tiara",190,460,"ASSETS/treasures/tiara.png",130,100))
-	treasureButton.append(treasureSelect("Emerald",350,460,"ASSETS/treasures/emerald.png",130,100))
+    treasureButton.append(treasureSelect("Chest",30,40,"ASSETS/treasures/chest.png",130,100))
+    treasureButton.append(treasureSelect("Coin",190,40,"ASSETS/treasures/coins.png",130,100))
+    treasureButton.append(treasureSelect("Crown",350,40,"ASSETS/treasures/crown.png",130,100))
+    treasureButton.append(treasureSelect("Diamond",510,40,"ASSETS/treasures/diamond.png",130,100))
+    treasureButton.append(treasureSelect("DiamondBlock",30,180,"ASSETS/treasures/diamondblock.png",130,100))
+    treasureButton.append(treasureSelect("EmeraldBlock",190,180,"ASSETS/treasures/emeraldblock.png",130,100))
+    treasureButton.append(treasureSelect("GoldBar",350,180,"ASSETS/treasures/goldbar.png",130,100))
+    treasureButton.append(treasureSelect("GoldBlock",510,180,"ASSETS/treasures/goldblock.png",130,100))
+    treasureButton.append(treasureSelect("Iron",30,320,"ASSETS/treasures/iron.png",130,100))
+    treasureButton.append(treasureSelect("Lapis",190,320,"ASSETS/treasures/lapis.png",130,100))
+    treasureButton.append(treasureSelect("LapisBlock",350,320,"ASSETS/treasures/lapisblock.png",130,100))
+    treasureButton.append(treasureSelect("Ring",510,320,"ASSETS/treasures/ring.png",130,100))
+    treasureButton.append(treasureSelect("Sword",30,460,"ASSETS/treasures/sword.png",130,100))
+    treasureButton.append(treasureSelect("Tiara",190,460,"ASSETS/treasures/tiara.png",130,100))
+    treasureButton.append(treasureSelect("Emerald",350,460,"ASSETS/treasures/emerald.png",130,100))
 
-	for btn in treasureButton:
-		displayScreen.addTreasureBtn(btn)
+    for btn in treasureButton:
+        displayScreen.addTreasureBtn(btn)
 
-	displayScreen.render()
+    displayScreen.render()
 # this waits for the user to click on 5 different treasures
-	treasureWishList = []
-	i = 0
-	while i < 10:
-		for event in pygame.event.get():
-			if event.type == pygame.QUIT:
-				sys.exit()
+    treasureWishList = []
+    i = 0
+    while i < 10:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                sys.exit()
 
-			elif event.type == pygame.MOUSEBUTTONDOWN:
-				x, y = event.pos
-				if  x>30 and x<160 and y>40 and y<140:
-					print "Chest Clicked"
-					i = i + 1
-					treasureWishList.append("Chest")
-				elif x>190 and x<320 and y>40 and y<140:
-					print "Coins Clicked"
-					i = i + 1
-					treasureWishList.append("Coins")
-				elif x>350 and x<480 and y>40 and y<140:
-					print "Crown Clicked"
-					i = i + 1
-					treasureWishList.append("Crown")
-				elif x>510 and x<640 and y>40 and y<140:
-					print "Diamond Clicked"
-					i = i + 1
-					treasureWishList.append("Diamond")
-				elif x>30 and x<160 and y>180 and y<280:
-					print "Diamond Block Clicked"
-					i = i + 1
-					treasureWishList.append("DiamondBlock")
-				elif x>190 and x<320 and y>180 and y<280:
-					print "Emerald Block Clicked"
-					i = i + 1
-					treasureWishList.append("EmeraldBlock")
-				elif x>350 and x<480 and y>180 and y<280:
-					print "Gold Bar Clicked"
-					i = i + 1
-					treasureWishList.append("GoldBar")
-				elif x>510 and x<640 and y>180 and y<280:
-					print "Gold Block Clicked"
-					i = i + 1
-					treasureWishList.append("GoldBlock")
-				elif x>30 and x<160 and y>320 and y<420:
-					print "Iron Clicked"
-					i = i + 1
-					treasureWishList.append("Iron")
-				elif x>190 and x<320 and y>320 and y<420:
-					print "Lapis"
-					i = i + 1
-					treasureWishList.append("Lapis")
-				elif x>350 and x<480 and y>320 and y<420:
-					print "Lapis Block Clicked"
-					i = i + 1
-					treasureWishList.append("LapisBlock")
-				elif x>510 and x<640 and y>320 and y<420:
-					print "Ring Clicked"
-					i = i + 1
-					treasureWishList.append("Ring")
-				elif x>30 and x<160 and y>460 and y<560:
-					print "Sword Clicked"
-					i = i + 1 
-					treasureWishList.append("Sword")
-				elif x>190 and x<320 and y>460 and y<560:
-					print "Tiara Clicked"
-					i = i + 1
-					treasureWishList.append("Tiara")
-				elif x>350 and x<480 and y>460 and y<560:
-					print "Emerald Clicked"
-					i = i + 1 
-					treasureWishList.append("Emerald")
-				else:
-					print "not on button" 				
+            elif event.type == pygame.MOUSEBUTTONDOWN:
+                x, y = event.pos
+                if  x>30 and x<160 and y>40 and y<140:
+                    print "Chest Clicked"
+                    i = i + 1
+                    treasureWishList.append("Chest")
+                elif x>190 and x<320 and y>40 and y<140:
+                    print "Coins Clicked"
+                    i = i + 1
+                    treasureWishList.append("Coins")
+                elif x>350 and x<480 and y>40 and y<140:
+                    print "Crown Clicked"
+                    i = i + 1
+                    treasureWishList.append("Crown")
+                elif x>510 and x<640 and y>40 and y<140:
+                    print "Diamond Clicked"
+                    i = i + 1
+                    treasureWishList.append("Diamond")
+                elif x>30 and x<160 and y>180 and y<280:
+                    print "Diamond Block Clicked"
+                    i = i + 1
+                    treasureWishList.append("DiamondBlock")
+                elif x>190 and x<320 and y>180 and y<280:
+                    print "Emerald Block Clicked"
+                    i = i + 1
+                    treasureWishList.append("EmeraldBlock")
+                elif x>350 and x<480 and y>180 and y<280:
+                    print "Gold Bar Clicked"
+                    i = i + 1
+                    treasureWishList.append("GoldBar")
+                elif x>510 and x<640 and y>180 and y<280:
+                    print "Gold Block Clicked"
+                    i = i + 1
+                    treasureWishList.append("GoldBlock")
+                elif x>30 and x<160 and y>320 and y<420:
+                    print "Iron Clicked"
+                    i = i + 1
+                    treasureWishList.append("Iron")
+                elif x>190 and x<320 and y>320 and y<420:
+                    print "Lapis"
+                    i = i + 1
+                    treasureWishList.append("Lapis")
+                elif x>350 and x<480 and y>320 and y<420:
+                    print "Lapis Block Clicked"
+                    i = i + 1
+                    treasureWishList.append("LapisBlock")
+                elif x>510 and x<640 and y>320 and y<420:
+                    print "Ring Clicked"
+                    i = i + 1
+                    treasureWishList.append("Ring")
+                elif x>30 and x<160 and y>460 and y<560:
+                    print "Sword Clicked"
+                    i = i + 1 
+                    treasureWishList.append("Sword")
+                elif x>190 and x<320 and y>460 and y<560:
+                    print "Tiara Clicked"
+                    i = i + 1
+                    treasureWishList.append("Tiara")
+                elif x>350 and x<480 and y>460 and y<560:
+                    print "Emerald Clicked"
+                    i = i + 1 
+                    treasureWishList.append("Emerald")
+                else:
+                    print "not on button"               
 
 
-	print "got here?"			
-	print treasureWishList
-	print treasureList
-	return treasureWishList, treasureList
-	
+    print "got here?"           
+    print treasureWishList
+    print treasureList
+    return treasureWishList, treasureList
+    
 
 def selectTreasureTrap(city):
-	backgroundImage = city.ret_image_path()
+    backgroundImage = city.ret_image_path()
 
-	#displayScreen = display(backgroundImage,1280,960)#loads the map selected as background for user to place treasure and traps on
+    #displayScreen = display(backgroundImage,1280,960)#loads the map selected as background for user to place treasure and traps on
     displayScreen = display(False,670,600)#creates a white display for buttons to be placed on
 
     #places all the buttons
