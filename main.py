@@ -259,7 +259,7 @@ def selectTreasure():
 
         print "got here?"                       
         print treasureWishList
-        return treasureWishList, treasureList
+        return treasureWishList
         
 
 def selectTreasureTrap(city):
@@ -380,6 +380,7 @@ def selectTreasureTrap(city, treasureStringList):
 
     treasureList = []
     trapList = []
+    print treasureStringList[1]
 
 #places the treasure
     i = 0
