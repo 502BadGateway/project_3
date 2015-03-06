@@ -158,7 +158,7 @@ def selectTreasure():
 	#places all the buttons
 	treasureButton = []
 
-	treasureList = [] #List holding all the treasures
+	treasureList = ["Chest","Coin","Diamond","DiamondBlock","EmeraldBlock","GoldBar","GoldBlock","Iron","Lapis","LapisBlock","Ring","Sword","Tiara","Emerald"] #List holding all the treasures
 	 #                                        left corner
 	#items handed are as followed ---     name   x   y   file locations   size x&y
 
@@ -258,7 +258,8 @@ def selectTreasure():
 
 	print "got here?"			
 	print treasureWishList
-	return treasureWishList
+	print treasureListr
+	return treasureWishList, treasureList
 	
 
 def selectTreasureTrap(city):
