@@ -32,8 +32,10 @@ import sys
 import pygame
 from pygame.locals import *
 import time
+from treasureDictionary import dictionary
 
 pygame.init()
+treasureDict = dictionary()
 screen = pygame.display.set_mode((1280,720))
 pygame.display.set_caption("Sort Bot")
 background = pygame.image.load('ASSETS/sortBackground.png')
@@ -265,36 +267,106 @@ I wont actually use the majority of it, it will be pulled from phil/femi code.
 This will be a list of treasures pulled from the collectorBot.
 collectorBot inventory will be 7 treasures.
 """
+from moduledList import theList
 
-treasure0 = treasure()  #ALL THIS ISNT NEEDED I DONT THINK
-treasure0.image = pygame.image.load('ASSETS/treasure-0.png')
-treasure0.points = 0
+preObjectList = theList
+treasureList = []
 
-treasure1 = treasure() #create object treasure2
-treasure1.image = pygame.image.load('ASSETS/treasure-1.png')
-treasure1.points = 1
+for i in range(0, len(preObjectList)):
+	if(preObjectList[i] == "chest"):
+		chest = treasure()
+		chest.image = pygame.image.load(treasureDict.chest["image"])
+		chest.points = treasureDict.chest["points"]
+		treasureList.append(chest)
 
-treasure2 = treasure() #create object treasure3
-treasure2.image = pygame.image.load('ASSETS/treasure-2.png')
-treasure2.points = 2
+	elif(preObjectList[i] == "coin"):
+		coin = treasure()
+		coin.image = pygame.image.load(treasureDict.coin["image"])
+		coin.points = treasureDict.coin["points"]
+		treasureList.append(coin)
 
-treasure3 = treasure() #create object treasure4
-treasure3.image = pygame.image.load('ASSETS/treasure-3.png')
-treasure3.points = 3
+	elif(preObjectList[i] == "crown"):
+		crown = treasure()
+		crown.image = pygame.image.load(treasureDict.crown["image"])
+		crown.points = treasureDict.crown["points"]
+		treasureList.append(crown)
 
-treasure4 = treasure() #create object treasure5
-treasure4.image = pygame.image.load('ASSETS/treasure-4.png')
-treasure4.points = 4
+	elif(preObjectList[i] == "diamond"):
+		diamond = treasure()
+		diamond.image = pygame.image.load(treasureDict.diamond["image"])
+		diamond.points = treasureDict.diamond["points"]
+		treasureList.append(diamond)
 
-treasure5 = treasure() #ok so you get the point, but i want the lines on the github
-treasure5.image = pygame.image.load('ASSETS/treasure-5.png')
-treasure5.points = 5
+	elif(preObjectList[i] == "diamondblock"):
+		diamondblock = treasure()
+		diamondblock.image = pygame.image.load(treasureDict.diamondblock["image"])
+		diamondblock.points = treasureDict.diamondblock["points"]
+		treasureList.append(diamondblock)
 
-treasure6 = treasure() #I mean, just give me my degree already
-treasure6.image = pygame.image.load('ASSETS/treasure-6.png')
-treasure6.points = 6
+	elif(preObjectList[i] == "emerald"):
+		emerald = treasure()
+		emerald.image = pygame.image.load(treasureDict.emerald["image"])
+		emerald.points = treasureDict.emerald["points"]
+		treasureList.append(emerald)
 
-treasureList = [treasure6, treasure2, treasure1, treasure3, treasure4, treasure0, treasure5]
+	elif(preObjectList[i] == "emeraldblock"):
+		print "ARGGHHHHH"
+		print preObjectList[i]
+		emeraldblock = treasure()
+		emeraldblock.image = pygame.image.load(treasureDict.emeraldblock["image"])
+		emeraldblock.points = treasureDict.emeraldblock["points"]
+		treasureList.append(emeraldblock)
+
+	elif(preObjectList[i] == "goldbar"):
+		goldbar = treasure()
+		goldbar.image = pygame.image.load(treasureDict.goldbar["image"])
+		goldbar.points = treasureDict.goldbar["points"]
+		treasureList.append(goldbar)
+
+	elif(preObjectList[i] == "goldblock"):
+		goldblock = treasure()
+		goldblock.image = pygame.image.load(treasureDict.goldblock["image"])
+		goldblock.points = treasureDict.goldblock["points"]
+		treasureList.append(goldblock)
+
+	elif(preObjectList[i] == "iron"):
+		iron = treasure()
+		iron.image = pygame.image.load(treasureDict.iron["image"])
+		iron.points = treasureDict.iron["points"]
+		treasureList.append(iron)
+
+	elif(preObjectList[i] == "lapis"):
+		lapis = treasure()
+		lapis.image = pygame.image.load(treasureDict.lapis["image"])
+		lapis.points = treasureDict.lapis["points"]
+		treasureList.append(lapis)
+
+	elif(preObjectList[i] == "lapisblock"):
+		lapisblock = treasure()
+		lapisblock.image = pygame.image.load(treasureDict.lapisblock["image"])
+		lapisblock.points = treasureDict.lapisblock["points"]
+		treasureList.append(lapisblock)
+
+	elif(preObjectList[i] == "ring"):
+		ring = treasure()
+		ring.image = pygame.image.load(treasureDict.ring["image"])
+		ring.points = treasureDict.ring["points"]
+		treasureList.append(ring)
+
+	elif(preObjectList[i] == "sword"):
+		sword = treasure()
+		sword.image = pygame.image.load(treasureDict.sword["image"])
+		sword.points = treasureDict.sword["points"]
+		treasureList.append(sword)
+
+	elif(preObjectList[i] == "tiara"):
+		tiara = treasure()
+		tiara.image = pygame.image.load(treasureDict.tiara["image"])
+		tiara.points = treasureDict.tiara["points"]
+		treasureList.append(tiara)
+
+
+print treasureList
 
 for i in treasureList:
 	i.location = treasureList.index(i)
@@ -338,7 +410,6 @@ for x in range(0,1): #should be a while loop. but i want to test stuff first.
 	"""
 	PUT YOUR SORTING ALGORITH HERE BELOW!
     """
-
 
 
 	for passnum in range(len(treasureList)-1,0,-1):
