@@ -36,6 +36,6 @@ class  mergesort: #initiates class
                 k=k+1 #increments k
         print(treasureList) #prints sorted list
 
-sort = mergesort() 
+#sort = mergesort() #call
 
-sort.run(treasureList) 
+#sort.run(treasureList) 
