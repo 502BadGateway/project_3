@@ -479,24 +479,15 @@ def main(mapSelect):
     #this is temporary, it will use the display class later
 
 
-def collectBot(city, robots, wishlist, Treasure, Traps):
-    print wishlist
+def collectBot(city, robots, wishlist, Treasure, Traps): 
+
+    TreasureCopy = list(Treasure)   #Copy treasure list
+    Inventory = []
     
-
-    #Here we will create a new map selection instance.
-    #Then we will retrive the data from that to use later.
-    print "PATH"
-    print Treasure
-
-    screen = display(city.ret_image_path(),1280, 960)
-
-    #Create a new collector bot. Relies on having an already created City, arena, wishlist and treasurelist.
-    
-    #Create a new instance of a display - For the collector bot thingy
     #Passes the image of the city as the background. Requires an instance of city to have been created.
     #screen.setCollectorBot(cBot.returnLocationX(), cBot.returnLocationY(), cBot.returnImage()) #Set the location for the collector bot. Requires a location of a new bot to have been specified.
 
-
+    screen = display(city.ret_image_path(), 1280, 960)
 
     while True: #While true TODO Add proper clause to quit program
         locY = 0
@@ -509,13 +500,25 @@ def collectBot(city, robots, wishlist, Treasure, Traps):
             screen.setTreasureCollect(item.returnLocationX(), item.returnLocationY(), item.getImage())
 
         for item in Treasure:
-            screen.setTreasureCollect(item.returnLocationX(), item.returnLocationY(), item.getImage())
+            screen.setTreasureCollect(item.returnLocationY(), item.returnLocationX(), item.getImage())
+
         for bots in robots:
-            collected = bots.treasureCheck(city.retArena(), Treasure)
+            if len(Treasure) > 0:
+                collected, treasure = bots.treasureCheck(city.retArena(), Treasure)
+                print collected, treasure
+            else:
+                print "Collected all treasures"
+                #Treasure.remove(treasure)
+                Inventory = bots.retInventory()
+                return Inventory
+                break
             if collected == True:
-                Treasure.pop(1)
-            screen.CreateText(str(bots.ret_points()), (200,0,0,0), 0)
-            bots.updateLocation(city, city.retArena(), bots, (Treasure[1].returnLocationX(), Treasure[1].returnLocationY()))
+                Treasure.remove(treasure)
+            if len(Treasure) == 0:
+                print "collected all treasures"
+                break
+            screen.CreateText(str(bots.returnPoints()), (200,0,0,0), 0)
+            bots.updateLocation(city, city.retArena(), bots, (Treasure[0].returnLocationX(), Treasure[0].returnLocationY()))
             screen.setCollectorBot(bots.returnLocationX(),bots.returnLocationY(), bots.returnImage()) #Set the location for the collector bot. Requires a location of a new bot to have been specified.
                         
         screen.render() #render
@@ -524,5 +527,6 @@ def collectBot(city, robots, wishlist, Treasure, Traps):
 City, Sort, TreasureList, TrapList = selectMap(mapSelect)
 robots = []
 robots = findRobotLocation(City.arena, "Barry", [], [], TreasureList)
-collectBot(City, robots, TreasureList, TreasureList, TrapList)
+inventory = collectBot(City, robots, TreasureList, TreasureList, TrapList)
+print inventory
 
