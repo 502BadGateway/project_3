@@ -530,3 +530,5 @@ robots = findRobotLocation(City.arena, "Barry", [], [], TreasureList)
 inventory = collectBot(City, robots, TreasureList, TreasureList, TrapList)
 print inventory
 
+execfile('testSort.py')
+
