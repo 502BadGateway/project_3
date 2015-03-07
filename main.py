@@ -511,7 +511,9 @@ def collectBot(city, robots, wishlist, Treasure, Traps):
         for item in Treasure:
             screen.setTreasureCollect(item.returnLocationX(), item.returnLocationY(), item.getImage())
         for bots in robots:
-            bots.treasureCheck(city.retArena(), Treasure)
+            collected = bots.treasureCheck(city.retArena(), Treasure)
+            if collected == True:
+                Treasure.pop(1)
             screen.CreateText(str(bots.ret_points()), (200,0,0,0), 0)
             bots.updateLocation(city, city.retArena(), bots, (Treasure[1].returnLocationX(), Treasure[1].returnLocationY()))
             screen.setCollectorBot(bots.returnLocationX(),bots.returnLocationY(), bots.returnImage()) #Set the location for the collector bot. Requires a location of a new bot to have been specified.

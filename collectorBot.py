@@ -22,15 +22,22 @@ class collectorBot(Robot):      #Class for the collector robot. Inherits from th
     
     def treasureCheck(self, arena, treasureList): #checks for treasures around this location. TODO Should make sure that Phil knows what order this funtion expects the treasures in.
         wishlist = treasureList #Cos who knows where the actual wish list is meant to be coming from.
+        collected = False
 
-        #print "VALUE: "+ str(arena.ret_element_value(self.returnLocationX(), self.returnLocationY()))
         for treasure in treasureList:        #For every item  in the list of treasures
-            if treasure.returnLocationX() == self.returnLocationX() and treasure.returnLocationY() == self.returnLocationY(): #If we are, then see if they're in our wishlist
-                self.__inventory.append(treasure)       #If so then add them to the inventory
-                self.__points += 1                      #And add to the score
-                treasure.setCollected(True)
-
-        return
+            for items in wishlist:
+                if collected == True:
+                    break
+                if treasure.getName() == items.getName():
+                    if self.returnLocationX() -2 <= treasure.returnLocationX() <= self.returnLocationX()+2 and self.returnLocationY()-2 <= treasure.returnLocationY() <=  self.returnLocationY()+2: #If we are, then see if they're in our wishlist
+                        print "found treasure"
+                        self.__inventory.append(treasure)       #If so then add them to the inventory
+                        self.__points += 1                      #And add to the score
+                        treasure.setCollected(True)
+                        collected = True
+            
+    
+        return collected
 
     def trapCheck(self, arena, trapLandmark6): #this is a trap check which works in a similar way as the treasure check
       if arena.ret_element_val(self.locationX,self.locationY) == trapLandmark6:
@@ -45,22 +52,20 @@ class collectorBot(Robot):      #Class for the collector robot. Inherits from th
     def updateLocation(self, city, arena, bot, target):
         self.targetX = target[0]
         self.targetY = target[1]
+
+
         if bot.returnLocationX() > self.targetX:
-            print "1"
             self.moveDown(arena)
             return
 
         elif self.returnLocationX() < self.targetX:
-            print "2"
             self.moveRight(arena)
             return
 
         if self.returnLocationY() > self.targetY:
-            print "3"
             self.moveLeft(arena)
             return
         elif self.returnLocationY() < self.targetY:
-            print "5"
             self.moveRight(arena)
             return
 
