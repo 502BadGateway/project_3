@@ -500,7 +500,7 @@ def collectBot(city, robots, wishlist, Treasure, Traps):
 
     while True: #While true TODO Add proper clause to quit program
         locY = 0
-        for item in wishlist:   #Render the wish list list
+        for item in Treasure:   #Render the wish list list
             locY += 10
             textString = str(item.getName())+"    Score"+str(item.returnPoints())+"    Collected: "+str(item.returnCollected())
             screen.CreateText(textString, (0,locY,0,0), 40)
