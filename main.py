@@ -534,9 +534,9 @@ f.write("theList = [")
 count = 0
 for items in inventory:
     if count == len(inventory)-1:
-        f.write('"'+str(items.getName())+'"')
+        f.write('"'+str(items.getName()).lower()+'"')
     else:
-        f.write('"'+str(items.getName())+'",')
+        f.write('"'+str(items.getName()).lower()+'",')
     count += 1
 f.write("]")
 f.close()
