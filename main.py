@@ -529,6 +529,17 @@ robots = []
 robots = findRobotLocation(City.arena, "Barry", [], [], TreasureList)
 inventory = collectBot(City, robots, TreasureList, TreasureList, TrapList)
 print inventory
+f = open("moduledList.py", 'w')
+f.write("theList = [") 
+count = 0
+for items in inventory:
+    if count == len(inventory)-1:
+        f.write('"'+str(items.getName())+'"')
+    else:
+        f.write('"'+str(items.getName())+'",')
+    count += 1
+f.write("]")
+f.close()
 
 execfile('testSort.py')
 
