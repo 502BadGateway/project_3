@@ -1,0 +1,1 @@
+theList = ["tiara","chest","ring","lapisblock","lapis","lapis","sword"]

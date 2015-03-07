@@ -26,6 +26,7 @@ from treasureSelectClass import treasureSelect
 import wikipedia #displays  treasure information
 #MODULES FOR PART 2
 import random #needed to choose trap
+import wikipedia
 
 def selectSort(): #defines function
     sortScreen= display(False,510,320) #creates display
@@ -266,6 +267,7 @@ def selectTreasureTrap(city):
     backgroundImage = city.ret_image_path()
 
         #displayScreen = display(backgroundImage,1280,960)#loads the map selected as background for user to place treasure and traps on
+    #displayScreen = display(backgroundImage,1280,960)#loads the map selected as background for user to place treasure and traps on
     displayScreen = display(False,670,600)#creates a white display for buttons to be placed on
 
     #places all the buttons
@@ -457,7 +459,17 @@ def findRobotLocation(ar, name, robotList, wishlist, treasureList):
         x += 1
     return robotList 
 
-    
+
+def wiki(treasureName):
+
+
+    wikiText = wikipedia.summary(treasureName, sentences = 2)
+    wikiTextPos = (0,940,0,0)
+    display.CreateText(wikiText,wikiTextPos,0)
+
+    #display.render_textrect(wikiText,None,wikiTextPos,(0,0,0))
+
+
 def main(mapSelect):
 
     pygame.init() #initialise pygame
