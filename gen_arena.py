@@ -19,6 +19,8 @@ class arena:        #Class for the arena
             self.__height = len(self.__arena)
             self.__width = len(self.__arena[0])
             self.__image = "ASSETS/staticmap"+str(city)+".png"
+            self.full_arena = self.__arena
+            
             return
         if dummy == True:
             import Image #Apparently Image is a seperate lib
@@ -35,6 +37,7 @@ class arena:        #Class for the arena
             image = str(city)+".png"
 
         self.city = city
+        self.full_arena = self.__arena
         self.__arena = None #Array which is the arena. Containing the road values 
         self.__im_arr = None #Array containing all the images for the map.
         self.__full_image = None   #Variable to contain a copy of the map image.
@@ -150,6 +153,7 @@ class arena:        #Class for the arena
         return self.__arena[row][column]
     
     def put(self, start_row, start_col, obj_val):   #Function to insert a given value into a given element.
+        print "called"
         self.__arena[start_row][start_col] = obj_val  #Insert the object value into the starting row for only one element.
         return
     

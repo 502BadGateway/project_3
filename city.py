@@ -17,4 +17,5 @@ class city():
         def retArena(self):
             return self.arena
 
-		
+        def retArenaList(self):
+            return self.arena.full_arena

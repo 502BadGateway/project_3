@@ -160,7 +160,7 @@ def selectTreasure():
         #places all the buttons
         treasureButton = []
 
-        treasureList = ["Chest","Coin","Diamond","DiamondBlock","EmeraldBlock","GoldBar","GoldBlock","Iron","Lapis","LapisBlock","Ring","Sword","Tiara","Emerald"] #List holding all the treasures
+        treasureList = ["Chest","Coins","Diamond","DiamondBlock","EmeraldBlock","GoldBar","GoldBlock","Iron","Lapis","LapisBlock","Ring","Sword","Tiara","Emerald"] #List holding all the treasures
          #                                        left corner
         #items handed are as followed ---     name   x   y   file locations   size x&y
 
@@ -260,7 +260,7 @@ def selectTreasure():
 
         print "got here?"                       
         print treasureWishList
-        return treasureWishList
+        return treasureWishList, treasureList
         
 
 def selectTreasureTrap(city):
@@ -402,7 +402,7 @@ def selectTreasureTrap(city, treasureStringList):
                 if city.arena.ret_element_value(y/10, x/10) == 1 or city.arena.ret_element_value(y/10, x/10) == 2:
                      print "in loop"
                      city.arena.put(y/10,x/10, treasureNum)  #changes the number in the array from a road to the relevant treasure number the treasures will always be placed in the same order, the order they are in arrayNumberReference.txt
-                     treasureList.append(treasure(y/10,x/10, random.randint(0, 30), treasureStringList[1][i], 0, "ASSETS/treasures/"+str(treasureStringList[1][i]).lower()+".png"))
+                     treasureList.append(treasure(y/10,x/10, random.randint(0, 30), treasureStringList[1][i], 6, "ASSETS/treasures/"+str(treasureStringList[1][i]).lower()+".png"))
                      treasureNum = treasureNum + 1 #im want to reserve numbers 5 to 19 for treasures 
                      i=i+1
                 else:
@@ -422,7 +422,7 @@ def selectTreasureTrap(city, treasureStringList):
                 print x,y                         
                 if (city.arena.ret_element_value(y/10, x/10) == 1 or city.arena.ret_element_value(y/10,x/10) == 2):
                     city.arena.put(y/10,x/10, 10) #might need to be changed, im assuming that 3 is traps
-                    trapList.append(trap(y/10,x/10, random.randint(0, 100), "Trap", 0, "ASSETS/treasures/trap.png"))
+                    trapList.append(trap(y/10,x/10, random.randint(0, 100), "Trap", 8, "ASSETS/treasures/trap.png"))
                     j=j+1
                     print "Placed road"
                 else:
@@ -486,6 +486,7 @@ def collectBot(city, robots, wishlist, Treasure, Traps):
     #Here we will create a new map selection instance.
     #Then we will retrive the data from that to use later.
     print "PATH"
+    print Treasure
 
     screen = display(city.ret_image_path(),1280, 960)
 
@@ -509,9 +510,10 @@ def collectBot(city, robots, wishlist, Treasure, Traps):
 
         for item in Treasure:
             screen.setTreasureCollect(item.returnLocationX(), item.returnLocationY(), item.getImage())
-
         for bots in robots:
-            bots.updateLocation(city, city.arena)
+            bots.treasureCheck(city.retArena(), Treasure)
+            screen.CreateText(str(bots.ret_points()), (200,0,0,0), 0)
+            bots.updateLocation(city, city.retArena(), bots, (Treasure[1].returnLocationX(), Treasure[1].returnLocationY()))
             screen.setCollectorBot(bots.returnLocationX(),bots.returnLocationY(), bots.returnImage()) #Set the location for the collector bot. Requires a location of a new bot to have been specified.
                         
         screen.render() #render
@@ -521,3 +523,4 @@ City, Sort, TreasureList, TrapList = selectMap(mapSelect)
 robots = []
 robots = findRobotLocation(City.arena, "Barry", [], [], TreasureList)
 collectBot(City, robots, TreasureList, TreasureList, TrapList)
+

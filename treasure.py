@@ -7,6 +7,8 @@ class treasure(entity):
         self.__x = x
         self.__y = y
 
+        self.__arenaValue = val
+
         self.__points = points 
 
         self.__collected = False
@@ -29,4 +31,6 @@ class treasure(entity):
         return self.__y
 
 
+    def getArenaValue(self):
+        return self.__arenaValue
 

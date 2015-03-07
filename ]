@@ -12,23 +12,24 @@ class collectorBot(Robot):      #Class for the collector robot. Inherits from th
     def __init__(self, arena, wishList, treasureList, x, y):
         Robot.__init__(self,"ASSETS/car.png","Barry",x, y)
     
-        self.__wishlist = set(wishList)#Define with wishlist and inventory varS
+        self.__wishlist = set([])#Define with wishlist and inventory varS
         self.__inventory = [] 
         self.__treasureList = treasureList 
         self.targetX = 0
         self.targetY = 0
-
-        self.__points = 0
     
     def treasureCheck(self, arena, treasureList): #checks for treasures around this location. TODO Should make sure that Phil knows what order this funtion expects the treasures in.
-        wishlist = treasureList #Cos who knows where the actual wish list is meant to be coming from.
 
-        #print "VALUE: "+ str(arena.ret_element_value(self.returnLocationX(), self.returnLocationY()))
+        print arena.ret_element_value(self.returnLocationX(), self.returnLocationY())
         for treasure in treasureList:        #For every item  in the list of treasures
-            if treasure.returnLocationX() == self.returnLocationX() and treasure.returnLocationY() == self.returnLocationY(): #If we are, then see if they're in our wishlist
-                self.__inventory.append(treasure)       #If so then add them to the inventory
-                self.__points += 1                      #And add to the score
-                treasure.setCollected(True)
+            if arena.ret_element_value(self.returnLocationX(), self.returnLocationY()) == treasure.getArenaValue(): #Check if we're on top of them
+                if treasure.getArenaValue() in self.__wishlist: #If we are, then see if they're in our wishlist
+                    self.__inventory.append(treasure)       #If so then add them to the inventory
+                    self.__points += 1                      #And add to the score
+                    treasure.setCollected(True)
+                    "print HERE"
+                else:
+                    return (False, treasure)    #If we're on top of a treasure, but its not in the wish list. Then return false and the treasure so we can display the relevent information.
 
         return
 
@@ -65,8 +66,6 @@ class collectorBot(Robot):      #Class for the collector robot. Inherits from th
             return
 
 
-    def ret_points(self):
-        return self.__points
         
 ##TIME VARIABLE
 ##user inputs time in minutes and seconds
