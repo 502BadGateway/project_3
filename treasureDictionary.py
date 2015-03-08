@@ -18,4 +18,4 @@ class dictionary:
         self.ring = {"points": 30, "arenaVal": 17, "image": 'ASSETS/treasures/ring.png'}
         self.sword = {"points": 40, "arenaVal": 18, "image": 'ASSETS/treasures/sword.png'}
         self.tiara = {"points" : 100, "arenaVal": 19, "image": 'ASSETS/treasures/tiara.png'}
-        self.itemList = dict(chest=self.chest, coin=self.coin, diamond=self.diamond, diamondblock=self.diamondblock, emerald=self.emerald,emeraldblock=self.emeraldblock, goldbar=self.goldbar, goldblock=self.goldblock, iron=self.iron,lapis=self.lapis, lapisblock=self.lapisblock, ring=self.ring, sword=self.sword,tiara=self.tiara)
+        self.itemList = dict(chest=self.chest, coins=self.coin, crown=self.crown, diamond=self.diamond, diamondblock=self.diamondblock, emerald=self.emerald,emeraldblock=self.emeraldblock, goldbar=self.goldbar, goldblock=self.goldblock, iron=self.iron,lapis=self.lapis, lapisblock=self.lapisblock, ring=self.ring, sword=self.sword,tiara=self.tiara)
