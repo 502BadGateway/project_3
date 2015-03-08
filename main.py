@@ -22,6 +22,7 @@ from treasure import treasure
 from trap import trap
 from sortSelection import sortSelect #from sort selection file. import sort select class
 from treasureSelectClass import treasureSelect
+from treasureDictionary import dictionary
 #MODULES FOR PART 1
 import wikipedia #displays  treasure information
 #MODULES FOR PART 2
@@ -380,9 +381,11 @@ def selectTreasureTrap(city, treasureStringList):
     backgroundImage = city.ret_image_path()
     displayScreen = display(backgroundImage,1280,960)#loads the map selected as background for user to place treasure and traps on
 
+    Trdict = dictionary()
+
     treasureList = []
     trapList = []
-    print treasureStringList[1]
+    print len(treasureStringList)
 
 #places the treasure
     i = 0
@@ -391,7 +394,7 @@ def selectTreasureTrap(city, treasureStringList):
 
     grid_sizes = [116,122]
         
-    while i < 5:
+    while i < 10:
         displayScreen.render()
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -402,7 +405,7 @@ def selectTreasureTrap(city, treasureStringList):
                 if city.arena.ret_element_value(y/10, x/10) == 1 or city.arena.ret_element_value(y/10, x/10) == 2:
                      print "in loop"
                      city.arena.put(y/10,x/10, treasureNum)  #changes the number in the array from a road to the relevant treasure number the treasures will always be placed in the same order, the order they are in arrayNumberReference.txt
-                     treasureList.append(treasure(y/10,x/10, random.randint(0, 30), treasureStringList[1][i], 6, "ASSETS/treasures/"+str(treasureStringList[1][i]).lower()+".png"))
+                     treasureList.append(treasure(y/10,x/10, Trdict.itemList[treasureStringList[0][i].lower()]['arenaVal'], treasureStringList[1][i], 6, "ASSETS/treasures/"+str(treasureStringList[1][i]).lower()+".png"))
                      treasureNum = treasureNum + 1 #im want to reserve numbers 5 to 19 for treasures 
                      i=i+1
                 else:
