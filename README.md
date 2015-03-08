@@ -15,9 +15,9 @@ SPECIFICATION POINTS COMPLETED
 
 ☑  provide a brief description for each treasure and assign each treasure with a score. 
 
-☑ With a starting point, time and a wish list of treasures to find, also provided by the user.
+☑ With a starting point and a wish list of treasures to find, also provided by the user.
 
-☑  A robot should start with the nearest treasure and gather as many treasures that are required on the list as possible within the given time. 
+☑  A robot should start with the nearest treasure and gather as many treasures that are required on the list.
 
 ☑ When the robot stops at any of the treasures on the wish list, the information about the treasure should be displayed on the screen. 
 
