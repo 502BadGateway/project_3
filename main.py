@@ -491,6 +491,7 @@ def collectBot(city, robots, wishlist, Treasure, Traps):
     #screen.setCollectorBot(cBot.returnLocationX(), cBot.returnLocationY(), cBot.returnImage()) #Set the location for the collector bot. Requires a location of a new bot to have been specified.
 
     screen = display(city.ret_image_path(), 1280, 960)
+    clock = pygame.time.Clock()
 
     while True: #While true TODO Add proper clause to quit program
         locY = 0
@@ -525,6 +526,7 @@ def collectBot(city, robots, wishlist, Treasure, Traps):
             screen.setCollectorBot(bots.returnLocationX(),bots.returnLocationY(), bots.returnImage()) #Set the location for the collector bot. Requires a location of a new bot to have been specified.
                         
         screen.render() #render
+        clock.tick(30)
 
 
 City, Sort, TreasureList, TrapList = selectMap(mapSelect)
